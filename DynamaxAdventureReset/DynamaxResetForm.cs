@@ -22,6 +22,19 @@ namespace DynamaxAdventureReset
 
         public SAV8SWSH SAV;
 
+        public uint KRegielekiOrRegidragoPattern = 0xCF90B39A;
+
+        public uint[] RegiKeys = new uint[]
+        {
+            0xEE3F84E6, //Regirock
+            0xDAB3DD3A, //Regice
+            0xEE1FD86E, //Registeel
+            0xC4308A93, //Regigigas
+
+            0x4F4AEC32, //Regieleki
+            0x4F30F174 //Regidrago
+        };
+
         public uint[] Gen1Keys = new uint[]
             {
                 0xF75E52CF, //Articuno
@@ -114,28 +127,28 @@ namespace DynamaxAdventureReset
             0x284CBECF, //Galarian Zapdos
             0xF1E493AA, //Galarian Moltres
         };
-
         private void DynamaxResetForm_Load(object sender, EventArgs e)
         {
+            
             //Check gen 1
             for (int i = 0; i < Gen1Keys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen1Keys[i]);
-                if (block.Type == SCTypeCode.Bool1)
+                if (block.Type == SCTypeCode.Bool2)
                     gen1_clistbox.SetItemChecked(i, true);
             }
             //Check gen 2
             for (int i = 0; i < Gen2Keys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen2Keys[i]);
-                if (block.Type == SCTypeCode.Bool1)
+                if (block.Type == SCTypeCode.Bool2)
                     gen2_clistbox.SetItemChecked(i, true);
             }
             //Check gen 3
             for (int i = 0; i < Gen3Keys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen3Keys[i]);
-                if (block.Type == SCTypeCode.Bool1)
+                if (block.Type == SCTypeCode.Bool2)
                     gen3_clistbox.SetItemChecked(i, true);
             }
 
@@ -143,7 +156,7 @@ namespace DynamaxAdventureReset
             for (int i = 0; i < Gen4Keys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen4Keys[i]);
-                if (block.Type == SCTypeCode.Bool1)
+                if (block.Type == SCTypeCode.Bool2)
                     gen4_clistbox.SetItemChecked(i, true);
             }
 
@@ -151,14 +164,14 @@ namespace DynamaxAdventureReset
             for (int i = 0; i < Gen5Keys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen5Keys[i]);
-                if (block.Type == SCTypeCode.Bool1)
+                if (block.Type == SCTypeCode.Bool2)
                     gen5_clistbox.SetItemChecked(i, true);
             }
             //Check gen 5 SOJ
             for (int i = 0; i < Gen5SOJKeys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen5SOJKeys[i]);
-                if (block.Type == SCTypeCode.Bool1)
+                if (block.Type == SCTypeCode.Bool2)
                     soj_clistbox.SetItemChecked(i, true);
             }
 
@@ -166,7 +179,7 @@ namespace DynamaxAdventureReset
             for (int i = 0; i < Gen6Keys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen6Keys[i]);
-                if (block.Type == SCTypeCode.Bool1)
+                if (block.Type == SCTypeCode.Bool2)
                     gen6_clistbox.SetItemChecked(i, true);
             }
 
@@ -174,7 +187,7 @@ namespace DynamaxAdventureReset
             for (int i = 0; i < Gen7Keys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen7Keys[i]);
-                if (block.Type == SCTypeCode.Bool1)
+                if (block.Type == SCTypeCode.Bool2)
                     gen7_clistbox.SetItemChecked(i, true);
             }
 
@@ -182,7 +195,7 @@ namespace DynamaxAdventureReset
             for (int i = 0; i < Gen7UBKeys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen7UBKeys[i]);
-                if (block.Type == SCTypeCode.Bool1)
+                if (block.Type == SCTypeCode.Bool2)
                     UB_clistbox.SetItemChecked(i, true);
             }
 
@@ -190,11 +203,32 @@ namespace DynamaxAdventureReset
             for (int i = 0; i < Gen8BirbKeys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen8BirbKeys[i]);
-                if (block.Type == SCTypeCode.Bool1)
+                if (block.Type == SCTypeCode.Bool2)
                     gen8b_clistbox.SetItemChecked(i, true);
             }
+
+
+            //Check Regis
+            for (int i = 0; i < RegiKeys.Length - 2; i++)
+            {
+                var block = SAV.Blocks.GetBlock(RegiKeys[i]);
+                if (block.Type == SCTypeCode.Bool2)
+                    regi_clistbox.SetItemChecked(i, true);
+            }
+            if (SAV.Blocks.GetBlock(RegiKeys[4]).Type == SCTypeCode.Bool2) //Regieleki
+                regieleki_RBTN.Checked = true;
+
+            if (SAV.Blocks.GetBlock(RegiKeys[5]).Type == SCTypeCode.Bool2) //Regidrago
+                regidrago_RBTN.Checked = true;
+
+            uint temp = SAV.Blocks.GetBlock(KRegielekiOrRegidragoPattern).Key;
+
         }
 
+        private void DynamaxResetForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
 
         private void applyBTN_Click(object sender, EventArgs e)
         {
@@ -204,79 +238,79 @@ namespace DynamaxAdventureReset
             {
                 var block = SAV.Blocks.GetBlock(Gen1Keys[i]);
                 
-                if (gen1_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool1;
-                else block.Type = SCTypeCode.Bool2;
+                if (gen1_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
+                else block.Type = SCTypeCode.Bool1;
             }
 
             //Check gen 2
             for (int i = 0; i < Gen2Keys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen2Keys[i]);
-                if (gen2_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool1;
-                else block.Type = SCTypeCode.Bool2;
+                if (gen2_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
+                else block.Type = SCTypeCode.Bool1;
             }
 
             //Check gen 3
             for (int i = 0; i < Gen3Keys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen3Keys[i]);
-                if (gen3_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool1;
-                else block.Type = SCTypeCode.Bool2;
+                if (gen3_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
+                else block.Type = SCTypeCode.Bool1;
             }
 
             //Check gen 4
             for (int i = 0; i < Gen4Keys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen4Keys[i]);
-                if (gen4_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool1;
-                else block.Type = SCTypeCode.Bool2;
+                if (gen4_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
+                else block.Type = SCTypeCode.Bool1;
             }
 
             //Check gen 5
             for (int i = 0; i < Gen5Keys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen5Keys[i]);
-                if (gen5_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool1;
-                else block.Type = SCTypeCode.Bool2;
+                if (gen5_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
+                else block.Type = SCTypeCode.Bool1;
             }
             //Check gen 5 Swords of Justice
             for (int i = 0; i < Gen5SOJKeys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen5SOJKeys[i]);
-                if (soj_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool1;
-                else block.Type = SCTypeCode.Bool2;
+                if (soj_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
+                else block.Type = SCTypeCode.Bool1;
             }
 
             //Check gen 6
             for (int i = 0; i < Gen6Keys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen6Keys[i]);
-                if (gen6_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool1;
-                else block.Type = SCTypeCode.Bool2;
+                if (gen6_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
+                else block.Type = SCTypeCode.Bool1;
             }
 
             //Check gen 7
             for (int i = 0; i < Gen7Keys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen7Keys[i]);
-                if (gen7_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool1;
-                else block.Type = SCTypeCode.Bool2;
+                if (gen7_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
+                else block.Type = SCTypeCode.Bool1;
             }
 
             //Check gen 7 Ultra Beasts
             for (int i = 0; i < Gen7UBKeys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen7UBKeys[i]);
-                if (UB_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool1;
-                else block.Type = SCTypeCode.Bool2;
+                if (UB_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
+                else block.Type = SCTypeCode.Bool1;
             }
 
             //Check gen 8 birbs
             for (int i = 0; i < Gen8BirbKeys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen8BirbKeys[i]);
-                if (gen8b_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool1;
-                else block.Type = SCTypeCode.Bool2;
+                if (gen8b_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
+                else block.Type = SCTypeCode.Bool1;
             }
 
             this.DialogResult = DialogResult.OK;
@@ -322,6 +356,7 @@ namespace DynamaxAdventureReset
             }
 
         }
+
         #region Found All / Reset All Buttons
 
         private void g1FA_BTN_Click(object sender, EventArgs e)
@@ -430,13 +465,13 @@ namespace DynamaxAdventureReset
 
         private void glFA_BTN_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Alert", "Are you sure you want to check everything?", MessageBoxButtons.YesNo);
+            var result = MessageBox.Show("Are you sure you want to check everything?", "Alert", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes) for (int i = 0; i < (int)Generations.Gen8_Bird + 1; i++) SetValue((Generations)i, true);
         }
 
         private void glRA_BTN_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Alert", "Are you sure you want to un-check everything?", MessageBoxButtons.YesNo);
+            var result = MessageBox.Show("Are you sure you want to un-check everything?", "Alert", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes) for (int i = 0; i < (int)Generations.Gen8_Bird + 1; i++) SetValue((Generations)i, false);
         }
     }
