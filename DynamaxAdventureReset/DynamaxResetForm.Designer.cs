@@ -70,14 +70,14 @@
             this.g8bFA_BTN = new System.Windows.Forms.Button();
             this.g8bRA_BTN = new System.Windows.Forms.Button();
             this.Global = new System.Windows.Forms.GroupBox();
+            this.report_BTN = new System.Windows.Forms.Button();
             this.glFA_BTN = new System.Windows.Forms.Button();
             this.glRA_BTN = new System.Windows.Forms.Button();
-            this.report_BTN = new System.Windows.Forms.Button();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.mlspecies3_CMB = new System.Windows.Forms.ComboBox();
+            this.mlspecies2_CMB = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.mlspecies1_CMB = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -578,6 +578,16 @@
             this.Global.TabStop = false;
             this.Global.Text = "Global";
             // 
+            // report_BTN
+            // 
+            this.report_BTN.Location = new System.Drawing.Point(6, 156);
+            this.report_BTN.Name = "report_BTN";
+            this.report_BTN.Size = new System.Drawing.Size(120, 24);
+            this.report_BTN.TabIndex = 54;
+            this.report_BTN.Text = "Report Bugs/Issues";
+            this.report_BTN.UseVisualStyleBackColor = true;
+            this.report_BTN.Click += new System.EventHandler(this.report_BTN_Click);
+            // 
             // glFA_BTN
             // 
             this.glFA_BTN.Location = new System.Drawing.Point(6, 19);
@@ -598,22 +608,12 @@
             this.glRA_BTN.UseVisualStyleBackColor = true;
             this.glRA_BTN.Click += new System.EventHandler(this.glRA_BTN_Click);
             // 
-            // report_BTN
-            // 
-            this.report_BTN.Location = new System.Drawing.Point(6, 156);
-            this.report_BTN.Name = "report_BTN";
-            this.report_BTN.Size = new System.Drawing.Size(120, 24);
-            this.report_BTN.TabIndex = 54;
-            this.report_BTN.Text = "Report Bugs/Issues";
-            this.report_BTN.UseVisualStyleBackColor = true;
-            this.report_BTN.Click += new System.EventHandler(this.report_BTN_Click);
-            // 
             // groupBox11
             // 
-            this.groupBox11.Controls.Add(this.comboBox3);
-            this.groupBox11.Controls.Add(this.comboBox2);
+            this.groupBox11.Controls.Add(this.mlspecies3_CMB);
+            this.groupBox11.Controls.Add(this.mlspecies2_CMB);
             this.groupBox11.Controls.Add(this.label1);
-            this.groupBox11.Controls.Add(this.comboBox1);
+            this.groupBox11.Controls.Add(this.mlspecies1_CMB);
             this.groupBox11.Enabled = false;
             this.groupBox11.Location = new System.Drawing.Point(564, 230);
             this.groupBox11.Name = "groupBox11";
@@ -622,9 +622,9 @@
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Max Lair";
             // 
-            // comboBox1
+            // mlspecies3_CMB
             // 
-            this.comboBox1.AutoCompleteCustomSource.AddRange(new string[] {
+            this.mlspecies3_CMB.AutoCompleteCustomSource.AddRange(new string[] {
             "None",
             "Articuno",
             "Zapdos",
@@ -673,9 +673,9 @@
             "Necrozma",
             "Stakataka",
             "Blacephalon"});
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.mlspecies3_CMB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.mlspecies3_CMB.FormattingEnabled = true;
+            this.mlspecies3_CMB.Items.AddRange(new object[] {
             "None",
             "Articuno",
             "Zapdos",
@@ -724,10 +724,117 @@
             "Necrozma",
             "Stakataka",
             "Blacephalon"});
-            this.comboBox1.Location = new System.Drawing.Point(6, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
+            this.mlspecies3_CMB.Location = new System.Drawing.Point(6, 76);
+            this.mlspecies3_CMB.Name = "mlspecies3_CMB";
+            this.mlspecies3_CMB.Size = new System.Drawing.Size(121, 21);
+            this.mlspecies3_CMB.TabIndex = 3;
+            // 
+            // mlspecies2_CMB
+            // 
+            this.mlspecies2_CMB.AutoCompleteCustomSource.AddRange(new string[] {
+            "None",
+            "Articuno",
+            "Zapdos",
+            "Moltres",
+            "Mewtwo",
+            "Raikou",
+            "Entei",
+            "Suicune",
+            "Lugia",
+            "Ho-oh",
+            "Latias",
+            "Latios",
+            "Kyogre",
+            "Groudon",
+            "Rayquaza",
+            "Uxie",
+            "Mesprit",
+            "Azelf",
+            "Dialga",
+            "Palkia",
+            "Heatran",
+            "Giratina",
+            "Cresselia",
+            "Tornadus",
+            "Thundurus",
+            "Reshiram",
+            "Zekrom",
+            "Landorus",
+            "Kyurem",
+            "Xerneas",
+            "Yveltal",
+            "Zygarde",
+            "Tapu Koko",
+            "Tapu Lele",
+            "Tapu Bulu",
+            "Tapu Fini",
+            "Solgaleo",
+            "Lunala",
+            "Nihilego",
+            "Buzzwole",
+            "Pheromosa",
+            "Xurkitree",
+            "Celesteela",
+            "Kartana",
+            "Guzzlord",
+            "Necrozma",
+            "Stakataka",
+            "Blacephalon"});
+            this.mlspecies2_CMB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.mlspecies2_CMB.FormattingEnabled = true;
+            this.mlspecies2_CMB.Items.AddRange(new object[] {
+            "None",
+            "Articuno",
+            "Zapdos",
+            "Moltres",
+            "Mewtwo",
+            "Raikou",
+            "Entei",
+            "Suicune",
+            "Lugia",
+            "Ho-oh",
+            "Latias",
+            "Latios",
+            "Kyogre",
+            "Groudon",
+            "Rayquaza",
+            "Uxie",
+            "Mesprit",
+            "Azelf",
+            "Dialga",
+            "Palkia",
+            "Heatran",
+            "Giratina",
+            "Cresselia",
+            "Tornadus",
+            "Thundurus",
+            "Reshiram",
+            "Zekrom",
+            "Landorus",
+            "Kyurem",
+            "Xerneas",
+            "Yveltal",
+            "Zygarde",
+            "Tapu Koko",
+            "Tapu Lele",
+            "Tapu Bulu",
+            "Tapu Fini",
+            "Solgaleo",
+            "Lunala",
+            "Nihilego",
+            "Buzzwole",
+            "Pheromosa",
+            "Xurkitree",
+            "Celesteela",
+            "Kartana",
+            "Guzzlord",
+            "Necrozma",
+            "Stakataka",
+            "Blacephalon"});
+            this.mlspecies2_CMB.Location = new System.Drawing.Point(6, 46);
+            this.mlspecies2_CMB.Name = "mlspecies2_CMB";
+            this.mlspecies2_CMB.Size = new System.Drawing.Size(121, 21);
+            this.mlspecies2_CMB.TabIndex = 2;
             // 
             // label1
             // 
@@ -738,9 +845,9 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Not finished yet";
             // 
-            // comboBox2
+            // mlspecies1_CMB
             // 
-            this.comboBox2.AutoCompleteCustomSource.AddRange(new string[] {
+            this.mlspecies1_CMB.AutoCompleteCustomSource.AddRange(new string[] {
             "None",
             "Articuno",
             "Zapdos",
@@ -789,9 +896,9 @@
             "Necrozma",
             "Stakataka",
             "Blacephalon"});
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.mlspecies1_CMB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.mlspecies1_CMB.FormattingEnabled = true;
+            this.mlspecies1_CMB.Items.AddRange(new object[] {
             "None",
             "Articuno",
             "Zapdos",
@@ -840,117 +947,10 @@
             "Necrozma",
             "Stakataka",
             "Blacephalon"});
-            this.comboBox2.Location = new System.Drawing.Point(6, 46);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 2;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.AutoCompleteCustomSource.AddRange(new string[] {
-            "None",
-            "Articuno",
-            "Zapdos",
-            "Moltres",
-            "Mewtwo",
-            "Raikou",
-            "Entei",
-            "Suicune",
-            "Lugia",
-            "Ho-oh",
-            "Latias",
-            "Latios",
-            "Kyogre",
-            "Groudon",
-            "Rayquaza",
-            "Uxie",
-            "Mesprit",
-            "Azelf",
-            "Dialga",
-            "Palkia",
-            "Heatran",
-            "Giratina",
-            "Cresselia",
-            "Tornadus",
-            "Thundurus",
-            "Reshiram",
-            "Zekrom",
-            "Landorus",
-            "Kyurem",
-            "Xerneas",
-            "Yveltal",
-            "Zygarde",
-            "Tapu Koko",
-            "Tapu Lele",
-            "Tapu Bulu",
-            "Tapu Fini",
-            "Solgaleo",
-            "Lunala",
-            "Nihilego",
-            "Buzzwole",
-            "Pheromosa",
-            "Xurkitree",
-            "Celesteela",
-            "Kartana",
-            "Guzzlord",
-            "Necrozma",
-            "Stakataka",
-            "Blacephalon"});
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "None",
-            "Articuno",
-            "Zapdos",
-            "Moltres",
-            "Mewtwo",
-            "Raikou",
-            "Entei",
-            "Suicune",
-            "Lugia",
-            "Ho-oh",
-            "Latias",
-            "Latios",
-            "Kyogre",
-            "Groudon",
-            "Rayquaza",
-            "Uxie",
-            "Mesprit",
-            "Azelf",
-            "Dialga",
-            "Palkia",
-            "Heatran",
-            "Giratina",
-            "Cresselia",
-            "Tornadus",
-            "Thundurus",
-            "Reshiram",
-            "Zekrom",
-            "Landorus",
-            "Kyurem",
-            "Xerneas",
-            "Yveltal",
-            "Zygarde",
-            "Tapu Koko",
-            "Tapu Lele",
-            "Tapu Bulu",
-            "Tapu Fini",
-            "Solgaleo",
-            "Lunala",
-            "Nihilego",
-            "Buzzwole",
-            "Pheromosa",
-            "Xurkitree",
-            "Celesteela",
-            "Kartana",
-            "Guzzlord",
-            "Necrozma",
-            "Stakataka",
-            "Blacephalon"});
-            this.comboBox3.Location = new System.Drawing.Point(6, 76);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 3;
+            this.mlspecies1_CMB.Location = new System.Drawing.Point(6, 19);
+            this.mlspecies1_CMB.Name = "mlspecies1_CMB";
+            this.mlspecies1_CMB.Size = new System.Drawing.Size(121, 21);
+            this.mlspecies1_CMB.TabIndex = 0;
             // 
             // DynamaxResetForm
             // 
@@ -1036,9 +1036,9 @@
         private System.Windows.Forms.Button glRA_BTN;
         private System.Windows.Forms.Button report_BTN;
         private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox mlspecies1_CMB;
+        private System.Windows.Forms.ComboBox mlspecies3_CMB;
+        private System.Windows.Forms.ComboBox mlspecies2_CMB;
         private System.Windows.Forms.Label label1;
     }
 }

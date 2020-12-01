@@ -23,71 +23,6 @@ namespace DynamaxAdventureReset
         public SAV8SWSH SAV;
 
 
-        public uint[] NationalDexEntries = new uint[]
-        {
-            144, //Articuno
-            145, //Zapdos
-            156, //Moltres
-            150, //Mewtwo
-            243, //Raikou
-            244, //Entei
-            245, //Suicune
-            249, //Lugia
-            250, //Ho-oh
-            380, //Latias
-            381, //Latios
-            382, //Kyogre
-            383, //Groudon
-            384, //Rayquaza
-            480, //Uxie
-            481, //Mesprit
-            482, //Azelf
-            483, //Dialga
-            484, //Palkia
-            485, //Heatran
-            487, //Giratina
-            488, //Cresselia
-            641, //Tornadus
-            642, //Thundurus
-            643, //Reshiram
-            644, //Zekrom
-            645, //Landorus
-            646, //Kyurem
-            716, //Xerneas
-            717, //Yveltal
-            718, //Zygarde
-            785, //Tapu Koko
-            786, //Tapu Lele
-            787, //Tapu Bulu
-            788, //Tapu Fini
-            791, //Solgaleo
-            792, //Lunala
-            793, //Nihilego
-            794, //Buzzwole
-            795, //Pheromosa
-            796, //Xurkitree
-            797, //Celesteela
-            798, //Kartana
-            799, //Guzzlord
-            800, //Necrozma
-            805, //Stakataka
-            806, //Blacephalon
-        };
-         /// <summary>
-        /// Which pattern was drawn for which regi, this should match the given regi
-        /// </summary>
-        public uint KRegielekiOrRegidragoPattern = 0xCF90B39A;
-
-        public uint[] RegiKeys = new uint[]
-        {
-            0xEE3F84E6, //Regirock
-            0xDAB3DD3A, //Regice
-            0xEE1FD86E, //Registeel
-            0xC4308A93, //Regigigas
-
-            0x4F4AEC32, //Regieleki
-            0x4F30F174 //Regidrago
-        };
 
         public uint[] Gen1Keys = new uint[]
             {
@@ -183,46 +118,6 @@ namespace DynamaxAdventureReset
         };
         private void DynamaxResetForm_Load(object sender, EventArgs e)
         {
-            //Check Regis
-            for (int i = 0; i < RegiKeys.Length - 2; i++)
-            {
-                var block = SAV.Blocks.GetBlock(RegiKeys[i]);
-                //if (block.Type == SCTypeCode.Bool2)
-                    //regi_clistbox.SetItemChecked(i, true);
-            }
-
-            if (SAV.Blocks.GetBlock(RegiKeys[4]).Type == SCTypeCode.Bool2 && SAV.Blocks.GetBlock(RegiKeys[5]).Type == SCTypeCode.Bool2)
-            {
-                MessageBox.Show($"Both Regieleki and Regigigas cannot be caught legally on the same profile", "Error", MessageBoxButtons.OK);
-                SAV.Blocks.SetBlockValue(RegiKeys[5], SCTypeCode.Bool1);
-            }
-            var drago = SAV.Blocks.GetBlock(RegiKeys[5]);
-
-            var eleki = SAV.Blocks.GetBlock(RegiKeys[4]);
-
-            var pattern = SAV.Blocks.GetBlock(KRegielekiOrRegidragoPattern);
-
-            if (eleki.Type == SCTypeCode.Bool2) //Regieleki
-            {
-                //regieleki_RBTN.Checked = true;
-                //Check if the pattern provided by the player matches the regi
-                if (Convert.ToInt32(pattern.GetValue()) != 1) // 1 = regieleki pattern
-                {
-                    MessageBox.Show($"Discrepancy detected with the Regi received and the pattern required for it.\nValue:{pattern.GetValue()}", "Error", MessageBoxButtons.OK);
-                    pattern.SetValue((UInt32)1);
-                }
-            }
-
-            if (drago.Type == SCTypeCode.Bool2) //Regidrago
-            {
-                //regidrago_RBTN.Checked = true;
-                //Check if the pattern provided by the player matches the regi
-                if (Convert.ToInt32(pattern.GetValue()) != 2) // 2 = regidrago pattern
-                {
-                    MessageBox.Show($"Discrepancy detected with the Regi received and the pattern required for it.\nValue:{pattern.GetValue()}", "Error", MessageBoxButtons.OK);
-                    pattern.SetValue((UInt32)2);
-                }
-            }
 
 
 
@@ -233,6 +128,7 @@ namespace DynamaxAdventureReset
                 if (block.Type == SCTypeCode.Bool2)
                     gen1_clistbox.SetItemChecked(i, true);
             }
+
             //Check gen 2
             for (int i = 0; i < Gen2Keys.Length; i++)
             {
@@ -309,40 +205,6 @@ namespace DynamaxAdventureReset
 
         private void applyBTN_Click(object sender, EventArgs e)
         {
-            //Check regis
-            for (int i = 0; i < RegiKeys.Length - 2; i++)
-            {
-                var block = SAV.Blocks.GetBlock(RegiKeys[i]);
-
-                //if (regi_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
-                //else block.Type = SCTypeCode.Bool1;
-            }
-            var eleki = SAV.Blocks.GetBlock(RegiKeys[4]);
-            var drago = SAV.Blocks.GetBlock(RegiKeys[5]);
-            var pattern = SAV.Blocks.GetBlock(KRegielekiOrRegidragoPattern);
-            //if (regidrago_RBTN.Checked)
-            //{
-            //    drago.Type = SCTypeCode.Bool2;
-
-
-            //    eleki.Type = SCTypeCode.Bool1;
-            //    pattern.SetValue((UInt32)2);
-            //}
-            //else if (regieleki_RBTN.Checked)
-            //{
-            //    drago.Type = SCTypeCode.Bool1;
-
-            //    eleki.Type = SCTypeCode.Bool2;
-            //    pattern.SetValue((UInt32)1);
-            //}
-            //else
-            //{
-            //    drago.Type = SCTypeCode.Bool1;
-            //    eleki.Type = SCTypeCode.Bool1;
-
-            //    pattern.SetValue((UInt32)0);
-            //}
-
             //Check gen 1
             for (int i = 0; i < Gen1Keys.Length; i++)
             {

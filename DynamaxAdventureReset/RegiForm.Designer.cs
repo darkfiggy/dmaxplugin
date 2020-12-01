@@ -31,17 +31,17 @@
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.regieleki_RBTN = new System.Windows.Forms.RadioButton();
             this.regidrago_RBTN = new System.Windows.Forms.RadioButton();
-            this.reginone_RBTN = new System.Windows.Forms.RadioButton();
             this.regi_clistbox = new System.Windows.Forms.CheckedListBox();
+            this.reginone_RBTN = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.regieleki_patrBTN = new System.Windows.Forms.RadioButton();
-            this.regidrago_patrBTN = new System.Windows.Forms.RadioButton();
-            this.reginone_patrBTN = new System.Windows.Forms.RadioButton();
-            this.regipatternNUD = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.forcematchCB = new System.Windows.Forms.CheckBox();
             this.regiother_patrBTN = new System.Windows.Forms.RadioButton();
+            this.forcematchCB = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.regipatternNUD = new System.Windows.Forms.NumericUpDown();
+            this.regieleki_patrBTN = new System.Windows.Forms.RadioButton();
+            this.reginone_patrBTN = new System.Windows.Forms.RadioButton();
+            this.regidrago_patrBTN = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
             this.applyBTN = new System.Windows.Forms.Button();
             this.legalLBL = new System.Windows.Forms.Label();
             this.groupBox12.SuspendLayout();
@@ -84,19 +84,6 @@
             this.regidrago_RBTN.UseVisualStyleBackColor = true;
             this.regidrago_RBTN.CheckedChanged += new System.EventHandler(this.regidrago_RBTN_CheckedChanged);
             // 
-            // reginone_RBTN
-            // 
-            this.reginone_RBTN.AutoSize = true;
-            this.reginone_RBTN.Checked = true;
-            this.reginone_RBTN.Location = new System.Drawing.Point(6, 89);
-            this.reginone_RBTN.Name = "reginone_RBTN";
-            this.reginone_RBTN.Size = new System.Drawing.Size(59, 17);
-            this.reginone_RBTN.TabIndex = 52;
-            this.reginone_RBTN.TabStop = true;
-            this.reginone_RBTN.Text = "Neither";
-            this.reginone_RBTN.UseVisualStyleBackColor = true;
-            this.reginone_RBTN.CheckedChanged += new System.EventHandler(this.reginone_RBTN_CheckedChanged);
-            // 
             // regi_clistbox
             // 
             this.regi_clistbox.FormattingEnabled = true;
@@ -109,6 +96,19 @@
             this.regi_clistbox.Name = "regi_clistbox";
             this.regi_clistbox.Size = new System.Drawing.Size(120, 64);
             this.regi_clistbox.TabIndex = 50;
+            // 
+            // reginone_RBTN
+            // 
+            this.reginone_RBTN.AutoSize = true;
+            this.reginone_RBTN.Checked = true;
+            this.reginone_RBTN.Location = new System.Drawing.Point(6, 89);
+            this.reginone_RBTN.Name = "reginone_RBTN";
+            this.reginone_RBTN.Size = new System.Drawing.Size(59, 17);
+            this.reginone_RBTN.TabIndex = 52;
+            this.reginone_RBTN.TabStop = true;
+            this.reginone_RBTN.Text = "Neither";
+            this.reginone_RBTN.UseVisualStyleBackColor = true;
+            this.reginone_RBTN.CheckedChanged += new System.EventHandler(this.reginone_RBTN_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -126,6 +126,46 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " Regi Pattern";
             // 
+            // regiother_patrBTN
+            // 
+            this.regiother_patrBTN.AutoSize = true;
+            this.regiother_patrBTN.Location = new System.Drawing.Point(6, 88);
+            this.regiother_patrBTN.Name = "regiother_patrBTN";
+            this.regiother_patrBTN.Size = new System.Drawing.Size(51, 17);
+            this.regiother_patrBTN.TabIndex = 57;
+            this.regiother_patrBTN.Text = "Other";
+            this.regiother_patrBTN.UseVisualStyleBackColor = true;
+            this.regiother_patrBTN.CheckedChanged += new System.EventHandler(this.regiother_patrBTN_CheckedChanged);
+            // 
+            // forcematchCB
+            // 
+            this.forcematchCB.AutoSize = true;
+            this.forcematchCB.Location = new System.Drawing.Point(6, 149);
+            this.forcematchCB.Name = "forcematchCB";
+            this.forcematchCB.Size = new System.Drawing.Size(135, 17);
+            this.forcematchCB.TabIndex = 57;
+            this.forcematchCB.Text = "Force matching pattern";
+            this.forcematchCB.UseVisualStyleBackColor = true;
+            this.forcematchCB.CheckedChanged += new System.EventHandler(this.forcematchCB_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 108);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 13);
+            this.label1.TabIndex = 55;
+            this.label1.Text = "Raw Pattern Value";
+            // 
+            // regipatternNUD
+            // 
+            this.regipatternNUD.Enabled = false;
+            this.regipatternNUD.Location = new System.Drawing.Point(6, 124);
+            this.regipatternNUD.Name = "regipatternNUD";
+            this.regipatternNUD.Size = new System.Drawing.Size(93, 20);
+            this.regipatternNUD.TabIndex = 55;
+            this.regipatternNUD.ValueChanged += new System.EventHandler(this.regipatternNUD_ValueChanged);
+            // 
             // regieleki_patrBTN
             // 
             this.regieleki_patrBTN.AutoSize = true;
@@ -136,17 +176,6 @@
             this.regieleki_patrBTN.Text = "Regieleki";
             this.regieleki_patrBTN.UseVisualStyleBackColor = true;
             this.regieleki_patrBTN.CheckedChanged += new System.EventHandler(this.regieleki_patrBTN_CheckedChanged);
-            // 
-            // regidrago_patrBTN
-            // 
-            this.regidrago_patrBTN.AutoSize = true;
-            this.regidrago_patrBTN.Location = new System.Drawing.Point(6, 42);
-            this.regidrago_patrBTN.Name = "regidrago_patrBTN";
-            this.regidrago_patrBTN.Size = new System.Drawing.Size(74, 17);
-            this.regidrago_patrBTN.TabIndex = 56;
-            this.regidrago_patrBTN.Text = "Regidrago";
-            this.regidrago_patrBTN.UseVisualStyleBackColor = true;
-            this.regidrago_patrBTN.CheckedChanged += new System.EventHandler(this.regidrago_patrBTN_CheckedChanged);
             // 
             // reginone_patrBTN
             // 
@@ -161,23 +190,16 @@
             this.reginone_patrBTN.UseVisualStyleBackColor = true;
             this.reginone_patrBTN.CheckedChanged += new System.EventHandler(this.reginone_patrBTN_CheckedChanged);
             // 
-            // regipatternNUD
+            // regidrago_patrBTN
             // 
-            this.regipatternNUD.Enabled = false;
-            this.regipatternNUD.Location = new System.Drawing.Point(6, 124);
-            this.regipatternNUD.Name = "regipatternNUD";
-            this.regipatternNUD.Size = new System.Drawing.Size(93, 20);
-            this.regipatternNUD.TabIndex = 55;
-            this.regipatternNUD.ValueChanged += new System.EventHandler(this.regipatternNUD_ValueChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 108);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 13);
-            this.label1.TabIndex = 55;
-            this.label1.Text = "Raw Pattern Value";
+            this.regidrago_patrBTN.AutoSize = true;
+            this.regidrago_patrBTN.Location = new System.Drawing.Point(6, 42);
+            this.regidrago_patrBTN.Name = "regidrago_patrBTN";
+            this.regidrago_patrBTN.Size = new System.Drawing.Size(74, 17);
+            this.regidrago_patrBTN.TabIndex = 56;
+            this.regidrago_patrBTN.Text = "Regidrago";
+            this.regidrago_patrBTN.UseVisualStyleBackColor = true;
+            this.regidrago_patrBTN.CheckedChanged += new System.EventHandler(this.regidrago_patrBTN_CheckedChanged);
             // 
             // label2
             // 
@@ -186,28 +208,6 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 56;
-            // 
-            // forcematchCB
-            // 
-            this.forcematchCB.AutoSize = true;
-            this.forcematchCB.Location = new System.Drawing.Point(6, 149);
-            this.forcematchCB.Name = "forcematchCB";
-            this.forcematchCB.Size = new System.Drawing.Size(135, 17);
-            this.forcematchCB.TabIndex = 57;
-            this.forcematchCB.Text = "Force matching pattern";
-            this.forcematchCB.UseVisualStyleBackColor = true;
-            this.forcematchCB.CheckedChanged += new System.EventHandler(this.forcematchCB_CheckedChanged);
-            // 
-            // regiother_patrBTN
-            // 
-            this.regiother_patrBTN.AutoSize = true;
-            this.regiother_patrBTN.Location = new System.Drawing.Point(6, 88);
-            this.regiother_patrBTN.Name = "regiother_patrBTN";
-            this.regiother_patrBTN.Size = new System.Drawing.Size(51, 17);
-            this.regiother_patrBTN.TabIndex = 57;
-            this.regiother_patrBTN.Text = "Other";
-            this.regiother_patrBTN.UseVisualStyleBackColor = true;
-            this.regiother_patrBTN.CheckedChanged += new System.EventHandler(this.regiother_patrBTN_CheckedChanged);
             // 
             // applyBTN
             // 
@@ -232,7 +232,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(359, 256);
             this.Controls.Add(this.legalLBL);
             this.Controls.Add(this.applyBTN);
             this.Controls.Add(this.label2);
