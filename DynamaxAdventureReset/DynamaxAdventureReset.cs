@@ -74,30 +74,22 @@ namespace DynamaxAdventureReset
         {
             using (DynamaxResetForm form = new DynamaxResetForm())
             {
+                if (SaveFileEditor.SAV.Version != GameVersion.SW  && SaveFileEditor.SAV.Version != GameVersion.SH || SaveFileEditor.SAV.FileName == "Blank Save File")
+                {
+                    var result = MessageBox.Show(
+                        $"The given save is null, or is not of Sword/Shield type. If you believe this to be a mistake, please contact the current repos maintainers.\nYou are running: {SaveFileEditor.SAV.Version}\nDo you wish to continue anyway?",
+                        $"Error",
+                        MessageBoxButtons.YesNo);
+                    if (result == DialogResult.No) return;
+                }
+                var block = 
                 form.SAV = (SAV8SWSH)SaveFileEditor.SAV;
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    
+
                 }
+
             }
-
-            //var sav = SaveFileEditor.SAV;
-            //var SAV = (SAV8SWSH)sav;
-            ////Added by Lucas
-            //foreach (var key in Lairkeys)
-            //{
-            //    var block = SAV.Blocks.GetBlock(key);
-            //    //var cType = block.Type;
-            //    //var cValue = SCTypeCode.Bool1;
-            //    block.Type = SCTypeCode.Bool1;
-               
-            //    //if (cType == cValue)
-            //    //    return;
-            //    //block.Type = cValue;
-            //    //UpdateBlockSummaryControls();
-
-
-            //}
 
         }
 

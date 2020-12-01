@@ -20,3 +20,15 @@ C:\Users\angel\Desktop\DynamaxAdventureReset\DynamaxAdventureReset\DynamaxAdvent
 C:\Users\angel\Desktop\DynamaxAdventureReset\DynamaxAdventureReset\DynamaxAdventureReset\obj\Debug\net46\DynamaxAdventureReset.DynamaxResetForm.resources
 C:\Users\angel\Desktop\DynamaxAdventureReset\DynamaxAdventureReset\DynamaxAdventureReset\obj\Debug\net46\DynamaxAdventureReset.csproj.GenerateResource.cache
 C:\Users\angel\Desktop\DynamaxAdventureReset\DynamaxAdventureReset\DynamaxAdventureReset\obj\Debug\net46\DynamaxAdventureReset.csprojAssemblyReference.cache
+C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\bin\Debug\net46\DynamaxAdventureReset.dll
+C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\bin\Debug\net46\DynamaxAdventureReset.pdb
+C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\bin\Debug\net46\PKHeX.Core.dll
+C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\net46\DynamaxAdventureReset.csprojAssemblyReference.cache
+C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\net46\DynamaxAdventureReset.DynamaxResetForm.resources
+C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\net46\DynamaxAdventureReset.csproj.GenerateResource.cache
+C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\net46\DynamaxAdventureReset.AssemblyInfoInputs.cache
+C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\net46\DynamaxAdventureReset.AssemblyInfo.cs
+C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\net46\DynamaxAdventureReset.csproj.CoreCompileInputs.cache
+C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\net46\DynamaxAdventureReset.csproj.CopyComplete
+C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\net46\DynamaxAdventureReset.dll
+C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\net46\DynamaxAdventureReset.pdb

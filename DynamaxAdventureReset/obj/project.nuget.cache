@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "La3+AbKdpPgMg9JcBU/rR0RskNUcVt3YBEnzTwVJEM9hyYW+W7cNE8bMLK3GmvkOHrtROuBG5BUpRrrYJXU/8w==",
+  "dgSpecHash": "fVyys9/OO2M6NwJUXuPkd9Kq14oRUCOZ072Kwl4VolwkQWYSobJAmik7o8rIHhAGb6CiryaRigexad2YKlGFLA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\angel\\Desktop\\DynamaxAdventureReset\\DynamaxAdventureReset\\DynamaxAdventureReset\\DynamaxAdventureReset.csproj",
+  "projectFilePath": "C:\\Users\\angel\\Documents\\GitHub\\dmaxplugin\\DynamaxAdventureReset\\DynamaxAdventureReset.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\angel\\.nuget\\packages\\pkhex.core\\20.10.10\\pkhex.core.20.10.10.nupkg.sha512"
   ],

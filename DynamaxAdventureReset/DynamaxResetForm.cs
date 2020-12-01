@@ -198,10 +198,12 @@ namespace DynamaxAdventureReset
 
         private void applyBTN_Click(object sender, EventArgs e)
         {
+            
             //Check gen 1
             for (int i = 0; i < Gen1Keys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen1Keys[i]);
+                
                 if (gen1_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool1;
                 else block.Type = SCTypeCode.Bool2;
             }
@@ -276,6 +278,7 @@ namespace DynamaxAdventureReset
                 if (gen8b_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool1;
                 else block.Type = SCTypeCode.Bool2;
             }
+
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -427,12 +430,14 @@ namespace DynamaxAdventureReset
 
         private void glFA_BTN_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < (int)Generations.Gen8_Bird + 1; i++) SetValue((Generations)i, true);
+            var result = MessageBox.Show("Alert", "Are you sure you want to check everything?", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes) for (int i = 0; i < (int)Generations.Gen8_Bird + 1; i++) SetValue((Generations)i, true);
         }
 
         private void glRA_BTN_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < (int)Generations.Gen8_Bird + 1; i++) SetValue((Generations)i, false);
+            var result = MessageBox.Show("Alert", "Are you sure you want to un-check everything?", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes) for (int i = 0; i < (int)Generations.Gen8_Bird + 1; i++) SetValue((Generations)i, false);
         }
     }
 }

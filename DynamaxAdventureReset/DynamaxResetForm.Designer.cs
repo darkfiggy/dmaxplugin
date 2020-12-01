@@ -55,17 +55,17 @@
             this.g5FA_BTN = new System.Windows.Forms.Button();
             this.g5RA_BTN = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.g5sojFA_BTN = new System.Windows.Forms.Button();
             this.g5sojRA_BTN = new System.Windows.Forms.Button();
+            this.g5sojFA_BTN = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.g6FA_BTN = new System.Windows.Forms.Button();
             this.g6RA_BTN = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.g7FA_BTN = new System.Windows.Forms.Button();
+            this.g7RA_BTN = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.g7ubFA_BTN = new System.Windows.Forms.Button();
             this.g7ubRA_BTN = new System.Windows.Forms.Button();
-            this.g7FA_BTN = new System.Windows.Forms.Button();
-            this.g7RA_BTN = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.g8bFA_BTN = new System.Windows.Forms.Button();
             this.g8bRA_BTN = new System.Windows.Forms.Button();
@@ -97,7 +97,7 @@
             "Tapu Fini"});
             this.gen7_clistbox.Location = new System.Drawing.Point(6, 18);
             this.gen7_clistbox.Name = "gen7_clistbox";
-            this.gen7_clistbox.Size = new System.Drawing.Size(120, 94);
+            this.gen7_clistbox.Size = new System.Drawing.Size(120, 89);
             this.gen7_clistbox.TabIndex = 3;
             // 
             // UB_clistbox
@@ -116,7 +116,7 @@
             "Blacephalon"});
             this.UB_clistbox.Location = new System.Drawing.Point(6, 18);
             this.UB_clistbox.Name = "UB_clistbox";
-            this.UB_clistbox.Size = new System.Drawing.Size(120, 154);
+            this.UB_clistbox.Size = new System.Drawing.Size(120, 140);
             this.UB_clistbox.TabIndex = 4;
             // 
             // gen1_clistbox
@@ -129,7 +129,7 @@
             "Mewtwo"});
             this.gen1_clistbox.Location = new System.Drawing.Point(6, 19);
             this.gen1_clistbox.Name = "gen1_clistbox";
-            this.gen1_clistbox.Size = new System.Drawing.Size(120, 64);
+            this.gen1_clistbox.Size = new System.Drawing.Size(120, 55);
             this.gen1_clistbox.TabIndex = 5;
             // 
             // gen2_clistbox
@@ -143,7 +143,7 @@
             "Ho-Oh"});
             this.gen2_clistbox.Location = new System.Drawing.Point(6, 19);
             this.gen2_clistbox.Name = "gen2_clistbox";
-            this.gen2_clistbox.Size = new System.Drawing.Size(120, 79);
+            this.gen2_clistbox.Size = new System.Drawing.Size(120, 72);
             this.gen2_clistbox.TabIndex = 6;
             // 
             // gen3_clistbox
@@ -157,7 +157,7 @@
             "Latios"});
             this.gen3_clistbox.Location = new System.Drawing.Point(6, 19);
             this.gen3_clistbox.Name = "gen3_clistbox";
-            this.gen3_clistbox.Size = new System.Drawing.Size(120, 79);
+            this.gen3_clistbox.Size = new System.Drawing.Size(120, 72);
             this.gen3_clistbox.TabIndex = 7;
             // 
             // gen4_clistbox
@@ -174,7 +174,7 @@
             "Cresselia"});
             this.gen4_clistbox.Location = new System.Drawing.Point(6, 19);
             this.gen4_clistbox.Name = "gen4_clistbox";
-            this.gen4_clistbox.Size = new System.Drawing.Size(120, 124);
+            this.gen4_clistbox.Size = new System.Drawing.Size(120, 123);
             this.gen4_clistbox.TabIndex = 8;
             // 
             // gen5_clistbox
@@ -189,7 +189,7 @@
             "Landorus"});
             this.gen5_clistbox.Location = new System.Drawing.Point(6, 19);
             this.gen5_clistbox.Name = "gen5_clistbox";
-            this.gen5_clistbox.Size = new System.Drawing.Size(120, 94);
+            this.gen5_clistbox.Size = new System.Drawing.Size(120, 89);
             this.gen5_clistbox.TabIndex = 9;
             // 
             // soj_clistbox
@@ -202,7 +202,7 @@
             "Keldeo"});
             this.soj_clistbox.Location = new System.Drawing.Point(6, 21);
             this.soj_clistbox.Name = "soj_clistbox";
-            this.soj_clistbox.Size = new System.Drawing.Size(120, 64);
+            this.soj_clistbox.Size = new System.Drawing.Size(120, 55);
             this.soj_clistbox.TabIndex = 9;
             // 
             // gen6_clistbox
@@ -214,7 +214,7 @@
             "Zygarde"});
             this.gen6_clistbox.Location = new System.Drawing.Point(6, 19);
             this.gen6_clistbox.Name = "gen6_clistbox";
-            this.gen6_clistbox.Size = new System.Drawing.Size(120, 49);
+            this.gen6_clistbox.Size = new System.Drawing.Size(120, 38);
             this.gen6_clistbox.TabIndex = 10;
             // 
             // gen8b_clistbox
@@ -226,7 +226,7 @@
             "G Moltres"});
             this.gen8b_clistbox.Location = new System.Drawing.Point(6, 18);
             this.gen8b_clistbox.Name = "gen8b_clistbox";
-            this.gen8b_clistbox.Size = new System.Drawing.Size(120, 49);
+            this.gen8b_clistbox.Size = new System.Drawing.Size(120, 38);
             this.gen8b_clistbox.TabIndex = 29;
             // 
             // applyBTN
@@ -411,16 +411,6 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Swords of Justice";
             // 
-            // g5sojFA_BTN
-            // 
-            this.g5sojFA_BTN.Location = new System.Drawing.Point(6, 91);
-            this.g5sojFA_BTN.Name = "g5sojFA_BTN";
-            this.g5sojFA_BTN.Size = new System.Drawing.Size(120, 24);
-            this.g5sojFA_BTN.TabIndex = 46;
-            this.g5sojFA_BTN.Text = "Found All";
-            this.g5sojFA_BTN.UseVisualStyleBackColor = true;
-            this.g5sojFA_BTN.Click += new System.EventHandler(this.g5sojFA_BTN_Click);
-            // 
             // g5sojRA_BTN
             // 
             this.g5sojRA_BTN.Location = new System.Drawing.Point(6, 119);
@@ -430,6 +420,16 @@
             this.g5sojRA_BTN.Text = "Reset All";
             this.g5sojRA_BTN.UseVisualStyleBackColor = true;
             this.g5sojRA_BTN.Click += new System.EventHandler(this.g5sojRA_BTN_Click);
+            // 
+            // g5sojFA_BTN
+            // 
+            this.g5sojFA_BTN.Location = new System.Drawing.Point(6, 91);
+            this.g5sojFA_BTN.Name = "g5sojFA_BTN";
+            this.g5sojFA_BTN.Size = new System.Drawing.Size(120, 24);
+            this.g5sojFA_BTN.TabIndex = 46;
+            this.g5sojFA_BTN.Text = "Found All";
+            this.g5sojFA_BTN.UseVisualStyleBackColor = true;
+            this.g5sojFA_BTN.Click += new System.EventHandler(this.g5sojFA_BTN_Click);
             // 
             // groupBox7
             // 
@@ -475,6 +475,26 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Gen 7";
             // 
+            // g7FA_BTN
+            // 
+            this.g7FA_BTN.Location = new System.Drawing.Point(6, 118);
+            this.g7FA_BTN.Name = "g7FA_BTN";
+            this.g7FA_BTN.Size = new System.Drawing.Size(120, 24);
+            this.g7FA_BTN.TabIndex = 48;
+            this.g7FA_BTN.Text = "Found All";
+            this.g7FA_BTN.UseVisualStyleBackColor = true;
+            this.g7FA_BTN.Click += new System.EventHandler(this.g7FA_BTN_Click);
+            // 
+            // g7RA_BTN
+            // 
+            this.g7RA_BTN.Location = new System.Drawing.Point(6, 148);
+            this.g7RA_BTN.Name = "g7RA_BTN";
+            this.g7RA_BTN.Size = new System.Drawing.Size(120, 24);
+            this.g7RA_BTN.TabIndex = 49;
+            this.g7RA_BTN.Text = "Reset All";
+            this.g7RA_BTN.UseVisualStyleBackColor = true;
+            this.g7RA_BTN.Click += new System.EventHandler(this.g7RA_BTN_Click);
+            // 
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.g7ubFA_BTN);
@@ -506,26 +526,6 @@
             this.g7ubRA_BTN.Text = "Reset All";
             this.g7ubRA_BTN.UseVisualStyleBackColor = true;
             this.g7ubRA_BTN.Click += new System.EventHandler(this.g7ubRA_BTN_Click);
-            // 
-            // g7FA_BTN
-            // 
-            this.g7FA_BTN.Location = new System.Drawing.Point(6, 118);
-            this.g7FA_BTN.Name = "g7FA_BTN";
-            this.g7FA_BTN.Size = new System.Drawing.Size(120, 24);
-            this.g7FA_BTN.TabIndex = 48;
-            this.g7FA_BTN.Text = "Found All";
-            this.g7FA_BTN.UseVisualStyleBackColor = true;
-            this.g7FA_BTN.Click += new System.EventHandler(this.g7FA_BTN_Click);
-            // 
-            // g7RA_BTN
-            // 
-            this.g7RA_BTN.Location = new System.Drawing.Point(6, 148);
-            this.g7RA_BTN.Name = "g7RA_BTN";
-            this.g7RA_BTN.Size = new System.Drawing.Size(120, 24);
-            this.g7RA_BTN.TabIndex = 49;
-            this.g7RA_BTN.Text = "Reset All";
-            this.g7RA_BTN.UseVisualStyleBackColor = true;
-            this.g7RA_BTN.Click += new System.EventHandler(this.g7RA_BTN_Click);
             // 
             // groupBox10
             // 
@@ -607,7 +607,7 @@
             this.Controls.Add(this.applyBTN);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "DynamaxResetForm";
-            this.Text = "Block Editor EX";
+            this.Text = "Dynamax Adventure Reset";
             this.Load += new System.EventHandler(this.DynamaxResetForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

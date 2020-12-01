@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\angel\\Desktop\\DynamaxAdventureReset\\DynamaxAdventureReset\\DynamaxAdventureReset\\DynamaxAdventureReset.csproj": {}
+    "C:\\Users\\angel\\Documents\\GitHub\\dmaxplugin\\DynamaxAdventureReset\\DynamaxAdventureReset.csproj": {}
   },
   "projects": {
-    "C:\\Users\\angel\\Desktop\\DynamaxAdventureReset\\DynamaxAdventureReset\\DynamaxAdventureReset\\DynamaxAdventureReset.csproj": {
+    "C:\\Users\\angel\\Documents\\GitHub\\dmaxplugin\\DynamaxAdventureReset\\DynamaxAdventureReset.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\angel\\Desktop\\DynamaxAdventureReset\\DynamaxAdventureReset\\DynamaxAdventureReset\\DynamaxAdventureReset.csproj",
+        "projectUniqueName": "C:\\Users\\angel\\Documents\\GitHub\\dmaxplugin\\DynamaxAdventureReset\\DynamaxAdventureReset.csproj",
         "projectName": "DynamaxAdventureReset",
-        "projectPath": "C:\\Users\\angel\\Desktop\\DynamaxAdventureReset\\DynamaxAdventureReset\\DynamaxAdventureReset\\DynamaxAdventureReset.csproj",
+        "projectPath": "C:\\Users\\angel\\Documents\\GitHub\\dmaxplugin\\DynamaxAdventureReset\\DynamaxAdventureReset.csproj",
         "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\angel\\Desktop\\DynamaxAdventureReset\\DynamaxAdventureReset\\DynamaxAdventureReset\\obj\\",
+        "outputPath": "C:\\Users\\angel\\Documents\\GitHub\\dmaxplugin\\DynamaxAdventureReset\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\angel\\AppData\\Roaming\\NuGet\\NuGet.Config",
