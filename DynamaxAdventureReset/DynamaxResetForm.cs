@@ -129,7 +129,49 @@ namespace DynamaxAdventureReset
         };
         private void DynamaxResetForm_Load(object sender, EventArgs e)
         {
-            
+            //Check Regis
+            for (int i = 0; i < RegiKeys.Length - 2; i++)
+            {
+                var block = SAV.Blocks.GetBlock(RegiKeys[i]);
+                if (block.Type == SCTypeCode.Bool2)
+                    regi_clistbox.SetItemChecked(i, true);
+            }
+
+            if (SAV.Blocks.GetBlock(RegiKeys[4]).Type == SCTypeCode.Bool2 && SAV.Blocks.GetBlock(RegiKeys[5]).Type == SCTypeCode.Bool2)
+            {
+                MessageBox.Show($"Both Regieleki and Regigigas cannot be caught legally on the same profile", "Error", MessageBoxButtons.OK);
+                SAV.Blocks.SetBlockValue(RegiKeys[5], SCTypeCode.Bool1);
+            }
+            var drago = SAV.Blocks.GetBlock(RegiKeys[5]);
+
+            var eleki = SAV.Blocks.GetBlock(RegiKeys[4]);
+
+            var pattern = SAV.Blocks.GetBlock(KRegielekiOrRegidragoPattern);
+
+            if (eleki.Type == SCTypeCode.Bool2) //Regieleki
+            {
+                regieleki_RBTN.Checked = true;
+                //Check if the pattern provided by the player matches the regi
+                if (Convert.ToInt32(pattern.GetValue()) != 1) // 1 = regieleki pattern
+                {
+                    MessageBox.Show($"Discrepancy detected with the Regi received and the pattern required for it.\nValue:{pattern.GetValue()}", "Error", MessageBoxButtons.OK);
+                    pattern.SetValue((UInt32)1);
+                }
+            }
+
+            if (drago.Type == SCTypeCode.Bool2) //Regidrago
+            {
+                regidrago_RBTN.Checked = true;
+                //Check if the pattern provided by the player matches the regi
+                if (Convert.ToInt32(pattern.GetValue()) != 2) // 2 = regidrago pattern
+                {
+                    MessageBox.Show($"Discrepancy detected with the Regi received and the pattern required for it.\nValue:{pattern.GetValue()}", "Error", MessageBoxButtons.OK);
+                    pattern.SetValue((UInt32)2);
+                }
+            }
+
+
+
             //Check gen 1
             for (int i = 0; i < Gen1Keys.Length; i++)
             {
@@ -208,20 +250,6 @@ namespace DynamaxAdventureReset
             }
 
 
-            //Check Regis
-            for (int i = 0; i < RegiKeys.Length - 2; i++)
-            {
-                var block = SAV.Blocks.GetBlock(RegiKeys[i]);
-                if (block.Type == SCTypeCode.Bool2)
-                    regi_clistbox.SetItemChecked(i, true);
-            }
-            if (SAV.Blocks.GetBlock(RegiKeys[4]).Type == SCTypeCode.Bool2) //Regieleki
-                regieleki_RBTN.Checked = true;
-
-            if (SAV.Blocks.GetBlock(RegiKeys[5]).Type == SCTypeCode.Bool2) //Regidrago
-                regidrago_RBTN.Checked = true;
-
-            uint temp = SAV.Blocks.GetBlock(KRegielekiOrRegidragoPattern).Key;
 
         }
 
@@ -232,7 +260,40 @@ namespace DynamaxAdventureReset
 
         private void applyBTN_Click(object sender, EventArgs e)
         {
-            
+            //Check regis
+            for (int i = 0; i < RegiKeys.Length - 2; i++)
+            {
+                var block = SAV.Blocks.GetBlock(RegiKeys[i]);
+
+                if (regi_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
+                else block.Type = SCTypeCode.Bool1;
+            }
+            var eleki = SAV.Blocks.GetBlock(RegiKeys[4]);
+            var drago = SAV.Blocks.GetBlock(RegiKeys[5]);
+            var pattern = SAV.Blocks.GetBlock(KRegielekiOrRegidragoPattern);
+            if (regidrago_RBTN.Checked)
+            {
+                drago.Type = SCTypeCode.Bool2;
+
+
+                eleki.Type = SCTypeCode.Bool1;
+                pattern.SetValue((UInt32)2);
+            }
+            else if (regieleki_RBTN.Checked)
+            {
+                drago.Type = SCTypeCode.Bool1;
+
+                eleki.Type = SCTypeCode.Bool2;
+                pattern.SetValue((UInt32)1);
+            }
+            else
+            {
+                drago.Type = SCTypeCode.Bool1;
+                eleki.Type = SCTypeCode.Bool1;
+
+                pattern.SetValue((UInt32)0);
+            }
+
             //Check gen 1
             for (int i = 0; i < Gen1Keys.Length; i++)
             {
@@ -473,6 +534,11 @@ namespace DynamaxAdventureReset
         {
             var result = MessageBox.Show("Are you sure you want to un-check everything?", "Alert", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes) for (int i = 0; i < (int)Generations.Gen8_Bird + 1; i++) SetValue((Generations)i, false);
+        }
+
+        private void report_BTN_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("For help or to report issues and/or bugs, please contact \"Reshiquori#8124\" and/or \"Darthfiggy#9205\" on Discord.", "Help");
         }
     }
 }

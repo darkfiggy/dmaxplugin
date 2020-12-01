@@ -77,6 +77,7 @@
             this.regieleki_RBTN = new System.Windows.Forms.RadioButton();
             this.regidrago_RBTN = new System.Windows.Forms.RadioButton();
             this.reginone_RBTN = new System.Windows.Forms.RadioButton();
+            this.report_BTN = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -567,6 +568,7 @@
             // 
             // Global
             // 
+            this.Global.Controls.Add(this.report_BTN);
             this.Global.Controls.Add(this.glFA_BTN);
             this.Global.Controls.Add(this.glRA_BTN);
             this.Global.Location = new System.Drawing.Point(702, 230);
@@ -615,7 +617,6 @@
             this.groupBox12.Controls.Add(this.regidrago_RBTN);
             this.groupBox12.Controls.Add(this.reginone_RBTN);
             this.groupBox12.Controls.Add(this.regi_clistbox);
-            this.groupBox12.Enabled = false;
             this.groupBox12.Location = new System.Drawing.Point(564, 230);
             this.groupBox12.Name = "groupBox12";
             this.groupBox12.Size = new System.Drawing.Size(132, 240);
@@ -654,6 +655,16 @@
             this.reginone_RBTN.TabStop = true;
             this.reginone_RBTN.Text = "Neither";
             this.reginone_RBTN.UseVisualStyleBackColor = true;
+            // 
+            // report_BTN
+            // 
+            this.report_BTN.Location = new System.Drawing.Point(6, 156);
+            this.report_BTN.Name = "report_BTN";
+            this.report_BTN.Size = new System.Drawing.Size(120, 24);
+            this.report_BTN.TabIndex = 54;
+            this.report_BTN.Text = "Report Bugs/Issues";
+            this.report_BTN.UseVisualStyleBackColor = true;
+            this.report_BTN.Click += new System.EventHandler(this.report_BTN_Click);
             // 
             // DynamaxResetForm
             // 
@@ -743,5 +754,6 @@
         private System.Windows.Forms.RadioButton regieleki_RBTN;
         private System.Windows.Forms.RadioButton regidrago_RBTN;
         private System.Windows.Forms.RadioButton reginone_RBTN;
+        private System.Windows.Forms.Button report_BTN;
     }
 }
