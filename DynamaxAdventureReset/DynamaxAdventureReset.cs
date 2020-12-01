@@ -39,16 +39,14 @@ namespace DynamaxAdventureReset
             var ctrl = new ToolStripMenuItem(Name);
             tools.DropDownItems.Add(ctrl);
 
-            //var c2 = new ToolStripMenuItem($"{Name} sub form");
-            //c2.Click += (s, e) => new Form().ShowDialog();
-            //var c3 = new ToolStripMenuItem($"{Name} show message");
-            //c3.Click += (s, e) => MessageBox.Show("Hello!");
-            //var c4 = new ToolStripMenuItem($"Reset (all) Dynamax Adventures");
+            var mainBTN = new ToolStripMenuItem($"Edit Max Lair");
+            var regiBTN = new ToolStripMenuItem($"Edit Regis");
 
+            mainBTN.Click += (s, e) => mainBTN_Click(s, e);
+            regiBTN.Click += (s, e) => regiBTN_Click(s, e);
 
-            ctrl.Click += (s, e) => unchecklairBTN_Click(s,e);
-
-            //ctrl.DropDownItems.Add(c4);
+            ctrl.DropDownItems.Add(mainBTN);
+            ctrl.DropDownItems.Add(regiBTN);
             Console.WriteLine($"{Name} added menu items.");
         }
 
@@ -70,11 +68,11 @@ namespace DynamaxAdventureReset
             return false; // no action taken
         }
 
-        private void unchecklairBTN_Click(object sender, EventArgs e)
+        private void mainBTN_Click(object sender, EventArgs e)
         {
             using (DynamaxResetForm form = new DynamaxResetForm())
             {
-                if (SaveFileEditor.SAV.Version != GameVersion.SW  && SaveFileEditor.SAV.Version != GameVersion.SH || SaveFileEditor.SAV.FileName == "Blank Save File")
+                if (SaveFileEditor.SAV.Version != GameVersion.SW && SaveFileEditor.SAV.Version != GameVersion.SH || SaveFileEditor.SAV.FileName == "Blank Save File")
                 {
                     var result = MessageBox.Show(
                         $"The given save is null, or is not of Sword/Shield type. If you believe this to be a mistake, please contact the current repos maintainers.\nYou are running: {SaveFileEditor.SAV.Version}\nDo you wish to continue anyway?",
@@ -82,16 +80,28 @@ namespace DynamaxAdventureReset
                         MessageBoxButtons.YesNo);
                     if (result == DialogResult.No) return;
                 }
-                var block = 
+                var block =
                 form.SAV = (SAV8SWSH)SaveFileEditor.SAV;
-                if (form.ShowDialog() == DialogResult.OK)
-                {
-
-                }
-
+                form.ShowDialog();
             }
-
         }
-
+        private void regiBTN_Click(object sender, EventArgs e)
+        {
+            using (RegiForm form = new RegiForm())
+            {
+                if (SaveFileEditor.SAV.Version != GameVersion.SW && SaveFileEditor.SAV.Version != GameVersion.SH || SaveFileEditor.SAV.FileName == "Blank Save File")
+                {
+                    var result = MessageBox.Show(
+                        $"The given save is null, or is not of Sword/Shield type. If you believe this to be a mistake, please contact the current repos maintainers.\nYou are running: {SaveFileEditor.SAV.Version}\nDo you wish to continue anyway?",
+                        $"Error",
+                        MessageBoxButtons.YesNo);
+                    if (result == DialogResult.No) return;
+                }
+                var block =
+                form.SAV = (SAV8SWSH)SaveFileEditor.SAV;
+                form.ShowDialog();
+            }
+        }
     }    
+
 }

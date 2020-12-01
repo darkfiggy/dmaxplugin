@@ -32,3 +32,4 @@ C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\net46
 C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\net46\DynamaxAdventureReset.csproj.CopyComplete
 C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\net46\DynamaxAdventureReset.dll
 C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\net46\DynamaxAdventureReset.pdb
+C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\net46\DynamaxAdventureReset.RegiForm.resources

@@ -72,12 +72,12 @@
             this.Global = new System.Windows.Forms.GroupBox();
             this.glFA_BTN = new System.Windows.Forms.Button();
             this.glRA_BTN = new System.Windows.Forms.Button();
-            this.regi_clistbox = new System.Windows.Forms.CheckedListBox();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.regieleki_RBTN = new System.Windows.Forms.RadioButton();
-            this.regidrago_RBTN = new System.Windows.Forms.RadioButton();
-            this.reginone_RBTN = new System.Windows.Forms.RadioButton();
             this.report_BTN = new System.Windows.Forms.Button();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -89,7 +89,7 @@
             this.groupBox9.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.Global.SuspendLayout();
-            this.groupBox12.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.SuspendLayout();
             // 
             // gen7_clistbox
@@ -598,64 +598,6 @@
             this.glRA_BTN.UseVisualStyleBackColor = true;
             this.glRA_BTN.Click += new System.EventHandler(this.glRA_BTN_Click);
             // 
-            // regi_clistbox
-            // 
-            this.regi_clistbox.FormattingEnabled = true;
-            this.regi_clistbox.Items.AddRange(new object[] {
-            "Regirock",
-            "Regice",
-            "Registeel",
-            "Regigigas"});
-            this.regi_clistbox.Location = new System.Drawing.Point(6, 18);
-            this.regi_clistbox.Name = "regi_clistbox";
-            this.regi_clistbox.Size = new System.Drawing.Size(120, 64);
-            this.regi_clistbox.TabIndex = 50;
-            // 
-            // groupBox12
-            // 
-            this.groupBox12.Controls.Add(this.regieleki_RBTN);
-            this.groupBox12.Controls.Add(this.regidrago_RBTN);
-            this.groupBox12.Controls.Add(this.reginone_RBTN);
-            this.groupBox12.Controls.Add(this.regi_clistbox);
-            this.groupBox12.Location = new System.Drawing.Point(564, 230);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(132, 240);
-            this.groupBox12.TabIndex = 52;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Regis";
-            // 
-            // regieleki_RBTN
-            // 
-            this.regieleki_RBTN.AutoSize = true;
-            this.regieleki_RBTN.Location = new System.Drawing.Point(6, 135);
-            this.regieleki_RBTN.Name = "regieleki_RBTN";
-            this.regieleki_RBTN.Size = new System.Drawing.Size(69, 17);
-            this.regieleki_RBTN.TabIndex = 54;
-            this.regieleki_RBTN.Text = "Regieleki";
-            this.regieleki_RBTN.UseVisualStyleBackColor = true;
-            // 
-            // regidrago_RBTN
-            // 
-            this.regidrago_RBTN.AutoSize = true;
-            this.regidrago_RBTN.Location = new System.Drawing.Point(6, 112);
-            this.regidrago_RBTN.Name = "regidrago_RBTN";
-            this.regidrago_RBTN.Size = new System.Drawing.Size(74, 17);
-            this.regidrago_RBTN.TabIndex = 53;
-            this.regidrago_RBTN.Text = "Regidrago";
-            this.regidrago_RBTN.UseVisualStyleBackColor = true;
-            // 
-            // reginone_RBTN
-            // 
-            this.reginone_RBTN.AutoSize = true;
-            this.reginone_RBTN.Checked = true;
-            this.reginone_RBTN.Location = new System.Drawing.Point(7, 89);
-            this.reginone_RBTN.Name = "reginone_RBTN";
-            this.reginone_RBTN.Size = new System.Drawing.Size(59, 17);
-            this.reginone_RBTN.TabIndex = 52;
-            this.reginone_RBTN.TabStop = true;
-            this.reginone_RBTN.Text = "Neither";
-            this.reginone_RBTN.UseVisualStyleBackColor = true;
-            // 
             // report_BTN
             // 
             this.report_BTN.Location = new System.Drawing.Point(6, 156);
@@ -666,10 +608,354 @@
             this.report_BTN.UseVisualStyleBackColor = true;
             this.report_BTN.Click += new System.EventHandler(this.report_BTN_Click);
             // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.comboBox3);
+            this.groupBox11.Controls.Add(this.comboBox2);
+            this.groupBox11.Controls.Add(this.label1);
+            this.groupBox11.Controls.Add(this.comboBox1);
+            this.groupBox11.Enabled = false;
+            this.groupBox11.Location = new System.Drawing.Point(564, 230);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(132, 240);
+            this.groupBox11.TabIndex = 53;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Max Lair";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.AutoCompleteCustomSource.AddRange(new string[] {
+            "None",
+            "Articuno",
+            "Zapdos",
+            "Moltres",
+            "Mewtwo",
+            "Raikou",
+            "Entei",
+            "Suicune",
+            "Lugia",
+            "Ho-oh",
+            "Latias",
+            "Latios",
+            "Kyogre",
+            "Groudon",
+            "Rayquaza",
+            "Uxie",
+            "Mesprit",
+            "Azelf",
+            "Dialga",
+            "Palkia",
+            "Heatran",
+            "Giratina",
+            "Cresselia",
+            "Tornadus",
+            "Thundurus",
+            "Reshiram",
+            "Zekrom",
+            "Landorus",
+            "Kyurem",
+            "Xerneas",
+            "Yveltal",
+            "Zygarde",
+            "Tapu Koko",
+            "Tapu Lele",
+            "Tapu Bulu",
+            "Tapu Fini",
+            "Solgaleo",
+            "Lunala",
+            "Nihilego",
+            "Buzzwole",
+            "Pheromosa",
+            "Xurkitree",
+            "Celesteela",
+            "Kartana",
+            "Guzzlord",
+            "Necrozma",
+            "Stakataka",
+            "Blacephalon"});
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "None",
+            "Articuno",
+            "Zapdos",
+            "Moltres",
+            "Mewtwo",
+            "Raikou",
+            "Entei",
+            "Suicune",
+            "Lugia",
+            "Ho-oh",
+            "Latias",
+            "Latios",
+            "Kyogre",
+            "Groudon",
+            "Rayquaza",
+            "Uxie",
+            "Mesprit",
+            "Azelf",
+            "Dialga",
+            "Palkia",
+            "Heatran",
+            "Giratina",
+            "Cresselia",
+            "Tornadus",
+            "Thundurus",
+            "Reshiram",
+            "Zekrom",
+            "Landorus",
+            "Kyurem",
+            "Xerneas",
+            "Yveltal",
+            "Zygarde",
+            "Tapu Koko",
+            "Tapu Lele",
+            "Tapu Bulu",
+            "Tapu Fini",
+            "Solgaleo",
+            "Lunala",
+            "Nihilego",
+            "Buzzwole",
+            "Pheromosa",
+            "Xurkitree",
+            "Celesteela",
+            "Kartana",
+            "Guzzlord",
+            "Necrozma",
+            "Stakataka",
+            "Blacephalon"});
+            this.comboBox1.Location = new System.Drawing.Point(6, 19);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 103);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Not finished yet";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.AutoCompleteCustomSource.AddRange(new string[] {
+            "None",
+            "Articuno",
+            "Zapdos",
+            "Moltres",
+            "Mewtwo",
+            "Raikou",
+            "Entei",
+            "Suicune",
+            "Lugia",
+            "Ho-oh",
+            "Latias",
+            "Latios",
+            "Kyogre",
+            "Groudon",
+            "Rayquaza",
+            "Uxie",
+            "Mesprit",
+            "Azelf",
+            "Dialga",
+            "Palkia",
+            "Heatran",
+            "Giratina",
+            "Cresselia",
+            "Tornadus",
+            "Thundurus",
+            "Reshiram",
+            "Zekrom",
+            "Landorus",
+            "Kyurem",
+            "Xerneas",
+            "Yveltal",
+            "Zygarde",
+            "Tapu Koko",
+            "Tapu Lele",
+            "Tapu Bulu",
+            "Tapu Fini",
+            "Solgaleo",
+            "Lunala",
+            "Nihilego",
+            "Buzzwole",
+            "Pheromosa",
+            "Xurkitree",
+            "Celesteela",
+            "Kartana",
+            "Guzzlord",
+            "Necrozma",
+            "Stakataka",
+            "Blacephalon"});
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "None",
+            "Articuno",
+            "Zapdos",
+            "Moltres",
+            "Mewtwo",
+            "Raikou",
+            "Entei",
+            "Suicune",
+            "Lugia",
+            "Ho-oh",
+            "Latias",
+            "Latios",
+            "Kyogre",
+            "Groudon",
+            "Rayquaza",
+            "Uxie",
+            "Mesprit",
+            "Azelf",
+            "Dialga",
+            "Palkia",
+            "Heatran",
+            "Giratina",
+            "Cresselia",
+            "Tornadus",
+            "Thundurus",
+            "Reshiram",
+            "Zekrom",
+            "Landorus",
+            "Kyurem",
+            "Xerneas",
+            "Yveltal",
+            "Zygarde",
+            "Tapu Koko",
+            "Tapu Lele",
+            "Tapu Bulu",
+            "Tapu Fini",
+            "Solgaleo",
+            "Lunala",
+            "Nihilego",
+            "Buzzwole",
+            "Pheromosa",
+            "Xurkitree",
+            "Celesteela",
+            "Kartana",
+            "Guzzlord",
+            "Necrozma",
+            "Stakataka",
+            "Blacephalon"});
+            this.comboBox2.Location = new System.Drawing.Point(6, 46);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 2;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.AutoCompleteCustomSource.AddRange(new string[] {
+            "None",
+            "Articuno",
+            "Zapdos",
+            "Moltres",
+            "Mewtwo",
+            "Raikou",
+            "Entei",
+            "Suicune",
+            "Lugia",
+            "Ho-oh",
+            "Latias",
+            "Latios",
+            "Kyogre",
+            "Groudon",
+            "Rayquaza",
+            "Uxie",
+            "Mesprit",
+            "Azelf",
+            "Dialga",
+            "Palkia",
+            "Heatran",
+            "Giratina",
+            "Cresselia",
+            "Tornadus",
+            "Thundurus",
+            "Reshiram",
+            "Zekrom",
+            "Landorus",
+            "Kyurem",
+            "Xerneas",
+            "Yveltal",
+            "Zygarde",
+            "Tapu Koko",
+            "Tapu Lele",
+            "Tapu Bulu",
+            "Tapu Fini",
+            "Solgaleo",
+            "Lunala",
+            "Nihilego",
+            "Buzzwole",
+            "Pheromosa",
+            "Xurkitree",
+            "Celesteela",
+            "Kartana",
+            "Guzzlord",
+            "Necrozma",
+            "Stakataka",
+            "Blacephalon"});
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "None",
+            "Articuno",
+            "Zapdos",
+            "Moltres",
+            "Mewtwo",
+            "Raikou",
+            "Entei",
+            "Suicune",
+            "Lugia",
+            "Ho-oh",
+            "Latias",
+            "Latios",
+            "Kyogre",
+            "Groudon",
+            "Rayquaza",
+            "Uxie",
+            "Mesprit",
+            "Azelf",
+            "Dialga",
+            "Palkia",
+            "Heatran",
+            "Giratina",
+            "Cresselia",
+            "Tornadus",
+            "Thundurus",
+            "Reshiram",
+            "Zekrom",
+            "Landorus",
+            "Kyurem",
+            "Xerneas",
+            "Yveltal",
+            "Zygarde",
+            "Tapu Koko",
+            "Tapu Lele",
+            "Tapu Bulu",
+            "Tapu Fini",
+            "Solgaleo",
+            "Lunala",
+            "Nihilego",
+            "Buzzwole",
+            "Pheromosa",
+            "Xurkitree",
+            "Celesteela",
+            "Kartana",
+            "Guzzlord",
+            "Necrozma",
+            "Stakataka",
+            "Blacephalon"});
+            this.comboBox3.Location = new System.Drawing.Point(6, 76);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(121, 21);
+            this.comboBox3.TabIndex = 3;
+            // 
             // DynamaxResetForm
             // 
             this.ClientSize = new System.Drawing.Size(844, 481);
-            this.Controls.Add(this.groupBox12);
+            this.Controls.Add(this.groupBox11);
             this.Controls.Add(this.Global);
             this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox9);
@@ -685,7 +971,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "DynamaxResetForm";
             this.Text = "Dynamax Adventure Reset";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DynamaxResetForm_FormClosed);
             this.Load += new System.EventHandler(this.DynamaxResetForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -698,8 +983,8 @@
             this.groupBox9.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.Global.ResumeLayout(false);
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -749,11 +1034,11 @@
         private System.Windows.Forms.GroupBox Global;
         private System.Windows.Forms.Button glFA_BTN;
         private System.Windows.Forms.Button glRA_BTN;
-        private System.Windows.Forms.CheckedListBox regi_clistbox;
-        private System.Windows.Forms.GroupBox groupBox12;
-        private System.Windows.Forms.RadioButton regieleki_RBTN;
-        private System.Windows.Forms.RadioButton regidrago_RBTN;
-        private System.Windows.Forms.RadioButton reginone_RBTN;
         private System.Windows.Forms.Button report_BTN;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label1;
     }
 }
