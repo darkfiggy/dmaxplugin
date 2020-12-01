@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "La3+AbKdpPgMg9JcBU/rR0RskNUcVt3YBEnzTwVJEM9hyYW+W7cNE8bMLK3GmvkOHrtROuBG5BUpRrrYJXU/8w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\angel\\Desktop\\DynamaxAdventureReset\\DynamaxAdventureReset\\DynamaxAdventureReset\\DynamaxAdventureReset.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\angel\\.nuget\\packages\\pkhex.core\\20.10.10\\pkhex.core.20.10.10.nupkg.sha512"
+  ],
+  "logs": []
+}
