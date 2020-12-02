@@ -35,7 +35,6 @@
             this.gen3_clistbox = new System.Windows.Forms.CheckedListBox();
             this.gen4_clistbox = new System.Windows.Forms.CheckedListBox();
             this.gen5_clistbox = new System.Windows.Forms.CheckedListBox();
-            this.soj_clistbox = new System.Windows.Forms.CheckedListBox();
             this.gen6_clistbox = new System.Windows.Forms.CheckedListBox();
             this.gen8b_clistbox = new System.Windows.Forms.CheckedListBox();
             this.applyBTN = new System.Windows.Forms.Button();
@@ -54,9 +53,6 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.g5FA_BTN = new System.Windows.Forms.Button();
             this.g5RA_BTN = new System.Windows.Forms.Button();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.g5sojRA_BTN = new System.Windows.Forms.Button();
-            this.g5sojFA_BTN = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.g6FA_BTN = new System.Windows.Forms.Button();
             this.g6RA_BTN = new System.Windows.Forms.Button();
@@ -70,7 +66,6 @@
             this.g8bFA_BTN = new System.Windows.Forms.Button();
             this.g8bRA_BTN = new System.Windows.Forms.Button();
             this.Global = new System.Windows.Forms.GroupBox();
-            this.report_BTN = new System.Windows.Forms.Button();
             this.glFA_BTN = new System.Windows.Forms.Button();
             this.glRA_BTN = new System.Windows.Forms.Button();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
@@ -83,7 +78,6 @@
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox9.SuspendLayout();
@@ -198,19 +192,6 @@
             this.gen5_clistbox.Name = "gen5_clistbox";
             this.gen5_clistbox.Size = new System.Drawing.Size(120, 94);
             this.gen5_clistbox.TabIndex = 9;
-            // 
-            // soj_clistbox
-            // 
-            this.soj_clistbox.FormattingEnabled = true;
-            this.soj_clistbox.Items.AddRange(new object[] {
-            "Cobalion",
-            "Terrakion",
-            "Virizion",
-            "Keldeo"});
-            this.soj_clistbox.Location = new System.Drawing.Point(6, 21);
-            this.soj_clistbox.Name = "soj_clistbox";
-            this.soj_clistbox.Size = new System.Drawing.Size(120, 64);
-            this.soj_clistbox.TabIndex = 9;
             // 
             // gen6_clistbox
             // 
@@ -406,38 +387,6 @@
             this.g5RA_BTN.UseVisualStyleBackColor = true;
             this.g5RA_BTN.Click += new System.EventHandler(this.g5RA_BTN_Click);
             // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.g5sojRA_BTN);
-            this.groupBox6.Controls.Add(this.g5sojFA_BTN);
-            this.groupBox6.Controls.Add(this.soj_clistbox);
-            this.groupBox6.Location = new System.Drawing.Point(702, 13);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(132, 210);
-            this.groupBox6.TabIndex = 44;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Swords of Justice";
-            // 
-            // g5sojRA_BTN
-            // 
-            this.g5sojRA_BTN.Location = new System.Drawing.Point(6, 119);
-            this.g5sojRA_BTN.Name = "g5sojRA_BTN";
-            this.g5sojRA_BTN.Size = new System.Drawing.Size(120, 24);
-            this.g5sojRA_BTN.TabIndex = 47;
-            this.g5sojRA_BTN.Text = "Reset All";
-            this.g5sojRA_BTN.UseVisualStyleBackColor = true;
-            this.g5sojRA_BTN.Click += new System.EventHandler(this.g5sojRA_BTN_Click);
-            // 
-            // g5sojFA_BTN
-            // 
-            this.g5sojFA_BTN.Location = new System.Drawing.Point(6, 91);
-            this.g5sojFA_BTN.Name = "g5sojFA_BTN";
-            this.g5sojFA_BTN.Size = new System.Drawing.Size(120, 24);
-            this.g5sojFA_BTN.TabIndex = 46;
-            this.g5sojFA_BTN.Text = "Found All";
-            this.g5sojFA_BTN.UseVisualStyleBackColor = true;
-            this.g5sojFA_BTN.Click += new System.EventHandler(this.g5sojFA_BTN_Click);
-            // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.g6FA_BTN);
@@ -568,7 +517,6 @@
             // 
             // Global
             // 
-            this.Global.Controls.Add(this.report_BTN);
             this.Global.Controls.Add(this.glFA_BTN);
             this.Global.Controls.Add(this.glRA_BTN);
             this.Global.Location = new System.Drawing.Point(702, 230);
@@ -577,16 +525,6 @@
             this.Global.TabIndex = 49;
             this.Global.TabStop = false;
             this.Global.Text = "Global";
-            // 
-            // report_BTN
-            // 
-            this.report_BTN.Location = new System.Drawing.Point(6, 156);
-            this.report_BTN.Name = "report_BTN";
-            this.report_BTN.Size = new System.Drawing.Size(120, 24);
-            this.report_BTN.TabIndex = 54;
-            this.report_BTN.Text = "Report Bugs/Issues";
-            this.report_BTN.UseVisualStyleBackColor = true;
-            this.report_BTN.Click += new System.EventHandler(this.report_BTN_Click);
             // 
             // glFA_BTN
             // 
@@ -961,7 +899,6 @@
             this.Controls.Add(this.groupBox9);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox7);
-            this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -977,7 +914,6 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
@@ -997,7 +933,6 @@
         private System.Windows.Forms.CheckedListBox gen3_clistbox;
         private System.Windows.Forms.CheckedListBox gen4_clistbox;
         private System.Windows.Forms.CheckedListBox gen5_clistbox;
-        private System.Windows.Forms.CheckedListBox soj_clistbox;
         private System.Windows.Forms.CheckedListBox gen6_clistbox;
         private System.Windows.Forms.CheckedListBox gen8b_clistbox;
         private System.Windows.Forms.Button applyBTN;
@@ -1016,9 +951,6 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button g5FA_BTN;
         private System.Windows.Forms.Button g5RA_BTN;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button g5sojRA_BTN;
-        private System.Windows.Forms.Button g5sojFA_BTN;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Button g6FA_BTN;
         private System.Windows.Forms.Button g6RA_BTN;
@@ -1034,7 +966,6 @@
         private System.Windows.Forms.GroupBox Global;
         private System.Windows.Forms.Button glFA_BTN;
         private System.Windows.Forms.Button glRA_BTN;
-        private System.Windows.Forms.Button report_BTN;
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.ComboBox mlspecies1_CMB;
         private System.Windows.Forms.ComboBox mlspecies3_CMB;

@@ -60,7 +60,7 @@
             this.groupBox12.Size = new System.Drawing.Size(132, 181);
             this.groupBox12.TabIndex = 53;
             this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Main";
+            this.groupBox12.Text = "Caught";
             // 
             // regieleki_RBTN
             // 
@@ -119,9 +119,9 @@
             this.groupBox1.Controls.Add(this.regieleki_patrBTN);
             this.groupBox1.Controls.Add(this.reginone_patrBTN);
             this.groupBox1.Controls.Add(this.regidrago_patrBTN);
-            this.groupBox1.Location = new System.Drawing.Point(150, 18);
+            this.groupBox1.Location = new System.Drawing.Point(150, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 175);
+            this.groupBox1.Size = new System.Drawing.Size(140, 181);
             this.groupBox1.TabIndex = 54;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " Regi Pattern";
@@ -232,7 +232,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 256);
+            this.ClientSize = new System.Drawing.Size(301, 256);
             this.Controls.Add(this.legalLBL);
             this.Controls.Add(this.applyBTN);
             this.Controls.Add(this.label2);
@@ -240,7 +240,7 @@
             this.Controls.Add(this.groupBox12);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "RegiForm";
-            this.Text = "RegiForm";
+            this.Text = "RegiForm Editor";
             this.Load += new System.EventHandler(this.RegiForm_Load);
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();

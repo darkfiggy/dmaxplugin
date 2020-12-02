@@ -72,14 +72,6 @@ namespace DynamaxAdventureReset
             0xF75829EF, //Landorus
         };
 
-        public uint[] Gen5SOJKeys = new uint[]
-        {
-            0xBB305227, //Cobalion
-            0x750C83A4, //Terrakion
-            0x1A27DF2C, //Virizion
-            0xA097DE31, //Keldeo
-        };
-
         public uint[] Gen6Keys = new uint[]
         {
             0xF75830BB, //Xerneas
@@ -118,7 +110,7 @@ namespace DynamaxAdventureReset
         };
         private void DynamaxResetForm_Load(object sender, EventArgs e)
         {
-
+             
 
 
             //Check gen 1
@@ -158,13 +150,6 @@ namespace DynamaxAdventureReset
                 var block = SAV.Blocks.GetBlock(Gen5Keys[i]);
                 if (block.Type == SCTypeCode.Bool2)
                     gen5_clistbox.SetItemChecked(i, true);
-            }
-            //Check gen 5 SOJ
-            for (int i = 0; i < Gen5SOJKeys.Length; i++)
-            {
-                var block = SAV.Blocks.GetBlock(Gen5SOJKeys[i]);
-                if (block.Type == SCTypeCode.Bool2)
-                    soj_clistbox.SetItemChecked(i, true);
             }
 
             //Check gen 6
@@ -245,13 +230,6 @@ namespace DynamaxAdventureReset
                 if (gen5_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
                 else block.Type = SCTypeCode.Bool1;
             }
-            //Check gen 5 Swords of Justice
-            for (int i = 0; i < Gen5SOJKeys.Length; i++)
-            {
-                var block = SAV.Blocks.GetBlock(Gen5SOJKeys[i]);
-                if (soj_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
-                else block.Type = SCTypeCode.Bool1;
-            }
 
             //Check gen 6
             for (int i = 0; i < Gen6Keys.Length; i++)
@@ -290,7 +268,7 @@ namespace DynamaxAdventureReset
         }
 
         //Quori: This was a pain to set-up, there was probably a better way to do it, but oh well I'll do it later.
-        enum Generations { Gen1, Gen2, Gen3, Gen4, Gen5, Gen5_SOJ, Gen6, Gen7, Gen7_UB, Gen8_Bird }
+        enum Generations { Gen1, Gen2, Gen3, Gen4, Gen5, Gen6, Gen7, Gen7_UB, Gen8_Bird }
         void SetValue(Generations Generation, bool Value)
         {
             switch (Generation)
@@ -309,9 +287,6 @@ namespace DynamaxAdventureReset
                     break;
                 case (Generations.Gen5):
                     for (int i = 0; i < gen5_clistbox.Items.Count; i++) gen5_clistbox.SetItemChecked(i, Value);
-                    break;
-                case (Generations.Gen5_SOJ):
-                    for (int i = 0; i < soj_clistbox.Items.Count; i++) soj_clistbox.SetItemChecked(i, Value);
                     break;
                 case (Generations.Gen6):
                     for (int i = 0; i < gen6_clistbox.Items.Count; i++) gen6_clistbox.SetItemChecked(i, Value);

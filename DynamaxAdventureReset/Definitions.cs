@@ -16,6 +16,22 @@ namespace DynamaxAdventureReset
         /// </summary>
         public static uint KRegielekiOrRegidragoPattern = 0xCF90B39A;
 
+        public static Dictionary<string, uint> memkeys_FootprintPercentage = new Dictionary<string, uint>() 
+        {
+                { "Cobalion", 0x4D50B655},
+                { "Terrakion", 0x771E4c88},
+                { "Virizion", 0xAD67A297}
+        };
+
+        public static Dictionary<string, uint> memkeys_SwordsofJustice = new Dictionary<string, uint>()
+        {
+                { "Cobalion", 0xBB305227},
+                { "Terrakion", 0x750C83A4},
+                { "Virizion", 0x1A27DF2C},
+                { "Keldeo", 0xA097DE31}
+        };
+
+
         /// <summary>
         /// Memory keys for the regis
         /// </summary>

@@ -179,6 +179,7 @@ namespace DynamaxAdventureReset
             SAV.Blocks.GetBlock(Definitions.RegiKeys[4]).Type = regieleki_RBTN.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
             SAV.Blocks.GetBlock(Definitions.RegiKeys[5]).Type = regidrago_RBTN.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
 
+            //If you don't cast the int, you will get an exeception that will crash the plugin.
             if (regieleki_patrBTN.Checked) SAV.Blocks.GetBlock(Definitions.KRegielekiOrRegidragoPattern).SetValue((uint)1);
             else if (regidrago_patrBTN.Checked) SAV.Blocks.GetBlock(Definitions.KRegielekiOrRegidragoPattern).SetValue((uint)2);
             else if (reginone_patrBTN.Checked) SAV.Blocks.GetBlock(Definitions.KRegielekiOrRegidragoPattern).SetValue((uint)0);
