@@ -36,7 +36,7 @@ namespace DynamaxAdventureReset
 
         private void AddPluginControl(ToolStripDropDownItem tools)
         {
-            var ctrl = new ToolStripMenuItem(Name);
+            var ctrl = new ToolStripMenuItem("Block Editor EX");
             tools.DropDownItems.Add(ctrl);
 
             var mainBTN = new ToolStripMenuItem($"Edit Max Lair");

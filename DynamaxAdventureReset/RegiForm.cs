@@ -23,17 +23,17 @@ namespace DynamaxAdventureReset
         private void RegiForm_Load(object sender, EventArgs e)
         {
             //Check Regi values
-            for (int i = 0; i < Definitions.RegiKeys.Length - 2; i++) //-2 so we do all of them except for Regieleki and regidrago
+            for (int i = 0; i < Definitions.memkeys_Regis.Count - 2; i++) //-2 so we do all of them except for Regieleki and regidrago
             {
-                if (SAV.Blocks.GetBlock(Definitions.RegiKeys[i]).Type == SCTypeCode.Bool2) regi_clistbox.SetItemChecked(i, true);
+                if (SAV.Blocks.GetBlock(Definitions.memkeys_Regis.ElementAt(i).Value).Type == SCTypeCode.Bool2) regi_clistbox.SetItemChecked(i, true);
 
             }
 
             legailty_CB.Checked = true;
 
 
-            var eleki = SAV.Blocks.GetBlock(Definitions.RegiKeys[4]);
-            var drago = SAV.Blocks.GetBlock(Definitions.RegiKeys[5]);
+            var eleki = SAV.Blocks.GetBlock(Definitions.memkeys_Regis["Regieleki"]);
+            var drago = SAV.Blocks.GetBlock(Definitions.memkeys_Regis["Regidrago"]);
             var pattern = SAV.Blocks.GetBlock(Definitions.KRegielekiOrRegidragoPattern);
 
 
@@ -179,13 +179,13 @@ namespace DynamaxAdventureReset
 
         private void applyBTN_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < Definitions.RegiKeys.Length - 2; i++) //do all except for eleki and drago
+            for (int i = 0; i < Definitions.memkeys_Regis.Count - 2; i++) //do all except for eleki and drago
             {
-                SAV.Blocks.GetBlock(Definitions.RegiKeys[i]).Type = regi_clistbox.GetItemChecked(i) ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
+                SAV.Blocks.GetBlock(Definitions.memkeys_Regis.ElementAt(i).Value).Type = regi_clistbox.GetItemChecked(i) ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
             }
 
-            SAV.Blocks.GetBlock(Definitions.RegiKeys[4]).Type = regieleki_RBTN.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
-            SAV.Blocks.GetBlock(Definitions.RegiKeys[5]).Type = regidrago_RBTN.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
+            SAV.Blocks.GetBlock(Definitions.memkeys_Regis["Regieleki"]).Type = regieleki_RBTN.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
+            SAV.Blocks.GetBlock(Definitions.memkeys_Regis["Regidrago"]).Type = regidrago_RBTN.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
 
             //If you don't cast the int, you will get an exeception that will crash the plugin.
             if (regieleki_patrBTN.Checked) SAV.Blocks.GetBlock(Definitions.KRegielekiOrRegidragoPattern).SetValue((uint)1);
