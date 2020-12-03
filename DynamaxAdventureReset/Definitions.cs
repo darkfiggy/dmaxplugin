@@ -31,6 +31,16 @@ namespace DynamaxAdventureReset
                 { "Keldeo", 0xA097DE31}
         };
 
+        public static Dictionary<string, uint> memkeys_Regis = new Dictionary<string, uint>()
+        {
+                { "Regirock", 0xEE3F84E6},
+                { "Regice", 0xDAB3DD3A},
+                { "Registeel", 0xEE1FD86E},
+                { "Regigigas", 0xC4308A93},
+                { "Regieleki", 0x4F4AEC32},
+                { "Regidrago", 0x4F30F174}
+        };
+
 
         /// <summary>
         /// Memory keys for the regis

@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.6": {
-      "PKHeX.Core/20.10.10": {
+      "PKHeX.Core/20.11.28": {
         "type": "package",
         "compile": {
           "lib/net46/PKHeX.Core.dll": {}
@@ -14,23 +14,23 @@
     }
   },
   "libraries": {
-    "PKHeX.Core/20.10.10": {
-      "sha512": "jslegdJV/ZCHKBK3Gwu7J50fYi8gaRgXbiVz/mNn7sIppxosgaP3OWIQx0i80gTtdgxQm2GKm7Gx/bcu1I+Zsw==",
+    "PKHeX.Core/20.11.28": {
+      "sha512": "kUqXNa+1GN/vPcFhBGCUUsElrYTyec1lH4z6SPT/7INyp5WbXDY+8GVpIR3jK7oEBAS2C81TNaVJZ3eCoB4yBA==",
       "type": "package",
-      "path": "pkhex.core/20.10.10",
+      "path": "pkhex.core/20.11.28",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net46/PKHeX.Core.dll",
         "lib/netstandard2.0/PKHeX.Core.dll",
-        "pkhex.core.20.10.10.nupkg.sha512",
+        "pkhex.core.20.11.28.nupkg.sha512",
         "pkhex.core.nuspec"
       ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.6": [
-      "PKHeX.Core >= 20.10.10"
+      "PKHeX.Core >= 20.11.28"
     ]
   },
   "packageFolders": {
@@ -72,7 +72,7 @@
         "dependencies": {
           "PKHeX.Core": {
             "target": "Package",
-            "version": "[20.10.10, )"
+            "version": "[20.11.28, )"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"

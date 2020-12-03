@@ -29,7 +29,7 @@ namespace DynamaxAdventureReset
 
             }
 
-            forcematchCB.Checked = true;
+            legailty_CB.Checked = true;
 
 
             var eleki = SAV.Blocks.GetBlock(Definitions.RegiKeys[4]);
@@ -44,7 +44,7 @@ namespace DynamaxAdventureReset
                 if (Convert.ToInt32(pattern.GetValue()) != 1) // 1 = regieleki pattern
                 {
                     if (ShowPatternMisMatchMSG() == DialogResult.Yes) pattern.SetValue((UInt32)1);
-                    else forcematchCB.Checked = false;
+                    else legailty_CB.Checked = false;
                 }
             }
 
@@ -55,7 +55,7 @@ namespace DynamaxAdventureReset
                 if (Convert.ToInt32(pattern.GetValue()) != 2) // 2 = regidrago pattern
                 {
                     if (ShowPatternMisMatchMSG() == DialogResult.Yes) pattern.SetValue((UInt32)2);
-                    else forcematchCB.Checked = false;
+                    else legailty_CB.Checked = false;
 
                 }
             }
@@ -66,6 +66,39 @@ namespace DynamaxAdventureReset
         }
 
 
+        void CheckLegality()
+        {
+            if (CheckElekiLegal() || CheckDragoLegal() || CheckNeitherLegal())
+                legalLBL.Text = "Legal Status: Legal";
+            else legalLBL.Text = "Legal Status: Potentially Illegal";
+        }
+
+        bool CheckNeitherLegal()
+        {
+            return (GetRegiPattern() <= 2 && reginone_RBTN.Checked);
+        }
+        bool CheckElekiLegal()
+        {
+            return (((GetRegiPattern() == 1) && regieleki_RBTN.Checked) && !((GetRegiPattern() == 2) && regidrago_RBTN.Checked)) || regieleki_patrBTN.Checked;
+        }
+        bool CheckDragoLegal()
+        {
+            return (((GetRegiPattern() == 2) && regidrago_RBTN.Checked) && !((GetRegiPattern() == 1) && regieleki_RBTN.Checked)) || regidrago_patrBTN.Checked;
+        }
+
+        
+        /// <summary>
+        /// 0 - None
+        /// <para>1 - Regieleki</para>
+        /// <para>2 - Regidrago</para>
+        /// </summary>
+        /// <returns></returns>
+        int GetRegiPattern()
+        {
+            if (regiother_patrBTN.Checked) return (int)regipatternNUD.Value;
+            else return regidrago_patrBTN.Checked ? 2 : regieleki_patrBTN.Checked ? 1 : 0;
+
+        }
         /// <summary>
         /// Match the regi (drago or eleki or neither) to the pattern value
         /// </summary>
@@ -96,76 +129,51 @@ namespace DynamaxAdventureReset
 
         private void reginone_patrBTN_CheckedChanged(object sender, EventArgs e)
         {
-            if (forcematchCB.Checked) MatchRegiPattern();
+            if (legailty_CB.Checked) MatchRegiPattern();
             CheckLegality();
         }
 
         private void regidrago_patrBTN_CheckedChanged(object sender, EventArgs e)
         {
-            if (forcematchCB.Checked) MatchRegiPattern();
+            if (legailty_CB.Checked) MatchRegiPattern();
             CheckLegality();
         }
 
         private void regieleki_patrBTN_CheckedChanged(object sender, EventArgs e)
         {
-            if (forcematchCB.Checked) MatchRegiPattern();
+            if (legailty_CB.Checked) MatchRegiPattern();
             CheckLegality();
         }
 
         private void regipatternNUD_ValueChanged(object sender, EventArgs e)
         {
-            if (forcematchCB.Checked) MatchRegiPattern();
+            if (legailty_CB.Checked) MatchRegiPattern();
             CheckLegality();
-        }
-
-        void CheckLegality()
-        {
-            if (regidrago_patrBTN.Checked && regidrago_RBTN.Checked || reginone_RBTN.Checked && regidrago_patrBTN.Checked || regidrago_RBTN.Checked && regipatternNUD.Value == 2)
-            {
-                legalLBL.Text = "Legal Status: Legal!";
-            }
-            else if (regieleki_patrBTN.Checked && regieleki_RBTN.Checked || reginone_RBTN.Checked && regieleki_patrBTN.Checked || regieleki_RBTN.Checked && regipatternNUD.Value == 1)
-            {
-                legalLBL.Text = "Legal Status: Legal!";
-            }
-            else
-            {
-                if (reginone_RBTN.Checked && reginone_patrBTN.Checked)
-                {
-                    legalLBL.Text = "Legal Status: Legal!";
-                }
-                else
-                {
-
-                    legalLBL.Text = "Legal Status: Potentially Illegal!";
-                }
-
-            }
         }
 
 
         private void reginone_RBTN_CheckedChanged(object sender, EventArgs e)
         {
-            if (forcematchCB.Checked) MatchRegiPattern();
+            if (legailty_CB.Checked) MatchRegiPattern();
             CheckLegality();
         }
 
         private void regidrago_RBTN_CheckedChanged(object sender, EventArgs e)
         {
-            if (forcematchCB.Checked) MatchRegiPattern();
+            if (legailty_CB.Checked) MatchRegiPattern();
             CheckLegality();
         }
 
         private void regieleki_RBTN_CheckedChanged(object sender, EventArgs e)
         {
-            if (forcematchCB.Checked) MatchRegiPattern();
+            if (legailty_CB.Checked) MatchRegiPattern();
             CheckLegality();
         }
 
 
         private void forcematchCB_CheckedChanged(object sender, EventArgs e)
         {
-            if (forcematchCB.Checked) MatchRegiPattern();
+            if (legailty_CB.Checked) MatchRegiPattern();
             CheckLegality();
         }
 

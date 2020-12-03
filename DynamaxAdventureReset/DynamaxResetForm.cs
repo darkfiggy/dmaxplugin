@@ -356,15 +356,6 @@ namespace DynamaxAdventureReset
         }
 
 
-        private void g5sojFA_BTN_Click(object sender, EventArgs e)
-        {
-            SetValue(Generations.Gen5_SOJ, true);
-        }
-        private void g5sojRA_BTN_Click(object sender, EventArgs e)
-        {
-            SetValue(Generations.Gen5_SOJ, false);
-        }
-
 
 
         private void g6FA_BTN_Click(object sender, EventArgs e)

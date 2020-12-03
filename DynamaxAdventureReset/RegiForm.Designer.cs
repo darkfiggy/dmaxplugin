@@ -35,7 +35,7 @@
             this.reginone_RBTN = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.regiother_patrBTN = new System.Windows.Forms.RadioButton();
-            this.forcematchCB = new System.Windows.Forms.CheckBox();
+            this.legailty_CB = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.regipatternNUD = new System.Windows.Forms.NumericUpDown();
             this.regieleki_patrBTN = new System.Windows.Forms.RadioButton();
@@ -113,7 +113,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.regiother_patrBTN);
-            this.groupBox1.Controls.Add(this.forcematchCB);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.regipatternNUD);
             this.groupBox1.Controls.Add(this.regieleki_patrBTN);
@@ -137,16 +136,16 @@
             this.regiother_patrBTN.UseVisualStyleBackColor = true;
             this.regiother_patrBTN.CheckedChanged += new System.EventHandler(this.regiother_patrBTN_CheckedChanged);
             // 
-            // forcematchCB
+            // legailty_CB
             // 
-            this.forcematchCB.AutoSize = true;
-            this.forcematchCB.Location = new System.Drawing.Point(6, 149);
-            this.forcematchCB.Name = "forcematchCB";
-            this.forcematchCB.Size = new System.Drawing.Size(135, 17);
-            this.forcematchCB.TabIndex = 57;
-            this.forcematchCB.Text = "Force matching pattern";
-            this.forcematchCB.UseVisualStyleBackColor = true;
-            this.forcematchCB.CheckedChanged += new System.EventHandler(this.forcematchCB_CheckedChanged);
+            this.legailty_CB.AutoSize = true;
+            this.legailty_CB.Location = new System.Drawing.Point(150, 215);
+            this.legailty_CB.Name = "legailty_CB";
+            this.legailty_CB.Size = new System.Drawing.Size(143, 17);
+            this.legailty_CB.TabIndex = 57;
+            this.legailty_CB.Text = "Force legality corrections";
+            this.legailty_CB.UseVisualStyleBackColor = true;
+            this.legailty_CB.CheckedChanged += new System.EventHandler(this.forcematchCB_CheckedChanged);
             // 
             // label1
             // 
@@ -234,6 +233,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(301, 256);
             this.Controls.Add(this.legalLBL);
+            this.Controls.Add(this.legailty_CB);
             this.Controls.Add(this.applyBTN);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
@@ -260,7 +260,7 @@
         private System.Windows.Forms.RadioButton reginone_RBTN;
         private System.Windows.Forms.CheckedListBox regi_clistbox;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox forcematchCB;
+        private System.Windows.Forms.CheckBox legailty_CB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown regipatternNUD;
         private System.Windows.Forms.RadioButton regieleki_patrBTN;
