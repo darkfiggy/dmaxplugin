@@ -16,14 +16,14 @@ namespace DynamaxAdventureReset
         /// </summary>
         public static uint KRegielekiOrRegidragoPattern = 0xCF90B39A;
 
-        public static Dictionary<string, uint> memkeys_FootprintPercentage = new Dictionary<string, uint>() 
+        public static readonly Dictionary<string, uint> memkeys_FootprintPercentage = new Dictionary<string, uint>()
         {
                 { "Cobalion", 0x4D50B655},
                 { "Terrakion", 0x771E4c88},
                 { "Virizion", 0xAD67A297}
         };
 
-        public static Dictionary<string, uint> memkeys_SwordsofJustice = new Dictionary<string, uint>()
+        public static readonly Dictionary<string, uint> memkeys_SwordsofJustice = new Dictionary<string, uint>()
         {
                 { "Cobalion", 0xBB305227},
                 { "Terrakion", 0x750C83A4},
@@ -31,7 +31,7 @@ namespace DynamaxAdventureReset
                 { "Keldeo", 0xA097DE31}
         };
 
-        public static Dictionary<string, uint> memkeys_Regis = new Dictionary<string, uint>()
+        public static readonly Dictionary<string, uint> memkeys_Regis = new Dictionary<string, uint>()
         {
                 { "Regirock", 0xEE3F84E6},
                 { "Regice", 0xDAB3DD3A},
@@ -41,70 +41,71 @@ namespace DynamaxAdventureReset
                 { "Regidrago", 0x4F30F174}
         };
 
-
-        /// <summary>
-        /// Memory keys for the regis
-        /// </summary>
-        public static uint[] RegiKeys = new uint[]
+        public static readonly Dictionary<string, uint> memkeys_MaxLairMisc = new Dictionary<string, uint>()
         {
-            0xEE3F84E6, //Regirock
-            0xDAB3DD3A, //Regice
-            0xEE1FD86E, //Registeel
-            0xC4308A93, //Regigigas
+            { "KMaxLairDisconnectStreak", 0x8EAEB8FF},
+            { "KMaxLairEndlessStreak", 0x7F4B4B10},
 
-            0x4F4AEC32, //Regieleki
-            0x4F30F174 //Regidrago
+            { "KMaxLairSpeciesID1Noted", 0x6F669A35},
+            { "KMaxLairSpeciesID2Noted", 0x6F66951C},
+            { "KMaxLairSpeciesID3Noted", 0x6F6696CF},
+
+            { "KMaxLairPeoniaSpeciesHint", 0xF26B9151},
+
+            { "KMaxLairRentalChoiceSeed", 0x0D74AA40},
         };
 
-        public static uint[] NationalDexEntries = new uint[]
-{
-            144, //Articuno
-            145, //Zapdos
-            156, //Moltres
-            150, //Mewtwo
-            243, //Raikou
-            244, //Entei
-            245, //Suicune
-            249, //Lugia
-            250, //Ho-oh
-            380, //Latias
-            381, //Latios
-            382, //Kyogre
-            383, //Groudon
-            384, //Rayquaza
-            480, //Uxie
-            481, //Mesprit
-            482, //Azelf
-            483, //Dialga
-            484, //Palkia
-            485, //Heatran
-            487, //Giratina
-            488, //Cresselia
-            641, //Tornadus
-            642, //Thundurus
-            643, //Reshiram
-            644, //Zekrom
-            645, //Landorus
-            646, //Kyurem
-            716, //Xerneas
-            717, //Yveltal
-            718, //Zygarde
-            785, //Tapu Koko
-            786, //Tapu Lele
-            787, //Tapu Bulu
-            788, //Tapu Fini
-            791, //Solgaleo
-            792, //Lunala
-            793, //Nihilego
-            794, //Buzzwole
-            795, //Pheromosa
-            796, //Xurkitree
-            797, //Celesteela
-            798, //Kartana
-            799, //Guzzlord
-            800, //Necrozma
-            805, //Stakataka
-            806, //Blacephalon
-};
+        public static readonly Dictionary<string, uint> NationalDex = new Dictionary<string, uint>()
+        {
+            { "Articuno", 144},
+            { "Zapdos", 145},
+            { "Moltres", 156},
+            { "Mewtwo", 150},
+            { "Raikou", 243},
+            { "Entei", 244},
+            { "Suicune", 245},
+            { "Lugia", 249},
+            { "Ho-oh", 250},
+            { "Latias", 380},
+            { "Latios", 381},
+            { "Kyogre", 382},
+            { "Groundon", 383},
+            { "Rayquaza", 384},
+            { "Uxie", 480},
+            { "Mesprit", 481},
+            { "Azelf", 482},
+            { "Dialga", 483},
+            { "Palkia", 484},
+            { "Heatran", 485},
+            { "Giratina", 487},
+            { "Cresselia", 488},
+            { "Tornadus", 641},
+            { "Thundurus", 642},
+            { "Reshiram", 643},
+            { "Zekrom", 644},
+            { "Landorus", 645},
+            { "Kryurem", 646},
+            { "Xerneas", 716},
+            { "Yveltal", 717},
+            { "Zygarde", 718},
+            { "Tapu Koko", 785},
+            { "Tapu Lele", 786},
+            { "Tapu Bulu", 787},
+            { "Tapu Fini", 788},
+            { "Solgaleo", 791},
+            { "Lunala", 792},
+            { "Nihilego", 793},
+            { "Buzzwole", 794 },
+            { "Pheromosa", 795 },
+            { "Xurkitree", 796 },
+            { "Celesteela", 797 },
+            { "Kartana", 798 },
+            { "Guzzlord", 799 },
+            { "Necrozma", 800 },
+            { "Stakataka", 805 },
+            { "Blacephalon", 806 }
+        };
+
+
     }
 }

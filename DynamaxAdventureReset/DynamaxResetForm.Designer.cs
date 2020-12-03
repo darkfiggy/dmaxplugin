@@ -69,6 +69,10 @@
             this.glFA_BTN = new System.Windows.Forms.Button();
             this.glRA_BTN = new System.Windows.Forms.Button();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.estreak_NUD = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dstreak_NUD = new System.Windows.Forms.NumericUpDown();
             this.mlspecies3_CMB = new System.Windows.Forms.ComboBox();
             this.mlspecies2_CMB = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -84,6 +88,8 @@
             this.groupBox10.SuspendLayout();
             this.Global.SuspendLayout();
             this.groupBox11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.estreak_NUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dstreak_NUD)).BeginInit();
             this.SuspendLayout();
             // 
             // gen7_clistbox
@@ -548,6 +554,10 @@
             // 
             // groupBox11
             // 
+            this.groupBox11.Controls.Add(this.label3);
+            this.groupBox11.Controls.Add(this.estreak_NUD);
+            this.groupBox11.Controls.Add(this.label2);
+            this.groupBox11.Controls.Add(this.dstreak_NUD);
             this.groupBox11.Controls.Add(this.mlspecies3_CMB);
             this.groupBox11.Controls.Add(this.mlspecies2_CMB);
             this.groupBox11.Controls.Add(this.label1);
@@ -558,7 +568,49 @@
             this.groupBox11.Size = new System.Drawing.Size(132, 240);
             this.groupBox11.TabIndex = 53;
             this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Max Lair";
+            this.groupBox11.Text = "Max Lair Misc";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 193);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Endless Streak";
+            // 
+            // estreak_NUD
+            // 
+            this.estreak_NUD.Location = new System.Drawing.Point(72, 209);
+            this.estreak_NUD.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.estreak_NUD.Name = "estreak_NUD";
+            this.estreak_NUD.Size = new System.Drawing.Size(54, 20);
+            this.estreak_NUD.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 154);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Disconnect Streak";
+            // 
+            // dstreak_NUD
+            // 
+            this.dstreak_NUD.Location = new System.Drawing.Point(72, 170);
+            this.dstreak_NUD.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.dstreak_NUD.Name = "dstreak_NUD";
+            this.dstreak_NUD.Size = new System.Drawing.Size(54, 20);
+            this.dstreak_NUD.TabIndex = 4;
             // 
             // mlspecies3_CMB
             // 
@@ -921,6 +973,8 @@
             this.Global.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.estreak_NUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dstreak_NUD)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -971,5 +1025,9 @@
         private System.Windows.Forms.ComboBox mlspecies3_CMB;
         private System.Windows.Forms.ComboBox mlspecies2_CMB;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown dstreak_NUD;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown estreak_NUD;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -186,8 +186,28 @@ namespace DynamaxAdventureReset
 
 
 
+            //Get Misc
+            dstreak_NUD.Value = Convert.ToInt32(SAV.Blocks.GetBlock(Definitions.memkeys_MaxLairMisc["KMaxLairDisconnectStreak"]).GetValue());
+            estreak_NUD.Value = Convert.ToInt32(SAV.Blocks.GetBlock(Definitions.memkeys_MaxLairMisc["KMaxLairEndlessStreak"]).GetValue());
+
+            int notes1 = Convert.ToInt32(SAV.Blocks.GetBlock(Definitions.memkeys_MaxLairMisc["KMaxLairSpeciesID1Noted"]).GetValue());
+            int notes2 = Convert.ToInt32(SAV.Blocks.GetBlock(Definitions.memkeys_MaxLairMisc["KMaxLairSpeciesID2Noted"]).GetValue());
+            int notes3 = Convert.ToInt32(SAV.Blocks.GetBlock(Definitions.memkeys_MaxLairMisc["KMaxLairSpeciesID3Noted"]).GetValue());
+
+            mlspecies1_CMB.SelectedIndex = getDexEntryIndex(notes1);
+            mlspecies2_CMB.SelectedIndex = getDexEntryIndex(notes2);
+            mlspecies3_CMB.SelectedIndex = getDexEntryIndex(notes3);
         }
 
+        int getDexEntryIndex(int dexnum)
+        {
+            for (int i = 0; i < Definitions.NationalDex.Count; i++)
+            {
+                if (Definitions.NationalDex.ElementAt(i).Value == dexnum)
+                    return i;
+            }
+            return 0;
+        }
         private void applyBTN_Click(object sender, EventArgs e)
         {
             //Check gen 1
