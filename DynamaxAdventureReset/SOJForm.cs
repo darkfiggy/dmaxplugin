@@ -45,6 +45,7 @@ namespace DynamaxAdventureReset
             }
             else cobalion_CB.Checked = b_cobalion.Type == SCTypeCode.Bool2 ? true : false;
             cfootper_NUD.Value = Convert.ToInt32(b_cobalionf.GetValue());
+
             if (b_terrakion.Type == SCTypeCode.Bool2 && Convert.ToInt32(b_terrakionf.GetValue()) != 100 || Convert.ToInt32(b_terrakionf.GetValue()) % 2 != 0) //illegal!
             {
                 if (MessageBox.Show("Data in your save file shows potentially illegal Terrakion encounter data, would you like to fix it?\nIf you believe this to be an error, please click \'No\' and report it.", "Illegal Terrakion Encounter", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -72,7 +73,7 @@ namespace DynamaxAdventureReset
 
             vfootper_NUD.Value = Convert.ToInt32(b_virizionf.GetValue());
 
-            if (!(b_virizion.Type == SCTypeCode.Bool2 && b_cobalion.Type == SCTypeCode.Bool2 && b_terrakion.Type == SCTypeCode.Bool2) && b_keldeo.Type == SCTypeCode.Bool2)
+            if ((b_virizion.Type == SCTypeCode.Bool1 && b_cobalion.Type == SCTypeCode.Bool1 && b_terrakion.Type == SCTypeCode.Bool1) && b_keldeo.Type == SCTypeCode.Bool2)
             {
                 if (MessageBox.Show("Data in your save file shows potentially illegal Keldeo encounter data, would you like to fix it?\nIf you believe this to be an error, please click \'No\' and report it.", "Illegal Keldeo Encounter", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     keldeo_CB.Checked = false;
@@ -82,7 +83,7 @@ namespace DynamaxAdventureReset
                     keldeo_CB.Checked = true;
                 }
             }
-            else keldeo_CB.Checked = true;
+            else keldeo_CB.Checked = b_keldeo.Type == SCTypeCode.Bool2 ? true : false;
             CheckLegality();
         }
 
