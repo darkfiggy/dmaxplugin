@@ -57,6 +57,7 @@ namespace DynamaxAdventureReset
 
         public static readonly Dictionary<string, uint> NationalDex = new Dictionary<string, uint>()
         {
+            { "None", 0},
             { "Articuno", 144},
             { "Zapdos", 145},
             { "Moltres", 156},

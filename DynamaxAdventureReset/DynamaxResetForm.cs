@@ -194,9 +194,13 @@ namespace DynamaxAdventureReset
             int notes2 = Convert.ToInt32(SAV.Blocks.GetBlock(Definitions.memkeys_MaxLairMisc["KMaxLairSpeciesID2Noted"]).GetValue());
             int notes3 = Convert.ToInt32(SAV.Blocks.GetBlock(Definitions.memkeys_MaxLairMisc["KMaxLairSpeciesID3Noted"]).GetValue());
 
+            int hint = Convert.ToInt32(SAV.Blocks.GetBlock(Definitions.memkeys_MaxLairMisc["KMaxLairPeoniaSpeciesHint"]).GetValue());
+
             mlspecies1_CMB.SelectedIndex = getDexEntryIndex(notes1);
             mlspecies2_CMB.SelectedIndex = getDexEntryIndex(notes2);
             mlspecies3_CMB.SelectedIndex = getDexEntryIndex(notes3);
+
+            mlhint_CMB.SelectedIndex = getDexEntryIndex(hint);
         }
 
         int getDexEntryIndex(int dexnum)
@@ -282,6 +286,27 @@ namespace DynamaxAdventureReset
                 if (gen8b_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
                 else block.Type = SCTypeCode.Bool1;
             }
+
+
+            //apply misc changes
+
+            var b_notes1 = SAV.Blocks.GetBlock(Definitions.memkeys_MaxLairMisc["KMaxLairSpeciesID1Noted"]);
+            var b_notes2 = SAV.Blocks.GetBlock(Definitions.memkeys_MaxLairMisc["KMaxLairSpeciesID2Noted"]);
+            var b_notes3 = SAV.Blocks.GetBlock(Definitions.memkeys_MaxLairMisc["KMaxLairSpeciesID3Noted"]);
+
+            var b_hint = SAV.Blocks.GetBlock(Definitions.memkeys_MaxLairMisc["KMaxLairPeoniaSpeciesHint"]);
+
+            b_notes1.SetValue(Convert.ToUInt32(Definitions.NationalDex[mlspecies1_CMB.SelectedItem.ToString()]));
+            b_notes2.SetValue(Convert.ToUInt32(Definitions.NationalDex[mlspecies2_CMB.SelectedItem.ToString()]));
+            b_notes3.SetValue(Convert.ToUInt32(Definitions.NationalDex[mlspecies3_CMB.SelectedItem.ToString()]));
+
+            b_hint.SetValue(Convert.ToUInt32(Definitions.NationalDex[mlhint_CMB.SelectedItem.ToString()]));
+
+            var b_dstreak = SAV.Blocks.GetBlock(Definitions.memkeys_MaxLairMisc["KMaxLairDisconnectStreak"]);
+            var b_estreak = SAV.Blocks.GetBlock(Definitions.memkeys_MaxLairMisc["KMaxLairEndlessStreak"]);
+
+            b_dstreak.SetValue(Convert.ToUInt32(dstreak_NUD.Value));
+            b_estreak.SetValue(Convert.ToUInt32(estreak_NUD.Value));
 
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -437,5 +462,101 @@ namespace DynamaxAdventureReset
         {
             MessageBox.Show("For help or to report issues and/or bugs, please contact \"Reshiquori#8124\" and/or \"Darthfiggy#9205\" on Discord.", "Help");
         }
+
+        #region Notes
+        private void mlspecies1_CMB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CheckSpeciesNotes1();
+            CheckLegality();
+        }
+
+        private void mlspecies2_CMB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CheckSpeciesNotes2();
+            CheckLegality();
+        }
+
+        private void mlspecies3_CMB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CheckSpeciesNotes3();
+            CheckLegality();
+        }
+
+        bool CheckSpeciesNotes1()
+        {
+            if (!ml_legality_CB.Checked) return false;
+            if (mlspecies1_CMB.SelectedIndex != 0)
+            {
+                //Quori Programming note:
+                //this looks complicated but it's very simple, and all 3 note checks follow this example
+                //first it makes sure that the value its checking against isn't equal to 0 (this would give us a false positive)
+                //then it simply makes sure that there aren't any duplicates
+                if ((((mlspecies1_CMB.SelectedIndex == mlspecies3_CMB.SelectedIndex) && mlspecies3_CMB.SelectedIndex > 0) || (mlspecies1_CMB.SelectedIndex == mlspecies2_CMB.SelectedIndex) && mlspecies2_CMB.SelectedIndex > 0))
+                {
+                    if (DialogResult.Yes == MessageBox.Show("Notes Value 1 is already set, would you like to disable auto-legality?", "Error", MessageBoxButtons.YesNo))
+                    {
+                        ml_legality_CB.Checked = false;
+                        return false;
+                    }
+                    else mlspecies1_CMB.SelectedIndex = 0;
+
+                }
+            }
+            return true;
+        }
+
+        bool CheckSpeciesNotes2()
+        {
+            if (!ml_legality_CB.Checked) return false;
+            if (mlspecies1_CMB.SelectedIndex != 0)
+            {
+                if ((((mlspecies2_CMB.SelectedIndex == mlspecies3_CMB.SelectedIndex) && mlspecies3_CMB.SelectedIndex > 0) || (mlspecies2_CMB.SelectedIndex == mlspecies1_CMB.SelectedIndex) && mlspecies1_CMB.SelectedIndex > 0))
+                {
+                    if (DialogResult.Yes == MessageBox.Show("Notes Value 2 is already set, would you like to disable auto-legality?", "Error", MessageBoxButtons.YesNo))
+                    {
+                        ml_legality_CB.Checked = false;
+                        return false;
+                    }
+                    else mlspecies2_CMB.SelectedIndex = 0;
+                }
+            }
+            return true;
+        }
+
+        bool CheckSpeciesNotes3()
+        {
+            if (!ml_legality_CB.Checked) return false;
+            if (mlspecies3_CMB.SelectedIndex != 0)
+            {
+                if ((((mlspecies3_CMB.SelectedIndex == mlspecies2_CMB.SelectedIndex) && mlspecies2_CMB.SelectedIndex > 0) || (mlspecies3_CMB.SelectedIndex == mlspecies1_CMB.SelectedIndex) && mlspecies1_CMB.SelectedIndex > 0))
+                {
+                    if (DialogResult.Yes == MessageBox.Show("Notes Value 3 is already set, would you like to disable auto-legality?", "Error", MessageBoxButtons.YesNo))
+                    {
+                        ml_legality_CB.Checked = false;
+                        return false;
+                    }
+                    else mlspecies2_CMB.SelectedIndex = 1;
+
+                }
+            }
+            return true;
+        }
+
+        private void ml_legality_CB_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckSpeciesNotes1();
+            CheckSpeciesNotes2();
+            CheckSpeciesNotes3();
+
+            CheckLegality();
+        }
+
+        void CheckLegality()
+        {
+            if (CheckSpeciesNotes1() && CheckSpeciesNotes2() && CheckSpeciesNotes3()) mlnotes_legal_LBL.Text = "Legal Status: Legal";
+            else mlnotes_legal_LBL.Text = "Legal Status: Potentially Illegal";
+        }
+
+        #endregion
     }
 }

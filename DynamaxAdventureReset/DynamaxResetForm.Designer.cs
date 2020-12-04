@@ -68,15 +68,18 @@
             this.Global = new System.Windows.Forms.GroupBox();
             this.glFA_BTN = new System.Windows.Forms.Button();
             this.glRA_BTN = new System.Windows.Forms.Button();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.estreak_NUD = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.dstreak_NUD = new System.Windows.Forms.NumericUpDown();
             this.mlspecies3_CMB = new System.Windows.Forms.ComboBox();
             this.mlspecies2_CMB = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.mlspecies1_CMB = new System.Windows.Forms.ComboBox();
+            this.mlhint_CMB = new System.Windows.Forms.ComboBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ml_legality_CB = new System.Windows.Forms.CheckBox();
+            this.mlnotes_legal_LBL = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -87,9 +90,9 @@
             this.groupBox9.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.Global.SuspendLayout();
-            this.groupBox11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.estreak_NUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dstreak_NUD)).BeginInit();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // gen7_clistbox
@@ -398,9 +401,9 @@
             this.groupBox7.Controls.Add(this.g6FA_BTN);
             this.groupBox7.Controls.Add(this.g6RA_BTN);
             this.groupBox7.Controls.Add(this.gen6_clistbox);
-            this.groupBox7.Location = new System.Drawing.Point(12, 229);
+            this.groupBox7.Location = new System.Drawing.Point(708, 13);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(132, 241);
+            this.groupBox7.Size = new System.Drawing.Size(132, 211);
             this.groupBox7.TabIndex = 45;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Gen 6";
@@ -430,7 +433,7 @@
             this.groupBox8.Controls.Add(this.g7FA_BTN);
             this.groupBox8.Controls.Add(this.g7RA_BTN);
             this.groupBox8.Controls.Add(this.gen7_clistbox);
-            this.groupBox8.Location = new System.Drawing.Point(150, 230);
+            this.groupBox8.Location = new System.Drawing.Point(12, 229);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(132, 240);
             this.groupBox8.TabIndex = 46;
@@ -462,7 +465,7 @@
             this.groupBox9.Controls.Add(this.g7ubFA_BTN);
             this.groupBox9.Controls.Add(this.g7ubRA_BTN);
             this.groupBox9.Controls.Add(this.UB_clistbox);
-            this.groupBox9.Location = new System.Drawing.Point(288, 230);
+            this.groupBox9.Location = new System.Drawing.Point(150, 229);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(132, 240);
             this.groupBox9.TabIndex = 47;
@@ -494,7 +497,7 @@
             this.groupBox10.Controls.Add(this.g8bFA_BTN);
             this.groupBox10.Controls.Add(this.g8bRA_BTN);
             this.groupBox10.Controls.Add(this.gen8b_clistbox);
-            this.groupBox10.Location = new System.Drawing.Point(426, 230);
+            this.groupBox10.Location = new System.Drawing.Point(288, 229);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(132, 240);
             this.groupBox10.TabIndex = 48;
@@ -552,28 +555,10 @@
             this.glRA_BTN.UseVisualStyleBackColor = true;
             this.glRA_BTN.Click += new System.EventHandler(this.glRA_BTN_Click);
             // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.label3);
-            this.groupBox11.Controls.Add(this.estreak_NUD);
-            this.groupBox11.Controls.Add(this.label2);
-            this.groupBox11.Controls.Add(this.dstreak_NUD);
-            this.groupBox11.Controls.Add(this.mlspecies3_CMB);
-            this.groupBox11.Controls.Add(this.mlspecies2_CMB);
-            this.groupBox11.Controls.Add(this.label1);
-            this.groupBox11.Controls.Add(this.mlspecies1_CMB);
-            this.groupBox11.Enabled = false;
-            this.groupBox11.Location = new System.Drawing.Point(564, 230);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(132, 240);
-            this.groupBox11.TabIndex = 53;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Max Lair Misc";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 193);
+            this.label3.Location = new System.Drawing.Point(144, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 7;
@@ -581,7 +566,7 @@
             // 
             // estreak_NUD
             // 
-            this.estreak_NUD.Location = new System.Drawing.Point(72, 209);
+            this.estreak_NUD.Location = new System.Drawing.Point(210, 76);
             this.estreak_NUD.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -594,7 +579,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 154);
+            this.label2.Location = new System.Drawing.Point(144, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 13);
             this.label2.TabIndex = 5;
@@ -602,7 +587,7 @@
             // 
             // dstreak_NUD
             // 
-            this.dstreak_NUD.Location = new System.Drawing.Point(72, 170);
+            this.dstreak_NUD.Location = new System.Drawing.Point(210, 32);
             this.dstreak_NUD.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -714,10 +699,11 @@
             "Necrozma",
             "Stakataka",
             "Blacephalon"});
-            this.mlspecies3_CMB.Location = new System.Drawing.Point(6, 76);
+            this.mlspecies3_CMB.Location = new System.Drawing.Point(5, 73);
             this.mlspecies3_CMB.Name = "mlspecies3_CMB";
             this.mlspecies3_CMB.Size = new System.Drawing.Size(121, 21);
             this.mlspecies3_CMB.TabIndex = 3;
+            this.mlspecies3_CMB.SelectedIndexChanged += new System.EventHandler(this.mlspecies3_CMB_SelectedIndexChanged);
             // 
             // mlspecies2_CMB
             // 
@@ -825,15 +811,7 @@
             this.mlspecies2_CMB.Name = "mlspecies2_CMB";
             this.mlspecies2_CMB.Size = new System.Drawing.Size(121, 21);
             this.mlspecies2_CMB.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 103);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Not finished yet";
+            this.mlspecies2_CMB.SelectedIndexChanged += new System.EventHandler(this.mlspecies2_CMB_SelectedIndexChanged);
             // 
             // mlspecies1_CMB
             // 
@@ -941,11 +919,170 @@
             this.mlspecies1_CMB.Name = "mlspecies1_CMB";
             this.mlspecies1_CMB.Size = new System.Drawing.Size(121, 21);
             this.mlspecies1_CMB.TabIndex = 0;
+            this.mlspecies1_CMB.SelectedIndexChanged += new System.EventHandler(this.mlspecies1_CMB_SelectedIndexChanged);
+            // 
+            // mlhint_CMB
+            // 
+            this.mlhint_CMB.AutoCompleteCustomSource.AddRange(new string[] {
+            "None",
+            "Articuno",
+            "Zapdos",
+            "Moltres",
+            "Mewtwo",
+            "Raikou",
+            "Entei",
+            "Suicune",
+            "Lugia",
+            "Ho-oh",
+            "Latias",
+            "Latios",
+            "Kyogre",
+            "Groudon",
+            "Rayquaza",
+            "Uxie",
+            "Mesprit",
+            "Azelf",
+            "Dialga",
+            "Palkia",
+            "Heatran",
+            "Giratina",
+            "Cresselia",
+            "Tornadus",
+            "Thundurus",
+            "Reshiram",
+            "Zekrom",
+            "Landorus",
+            "Kyurem",
+            "Xerneas",
+            "Yveltal",
+            "Zygarde",
+            "Tapu Koko",
+            "Tapu Lele",
+            "Tapu Bulu",
+            "Tapu Fini",
+            "Solgaleo",
+            "Lunala",
+            "Nihilego",
+            "Buzzwole",
+            "Pheromosa",
+            "Xurkitree",
+            "Celesteela",
+            "Kartana",
+            "Guzzlord",
+            "Necrozma",
+            "Stakataka",
+            "Blacephalon"});
+            this.mlhint_CMB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.mlhint_CMB.FormattingEnabled = true;
+            this.mlhint_CMB.Items.AddRange(new object[] {
+            "None",
+            "Articuno",
+            "Zapdos",
+            "Moltres",
+            "Mewtwo",
+            "Raikou",
+            "Entei",
+            "Suicune",
+            "Lugia",
+            "Ho-oh",
+            "Latias",
+            "Latios",
+            "Kyogre",
+            "Groudon",
+            "Rayquaza",
+            "Uxie",
+            "Mesprit",
+            "Azelf",
+            "Dialga",
+            "Palkia",
+            "Heatran",
+            "Giratina",
+            "Cresselia",
+            "Tornadus",
+            "Thundurus",
+            "Reshiram",
+            "Zekrom",
+            "Landorus",
+            "Kyurem",
+            "Xerneas",
+            "Yveltal",
+            "Zygarde",
+            "Tapu Koko",
+            "Tapu Lele",
+            "Tapu Bulu",
+            "Tapu Fini",
+            "Solgaleo",
+            "Lunala",
+            "Nihilego",
+            "Buzzwole",
+            "Pheromosa",
+            "Xurkitree",
+            "Celesteela",
+            "Kartana",
+            "Guzzlord",
+            "Necrozma",
+            "Stakataka",
+            "Blacephalon"});
+            this.mlhint_CMB.Location = new System.Drawing.Point(6, 117);
+            this.mlhint_CMB.Name = "mlhint_CMB";
+            this.mlhint_CMB.Size = new System.Drawing.Size(121, 21);
+            this.mlhint_CMB.TabIndex = 8;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label2);
+            this.groupBox6.Controls.Add(this.dstreak_NUD);
+            this.groupBox6.Controls.Add(this.label3);
+            this.groupBox6.Controls.Add(this.estreak_NUD);
+            this.groupBox6.Controls.Add(this.mlnotes_legal_LBL);
+            this.groupBox6.Controls.Add(this.ml_legality_CB);
+            this.groupBox6.Controls.Add(this.mlhint_CMB);
+            this.groupBox6.Controls.Add(this.label1);
+            this.groupBox6.Controls.Add(this.mlspecies1_CMB);
+            this.groupBox6.Controls.Add(this.mlspecies2_CMB);
+            this.groupBox6.Controls.Add(this.mlspecies3_CMB);
+            this.groupBox6.Location = new System.Drawing.Point(426, 230);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(270, 239);
+            this.groupBox6.TabIndex = 54;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Max Lair Notes";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 102);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 13);
+            this.label1.TabIndex = 55;
+            this.label1.Text = "Peonia Pokemon Hint";
+            // 
+            // ml_legality_CB
+            // 
+            this.ml_legality_CB.AutoSize = true;
+            this.ml_legality_CB.Checked = true;
+            this.ml_legality_CB.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ml_legality_CB.Location = new System.Drawing.Point(6, 216);
+            this.ml_legality_CB.Name = "ml_legality_CB";
+            this.ml_legality_CB.Size = new System.Drawing.Size(148, 17);
+            this.ml_legality_CB.TabIndex = 56;
+            this.ml_legality_CB.Text = "Force Legality Corrections";
+            this.ml_legality_CB.UseVisualStyleBackColor = true;
+            this.ml_legality_CB.CheckedChanged += new System.EventHandler(this.ml_legality_CB_CheckedChanged);
+            // 
+            // mlnotes_legal_LBL
+            // 
+            this.mlnotes_legal_LBL.AutoSize = true;
+            this.mlnotes_legal_LBL.Location = new System.Drawing.Point(6, 200);
+            this.mlnotes_legal_LBL.Name = "mlnotes_legal_LBL";
+            this.mlnotes_legal_LBL.Size = new System.Drawing.Size(92, 13);
+            this.mlnotes_legal_LBL.TabIndex = 57;
+            this.mlnotes_legal_LBL.Text = "Legal Status: N/A";
             // 
             // DynamaxResetForm
             // 
             this.ClientSize = new System.Drawing.Size(844, 481);
-            this.Controls.Add(this.groupBox11);
+            this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.Global);
             this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox9);
@@ -971,10 +1108,10 @@
             this.groupBox9.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.Global.ResumeLayout(false);
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.estreak_NUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dstreak_NUD)).EndInit();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1020,14 +1157,17 @@
         private System.Windows.Forms.GroupBox Global;
         private System.Windows.Forms.Button glFA_BTN;
         private System.Windows.Forms.Button glRA_BTN;
-        private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.ComboBox mlspecies1_CMB;
         private System.Windows.Forms.ComboBox mlspecies3_CMB;
         private System.Windows.Forms.ComboBox mlspecies2_CMB;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown dstreak_NUD;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown estreak_NUD;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox mlhint_CMB;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox ml_legality_CB;
+        private System.Windows.Forms.Label mlnotes_legal_LBL;
     }
 }

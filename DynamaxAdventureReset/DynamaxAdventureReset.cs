@@ -76,7 +76,7 @@ namespace DynamaxAdventureReset
         }
         private void hlpBTN_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("To report any bugs or issues, or to suggest features please contact the maintainers on Discord at \"Reshiquori#8124\" and \" Darthfiggy#9205\"", "Help");
+            MessageBox.Show("To report any bugs or issues, or to suggest features please contact the maintainers on Discord at \"Reshiquori#8124\" and \" Darthfiggy#9205\"", "Help --- v 1.1");
         }
         private void sojBTN_Click(object sender, EventArgs e)
         {

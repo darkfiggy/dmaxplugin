@@ -1,8 +1,7 @@
 {
   "profiles": {
     "DynamaxAdventureReset": {
-      "commandName": "Executable",
-      "executablePath": "C:\\Users\\angel\\Desktop\\Switch\\PKHeX\\PKHeX.exe"
+      "commandName": "Project"
     }
   }
 }
