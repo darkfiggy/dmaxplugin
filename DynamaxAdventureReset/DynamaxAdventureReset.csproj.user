@@ -2,13 +2,25 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="DynamaxResetForm.cs">
+    <Compile Update="Controls\PokemonBaseUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\PokemonRenderUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Forms\Crown Tundra\DynamaxResetForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="RegiForm.cs">
+    <Compile Update="Forms\Crown Tundra\RegiForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="SOJForm.cs">
+    <Compile Update="Forms\Crown Tundra\SOJForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\HelpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\WorldEventsForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

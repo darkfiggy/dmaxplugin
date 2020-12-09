@@ -102,12 +102,7 @@ namespace DynamaxAdventureReset
             0xF769AFDF, //Blacephalon
         };
 
-        public uint[] Gen8BirbKeys = new uint[]
-        {
-            0x4CAB7DA6, //Galarian Articuno
-            0x284CBECF, //Galarian Zapdos
-            0xF1E493AA, //Galarian Moltres
-        };
+
         private void DynamaxResetForm_Load(object sender, EventArgs e)
         {
              
@@ -176,13 +171,6 @@ namespace DynamaxAdventureReset
                     UB_clistbox.SetItemChecked(i, true);
             }
 
-            //Check gen 8 birbs
-            for (int i = 0; i < Gen8BirbKeys.Length; i++)
-            {
-                var block = SAV.Blocks.GetBlock(Gen8BirbKeys[i]);
-                if (block.Type == SCTypeCode.Bool2)
-                    gen8b_clistbox.SetItemChecked(i, true);
-            }
 
 
 
@@ -279,13 +267,6 @@ namespace DynamaxAdventureReset
                 else block.Type = SCTypeCode.Bool1;
             }
 
-            //Check gen 8 birbs
-            for (int i = 0; i < Gen8BirbKeys.Length; i++)
-            {
-                var block = SAV.Blocks.GetBlock(Gen8BirbKeys[i]);
-                if (gen8b_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
-                else block.Type = SCTypeCode.Bool1;
-            }
 
 
             //apply misc changes
@@ -313,7 +294,7 @@ namespace DynamaxAdventureReset
         }
 
         //Quori: This was a pain to set-up, there was probably a better way to do it, but oh well I'll do it later.
-        enum Generations { Gen1, Gen2, Gen3, Gen4, Gen5, Gen6, Gen7, Gen7_UB, Gen8_Bird }
+        enum Generations { Gen1, Gen2, Gen3, Gen4, Gen5, Gen6, Gen7, Gen7_UB }
         void SetValue(Generations Generation, bool Value)
         {
             switch (Generation)
@@ -341,9 +322,6 @@ namespace DynamaxAdventureReset
                     break;
                 case (Generations.Gen7_UB):
                     for (int i = 0; i < UB_clistbox.Items.Count; i++) UB_clistbox.SetItemChecked(i, Value);
-                    break;
-                case (Generations.Gen8_Bird):
-                    for (int i = 0; i < gen8b_clistbox.Items.Count; i++) gen8b_clistbox.SetItemChecked(i, Value);
                     break;
             }
 
@@ -431,31 +409,18 @@ namespace DynamaxAdventureReset
         {
             SetValue(Generations.Gen7_UB, false);
         }
-
-
-        private void g8bFA_BTN_Click(object sender, EventArgs e)
-        {
-            SetValue(Generations.Gen8_Bird, true);
-        }
-
-        private void g8bRA_BTN_Click(object sender, EventArgs e)
-        {
-            SetValue(Generations.Gen8_Bird, false);
-        }
-
-
         #endregion
 
         private void glFA_BTN_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Are you sure you want to check everything?", "Alert", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes) for (int i = 0; i < (int)Generations.Gen8_Bird + 1; i++) SetValue((Generations)i, true);
+            if (result == DialogResult.Yes) for (int i = 0; i < (int)Generations.Gen7_UB + 1; i++) SetValue((Generations)i, true);
         }
 
         private void glRA_BTN_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Are you sure you want to un-check everything?", "Alert", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes) for (int i = 0; i < (int)Generations.Gen8_Bird + 1; i++) SetValue((Generations)i, false);
+            if (result == DialogResult.Yes) for (int i = 0; i < (int)Generations.Gen7_UB + 1; i++) SetValue((Generations)i, false);
         }
 
         private void report_BTN_Click(object sender, EventArgs e)
@@ -558,5 +523,36 @@ namespace DynamaxAdventureReset
         }
 
         #endregion
+
+        private void mlhint_CMB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (SAV.Version == GameVersion.SW)
+            {
+                if (!Definitions.mlex_Sword.Contains(mlhint_CMB.SelectedItem)  && mlhint_CMB.SelectedItem != "None" && ml_legality_CB.Checked)
+                {
+                    if (DialogResult.Yes == ShowWrongGameMSG())
+                    {
+                        mlhint_CMB.SelectedItem = Definitions.mlex_Sword[Definitions.mlex_Shield.IndexOf(mlhint_CMB.SelectedItem.ToString())];
+                    }
+                    else ml_legality_CB.Checked = false;
+                }
+            }
+            else if (SAV.Version == GameVersion.SH)
+            {
+                if (!Definitions.mlex_Shield.Contains(mlhint_CMB.SelectedItem) && mlhint_CMB.SelectedItem != "None" && ml_legality_CB.Checked)
+                {
+                    if (DialogResult.Yes == ShowWrongGameMSG())
+                    {
+                        mlhint_CMB.SelectedItem = Definitions.mlex_Shield[Definitions.mlex_Sword.IndexOf(mlhint_CMB.SelectedItem.ToString())];
+                    }
+                    else ml_legality_CB.Checked = false;
+                }
+            }
+        }
+
+        DialogResult ShowWrongGameMSG()
+        {
+            return MessageBox.Show("You have chosen a legendary that you cannot have notes for! Would you like to correct this to the legendary for your game?", "Error", MessageBoxButtons.YesNo);
+        }
     }
 }

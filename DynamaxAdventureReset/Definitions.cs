@@ -16,6 +16,7 @@ namespace DynamaxAdventureReset
         /// </summary>
         public static uint KRegielekiOrRegidragoPattern = 0xCF90B39A;
 
+
         public static readonly Dictionary<string, uint> memkeys_FootprintPercentage = new Dictionary<string, uint>()
         {
                 { "Cobalion", 0x4D50B655},
@@ -41,6 +42,18 @@ namespace DynamaxAdventureReset
                 { "Regidrago", 0x4F30F174}
         };
 
+        public static readonly Dictionary<string, uint> memkeys_Birds = new Dictionary<string, uint>()
+        {
+            { "Galarian Articuno", 0x4CAB7DA6},
+            { "Galarian Zapdos", 0x284CBECF},
+            { "Galarian Moltres", 0xF1E493AA},
+        };
+
+        public static readonly Dictionary<string, uint> memkeys_CrownTundra_Misc = new Dictionary<string, uint>()
+        {
+            { "z_wr0301_i0401_COSMOG", 0x52F6F77F}
+        };
+
         public static readonly Dictionary<string, uint> memkeys_MaxLairMisc = new Dictionary<string, uint>()
         {
             { "KMaxLairDisconnectStreak", 0x8EAEB8FF},
@@ -55,6 +68,25 @@ namespace DynamaxAdventureReset
             { "KMaxLairRentalChoiceSeed", 0x0D74AA40},
         };
 
+        public static readonly List<string> mlex_Sword = new List<string>()
+        { "Ho-oh",
+          "Latios",
+          "Groudon",
+          "Dialga",
+          "Tornadus",
+          "Reshiram",
+          "Xerneas"
+        };
+
+        public static readonly List<string> mlex_Shield = new List<string>()
+        { "Lugia",
+          "Latias",
+          "Kyogre",
+          "Palkia",
+          "Thundurus",
+          "Zekrom",
+          "Yveltal"
+        };
         public static readonly Dictionary<string, uint> NationalDex = new Dictionary<string, uint>()
         {
             { "None", 0},

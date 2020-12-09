@@ -36,7 +36,6 @@
             this.gen4_clistbox = new System.Windows.Forms.CheckedListBox();
             this.gen5_clistbox = new System.Windows.Forms.CheckedListBox();
             this.gen6_clistbox = new System.Windows.Forms.CheckedListBox();
-            this.gen8b_clistbox = new System.Windows.Forms.CheckedListBox();
             this.applyBTN = new System.Windows.Forms.Button();
             this.g1FA_BTN = new System.Windows.Forms.Button();
             this.g1RA_BTN = new System.Windows.Forms.Button();
@@ -62,9 +61,6 @@
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.g7ubFA_BTN = new System.Windows.Forms.Button();
             this.g7ubRA_BTN = new System.Windows.Forms.Button();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.g8bFA_BTN = new System.Windows.Forms.Button();
-            this.g8bRA_BTN = new System.Windows.Forms.Button();
             this.Global = new System.Windows.Forms.GroupBox();
             this.glFA_BTN = new System.Windows.Forms.Button();
             this.glRA_BTN = new System.Windows.Forms.Button();
@@ -77,9 +73,9 @@
             this.mlspecies1_CMB = new System.Windows.Forms.ComboBox();
             this.mlhint_CMB = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.ml_legality_CB = new System.Windows.Forms.CheckBox();
             this.mlnotes_legal_LBL = new System.Windows.Forms.Label();
+            this.ml_legality_CB = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -88,7 +84,6 @@
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox9.SuspendLayout();
-            this.groupBox10.SuspendLayout();
             this.Global.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.estreak_NUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dstreak_NUD)).BeginInit();
@@ -213,18 +208,6 @@
             this.gen6_clistbox.Name = "gen6_clistbox";
             this.gen6_clistbox.Size = new System.Drawing.Size(120, 49);
             this.gen6_clistbox.TabIndex = 10;
-            // 
-            // gen8b_clistbox
-            // 
-            this.gen8b_clistbox.FormattingEnabled = true;
-            this.gen8b_clistbox.Items.AddRange(new object[] {
-            "G Articuno",
-            "G Zapdos",
-            "G Moltres"});
-            this.gen8b_clistbox.Location = new System.Drawing.Point(6, 18);
-            this.gen8b_clistbox.Name = "gen8b_clistbox";
-            this.gen8b_clistbox.Size = new System.Drawing.Size(120, 49);
-            this.gen8b_clistbox.TabIndex = 29;
             // 
             // applyBTN
             // 
@@ -491,38 +474,6 @@
             this.g7ubRA_BTN.Text = "Reset All";
             this.g7ubRA_BTN.UseVisualStyleBackColor = true;
             this.g7ubRA_BTN.Click += new System.EventHandler(this.g7ubRA_BTN_Click);
-            // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.g8bFA_BTN);
-            this.groupBox10.Controls.Add(this.g8bRA_BTN);
-            this.groupBox10.Controls.Add(this.gen8b_clistbox);
-            this.groupBox10.Location = new System.Drawing.Point(288, 229);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(132, 240);
-            this.groupBox10.TabIndex = 48;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Gen 8 Birds";
-            // 
-            // g8bFA_BTN
-            // 
-            this.g8bFA_BTN.Location = new System.Drawing.Point(6, 73);
-            this.g8bFA_BTN.Name = "g8bFA_BTN";
-            this.g8bFA_BTN.Size = new System.Drawing.Size(120, 24);
-            this.g8bFA_BTN.TabIndex = 50;
-            this.g8bFA_BTN.Text = "Found All";
-            this.g8bFA_BTN.UseVisualStyleBackColor = true;
-            this.g8bFA_BTN.Click += new System.EventHandler(this.g8bFA_BTN_Click);
-            // 
-            // g8bRA_BTN
-            // 
-            this.g8bRA_BTN.Location = new System.Drawing.Point(6, 103);
-            this.g8bRA_BTN.Name = "g8bRA_BTN";
-            this.g8bRA_BTN.Size = new System.Drawing.Size(120, 24);
-            this.g8bRA_BTN.TabIndex = 51;
-            this.g8bRA_BTN.Text = "Reset All";
-            this.g8bRA_BTN.UseVisualStyleBackColor = true;
-            this.g8bRA_BTN.Click += new System.EventHandler(this.g8bRA_BTN_Click);
             // 
             // Global
             // 
@@ -1027,6 +978,7 @@
             this.mlhint_CMB.Name = "mlhint_CMB";
             this.mlhint_CMB.Size = new System.Drawing.Size(121, 21);
             this.mlhint_CMB.TabIndex = 8;
+            this.mlhint_CMB.SelectedIndexChanged += new System.EventHandler(this.mlhint_CMB_SelectedIndexChanged);
             // 
             // groupBox6
             // 
@@ -1041,21 +993,21 @@
             this.groupBox6.Controls.Add(this.mlspecies1_CMB);
             this.groupBox6.Controls.Add(this.mlspecies2_CMB);
             this.groupBox6.Controls.Add(this.mlspecies3_CMB);
-            this.groupBox6.Location = new System.Drawing.Point(426, 230);
+            this.groupBox6.Location = new System.Drawing.Point(288, 231);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(270, 239);
+            this.groupBox6.Size = new System.Drawing.Size(408, 239);
             this.groupBox6.TabIndex = 54;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Max Lair Notes";
             // 
-            // label1
+            // mlnotes_legal_LBL
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 102);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 13);
-            this.label1.TabIndex = 55;
-            this.label1.Text = "Peonia Pokemon Hint";
+            this.mlnotes_legal_LBL.AutoSize = true;
+            this.mlnotes_legal_LBL.Location = new System.Drawing.Point(6, 200);
+            this.mlnotes_legal_LBL.Name = "mlnotes_legal_LBL";
+            this.mlnotes_legal_LBL.Size = new System.Drawing.Size(92, 13);
+            this.mlnotes_legal_LBL.TabIndex = 57;
+            this.mlnotes_legal_LBL.Text = "Legal Status: N/A";
             // 
             // ml_legality_CB
             // 
@@ -1070,21 +1022,20 @@
             this.ml_legality_CB.UseVisualStyleBackColor = true;
             this.ml_legality_CB.CheckedChanged += new System.EventHandler(this.ml_legality_CB_CheckedChanged);
             // 
-            // mlnotes_legal_LBL
+            // label1
             // 
-            this.mlnotes_legal_LBL.AutoSize = true;
-            this.mlnotes_legal_LBL.Location = new System.Drawing.Point(6, 200);
-            this.mlnotes_legal_LBL.Name = "mlnotes_legal_LBL";
-            this.mlnotes_legal_LBL.Size = new System.Drawing.Size(92, 13);
-            this.mlnotes_legal_LBL.TabIndex = 57;
-            this.mlnotes_legal_LBL.Text = "Legal Status: N/A";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 102);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 13);
+            this.label1.TabIndex = 55;
+            this.label1.Text = "Peonia Pokemon Hint";
             // 
             // DynamaxResetForm
             // 
             this.ClientSize = new System.Drawing.Size(844, 481);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.Global);
-            this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox9);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox7);
@@ -1106,7 +1057,6 @@
             this.groupBox7.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
-            this.groupBox10.ResumeLayout(false);
             this.Global.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.estreak_NUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dstreak_NUD)).EndInit();
@@ -1125,7 +1075,6 @@
         private System.Windows.Forms.CheckedListBox gen4_clistbox;
         private System.Windows.Forms.CheckedListBox gen5_clistbox;
         private System.Windows.Forms.CheckedListBox gen6_clistbox;
-        private System.Windows.Forms.CheckedListBox gen8b_clistbox;
         private System.Windows.Forms.Button applyBTN;
         private System.Windows.Forms.Button g1FA_BTN;
         private System.Windows.Forms.Button g1RA_BTN;
@@ -1151,9 +1100,6 @@
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.Button g7ubFA_BTN;
         private System.Windows.Forms.Button g7ubRA_BTN;
-        private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.Button g8bFA_BTN;
-        private System.Windows.Forms.Button g8bRA_BTN;
         private System.Windows.Forms.GroupBox Global;
         private System.Windows.Forms.Button glFA_BTN;
         private System.Windows.Forms.Button glRA_BTN;
