@@ -20,7 +20,7 @@ namespace DynamaxAdventureReset
         Settings settings = new Settings();
 
 
-        string VersionNum = "1.1.2.0";
+        string VersionNum = "1.1.3.0";
         public void Initialize(params object[] args)
         {
             Console.WriteLine($"Loading {Name}...");
@@ -32,8 +32,19 @@ namespace DynamaxAdventureReset
             string dir = Directory.GetParent(System.Reflection.Assembly.GetEntryAssembly().Location).ToString();
 
             if (!File.Exists($"{dir}\\DynamaxAdventureReset.cfg"))
-                settings.Write(dir);
+                settings.WriteBase(dir);
+
             settings.Read(dir);
+
+            if (settings.Items["latest"] != VersionNum)
+            {
+                settings.WriteBase(dir);
+                settings.Read(dir);
+            }
+
+
+
+
             if (settings.Items["firstStart"] == "true")
             {
                 MessageBox.Show("Thank you for downloading the Dynamax Adventure Plugin!\nThis message box is here just to let you know that this plugin isn't perfect and we cannot promise you that your save will be 100% legal. However, we will try to improve as best we can!\n" +
@@ -42,10 +53,7 @@ namespace DynamaxAdventureReset
                 settings.Write(dir);
             }
 
-            if (settings.Items["latest"] != VersionNum)
-            {
-                settings.Write(dir);
-            }
+
         }
 
         private void LoadMenuStrip(ToolStrip menuStrip)

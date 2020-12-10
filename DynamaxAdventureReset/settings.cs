@@ -14,11 +14,12 @@ namespace DynamaxAdventureReset
     public class Settings
     {
 
-        public Dictionary<string, string> Items = new Dictionary<string, string>()
+        public Dictionary<string, string> BaseItems = new Dictionary<string, string>()
     {
         { "latest", "1.1.2.0" },
         { "firstStart", "true" }
     };
+        public Dictionary<string, string> Items = new Dictionary<string, string>();
 
         public void Read(string dir)
         {
@@ -26,6 +27,7 @@ namespace DynamaxAdventureReset
             {
                 Items.Clear();
                 string line;
+
                 while ((line = sr.ReadLine()) != null)
                 {
                     if (!line.StartsWith("#"))
@@ -38,6 +40,18 @@ namespace DynamaxAdventureReset
             }
         }
 
+        public void WriteBase(string dir)
+        {
+            using (StreamWriter sw = new StreamWriter($"{dir}\\DynamaxAdventureReset.cfg"))
+            {
+                sw.WriteLine("#Config for Dynamax Adventure Plugin");
+                for (int i = 0; i < BaseItems.Count; i++)
+                {
+                    sw.WriteLine($"{Items.ElementAt(i).Key}:{BaseItems.ElementAt(i).Value}");
+                }
+                sw.Close();
+            }
+        }
         public void Write(string dir)
         {
             using (StreamWriter sw = new StreamWriter($"{dir}\\DynamaxAdventureReset.cfg"))

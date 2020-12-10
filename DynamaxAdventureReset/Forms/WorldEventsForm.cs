@@ -35,8 +35,104 @@ namespace DynamaxAdventureReset
 
         private void WorldEvents_Load(object sender, EventArgs e)
         {
+            SetupMain();
             SetupCrownTundra();
         }
+
+        #region Main Game
+        void SetupMain()
+        {
+            main_hours_NUD.Value = SAV.PlayedHours;
+            main_minutes_NUD.Value = SAV.PlayedMinutes;
+            main_seconds_NUD.Value = SAV.PlayedSeconds;
+
+            main_tid_NUD.Value = SAV.TID;
+            main_sid_NUD.Value = SAV.SID;
+
+            main_trainername_TB.Text = SAV.OT;
+            main_gender_CMB.SelectedIndex = SAV.Gender;
+            main_game_CMB.SelectedIndex = SAV.Game - 45;
+
+            main_money_NUD.Value = SAV.Money;
+
+        }
+
+        void SaveMain()
+        {
+            SAV.PlayedSeconds = (int)main_seconds_NUD.Value;
+            SAV.PlayedMinutes = (int)main_minutes_NUD.Value;
+            SAV.PlayedHours = (int)main_hours_NUD.Value;
+
+            SAV.Game = (int)main_game_NUD.Value;
+            SAV.Gender = (int)main_gender_NUD.Value;
+
+            SAV.TID = (int)main_tid_NUD.Value;
+            SAV.SID = (int)main_sid_NUD.Value;
+            SAV.OT = main_trainername_TB.Text;
+            SAV.Money = (uint)main_money_NUD.Value;
+        }
+
+        private void main_gender_CMB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            main_gender_NUD.Value = main_gender_CMB.SelectedIndex;
+        }
+
+        private void main_game_CMB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            main_game_NUD.Value = main_game_CMB.SelectedIndex + 45;
+        }
+
+        private void main_gender_NUD_ValueChanged(object sender, EventArgs e)
+        {
+            if (main_gender_NUD.Value == 0 || main_gender_NUD.Value == 1)
+            {
+                main_gender_CMB.Enabled = true;
+                main_gender_CMB.SelectedIndex = (int)main_gender_NUD.Value;
+            }
+            else
+            {
+                main_gender_CMB.Enabled = false;
+            }
+        }
+
+        private void main_game_NUD_ValueChanged(object sender, EventArgs e)
+        {
+            if (main_game_NUD.Value == 45 || main_game_NUD.Value == 46)
+            {
+                main_game_CMB.Enabled = true;
+                main_game_CMB.SelectedIndex = (int)(main_game_NUD.Value - 45);
+
+            }
+            else
+            {
+                main_game_CMB.Enabled = false;
+            }
+        }
+
+        private void main_trainer_forcelegal_CB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (main_trainer_forcelegal_CB.Checked)
+            {
+                if (!(main_game_NUD.Value == 45 || main_game_NUD.Value == 46))
+                {
+                    main_game_NUD.Value = SAV.Game;
+                }
+
+                if (!(main_gender_NUD.Value == 0 || main_gender_NUD.Value == 1))
+                {
+                    main_gender_NUD.Value = SAV.Gender;
+                }
+                main_gender_NUD.Enabled = false;
+                main_game_NUD.Enabled = false;
+            }
+            else
+            {
+                main_gender_NUD.Enabled = true;
+                main_game_NUD.Enabled = true;
+            }
+        }
+
+        #endregion
 
         #region Crown Tundra
         void SetupCrownTundra()
@@ -88,9 +184,11 @@ namespace DynamaxAdventureReset
 
         private void ts_applyBTN_Click(object sender, EventArgs e)
         {
+            SaveMain();
             SaveCrownTundra();
 
             this.Close();
         }
+
     }
 }

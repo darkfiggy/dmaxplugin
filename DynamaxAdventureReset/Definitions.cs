@@ -16,6 +16,7 @@ namespace DynamaxAdventureReset
         /// </summary>
         public static uint KRegielekiOrRegidragoPattern = 0xCF90B39A;
 
+        public static uint Playtime = 0x8CBBFD90;
 
         public static readonly Dictionary<string, uint> memkeys_FootprintPercentage = new Dictionary<string, uint>()
         {
