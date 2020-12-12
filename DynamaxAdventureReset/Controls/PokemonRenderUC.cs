@@ -18,9 +18,9 @@ namespace DynamaxAdventureReset.Controls
         }
 
         private Image pokemon;
-        private int pokemonsubform;
+        private string pokemonsubform;
 
-        public int PokemonSubForm
+        public string PokemonSubForm
         {
             get
             {
@@ -56,6 +56,7 @@ namespace DynamaxAdventureReset.Controls
             set
             {
                 legalstatus = value;
+                this.Invalidate();
             }
         }
 
@@ -76,6 +77,17 @@ namespace DynamaxAdventureReset.Controls
             set 
             {
                 caught = value;
+                this.Invalidate();
+                Caught_OnClick?.Invoke(this, new EventArgs());
+            }
+        }
+
+        public string ToolTip
+        {
+            get { return toolTip1.GetToolTip(this); }
+            set
+            {
+                toolTip1.SetToolTip(this, value);
             }
         }
         void SetupPokemon()
@@ -83,7 +95,7 @@ namespace DynamaxAdventureReset.Controls
             pokemon?.Dispose();
 
             string pokemonstr = $"b_{pokemonID}";
-            if (pokemonsubform != 0)
+            if (pokemonsubform != "" && pokemonsubform != "0")
                 pokemonstr += $"_{pokemonsubform}";
 
             pokemon = (Bitmap)Properties.Resources.ResourceManager.GetObject(pokemonstr);
@@ -93,8 +105,21 @@ namespace DynamaxAdventureReset.Controls
 
         }
 
+        private bool drawDyna;
+        public bool DrawDynaxMaxIcon
+        {
+            get { return drawDyna; }
+            set { drawDyna = value; }
+        }
+        public event EventHandler LegaliltyCheck_OnClick;
+        public event EventHandler Caught_OnClick;
+
         Point MousePos = new Point();
         public bool capturedMouse;
+        private void PokemonRenderUC_Load(object sender, EventArgs e)
+        {
+
+        }
 
         private void PokemonRenderUC_Paint(object sender, PaintEventArgs e)
         {
@@ -111,12 +136,14 @@ namespace DynamaxAdventureReset.Controls
                 e.Graphics.DrawImage(Properties.Resources._ball4, this.Width - 15, this.Height - 15, 15, 15);
 
             if (messageicon)
-                e.Graphics.DrawImage(Properties.Resources.hint, this.Width - 16, 0);
+                e.Graphics.DrawImage(Properties.Resources.hint, 0, this.Height - 16);
 
             if (legalstatus == LegalStatus.Illegal)
                 e.Graphics.DrawImage(Properties.Resources.warn, 0,0 );
             else
                 e.Graphics.DrawImage(Properties.Resources.valid, 0, 0);
+            if (drawDyna)
+                e.Graphics.DrawImage(Properties.Resources.dyna, this.Width - 20, 0);
         }
 
         private void PokemonRenderUC_MouseMove(object sender, MouseEventArgs e)
@@ -137,6 +164,56 @@ namespace DynamaxAdventureReset.Controls
         {
             capturedMouse = false;
             this.Invalidate();
+        }
+
+        private void PokemonRenderUC_MouseDown(object sender, MouseEventArgs e)
+        {
+            MousePos.X = e.X;
+            MousePos.Y = e.Y;
+            if (e.Button == MouseButtons.Left && !shift && !control)
+            {
+                if ((e.X >= 0 && e.X <= 16) && (e.Y >= 0 && e.Y <= 16))
+                    LegaliltyCheck_OnClick?.Invoke(sender, e);
+            }
+            else if(e.Button == MouseButtons.Left && shift)
+            {
+                LegaliltyCheck_OnClick?.Invoke(sender, e);
+            }
+            else if (e.Button == MouseButtons.Left && control)
+            {
+                Caught = !Caught;
+            }
+            this.Invalidate();
+        }
+
+        bool shift;
+        bool control;
+
+        private void PokemonRenderUC_KeyUp(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case (Keys.LShiftKey):
+                    shift = false;
+                    break;
+                case (Keys.ControlKey):
+                    control = false;
+                    break;
+            }
+
+        }
+
+        private void PokemonRenderUC_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case (Keys.ShiftKey):
+                    shift = true;
+                    break;
+                case (Keys.ControlKey):
+                    control = true;
+                    break;
+            }
         }
     }
 }

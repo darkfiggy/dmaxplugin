@@ -16,4 +16,7 @@ C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\Dynam
 C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\DynamaxAdventureReset.Forms.WorldEventsForm.resources
 C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\DynamaxAdventureReset.Controls.PokemonRenderUC.resources
 C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\DynamaxAdventureReset.Controls.PokemonBaseUC.resources
+C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\DynamaxAdventureReset.Forms.PokeCampCurrydexForm.resources
+C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\DynamaxAdventureReset.Forms.Wondercard Conversion.resources
+C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\DynamaxAdventureReset.Controls.WondercardControl.resources
 C:\Users\angel\Documents\GitHub\dmaxplugin\DynamaxAdventureReset\obj\Debug\DynamaxAdventureReset.csprojAssemblyReference.cache

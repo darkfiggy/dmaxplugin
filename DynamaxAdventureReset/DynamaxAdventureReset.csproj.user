@@ -8,6 +8,9 @@
     <Compile Update="Controls\PokemonRenderUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\WondercardControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Forms\Crown Tundra\DynamaxResetForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -17,10 +20,16 @@
     <Compile Update="Forms\Crown Tundra\SOJForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\PokeCampCurrydexForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\HelpForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\WorldEventsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Wondercard Conversion.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

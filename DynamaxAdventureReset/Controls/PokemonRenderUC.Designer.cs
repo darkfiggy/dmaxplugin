@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // PokemonRenderUC
@@ -39,7 +41,11 @@
             this.MinimumSize = new System.Drawing.Size(68, 56);
             this.Name = "PokemonRenderUC";
             this.Size = new System.Drawing.Size(68, 56);
+            this.Load += new System.EventHandler(this.PokemonRenderUC_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.PokemonRenderUC_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PokemonRenderUC_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.PokemonRenderUC_KeyUp);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PokemonRenderUC_MouseDown);
             this.MouseEnter += new System.EventHandler(this.PokemonRenderUC_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.PokemonRenderUC_MouseLeave);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PokemonRenderUC_MouseMove);
@@ -48,5 +54,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

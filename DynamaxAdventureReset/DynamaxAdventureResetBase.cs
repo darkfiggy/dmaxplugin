@@ -31,27 +31,27 @@ namespace DynamaxAdventureReset
 
             string dir = Directory.GetParent(System.Reflection.Assembly.GetEntryAssembly().Location).ToString();
 
-            if (!File.Exists($"{dir}\\DynamaxAdventureReset.cfg"))
-                settings.WriteBase(dir);
+            //if (!File.Exists($"{dir}\\DynamaxAdventureReset.cfg"))
+            //    settings.WriteBase(dir);
 
-            settings.Read(dir);
+            //settings.Read(dir);
 
-            if (settings.Items["latest"] != VersionNum)
-            {
-                settings.WriteBase(dir);
-                settings.Read(dir);
-            }
-
-
+            //if (settings.Items["latest"] != VersionNum)
+            //{
+            //    settings.WriteBase(dir);
+            //    settings.Read(dir);
+            //}
 
 
-            if (settings.Items["firstStart"] == "true")
-            {
-                MessageBox.Show("Thank you for downloading the Dynamax Adventure Plugin!\nThis message box is here just to let you know that this plugin isn't perfect and we cannot promise you that your save will be 100% legal. However, we will try to improve as best we can!\n" +
-                    " ** We are not reponsible for any damage done to your save by this plugin. **", "First Time Opening", MessageBoxButtons.OK);
-                settings.Items["firstStart"] = "false";
-                settings.Write(dir);
-            }
+
+
+            //if (settings.Items["firstStart"] == "true")
+            //{
+            //    MessageBox.Show("Thank you for downloading the Dynamax Adventure Plugin!\nThis message box is here just to let you know that this plugin isn't perfect and we cannot promise you that your save will be 100% legal. However, we will try to improve as best we can!\n" +
+            //        " ** We are not reponsible for any damage done to your save by this plugin. **", "First Time Opening", MessageBoxButtons.OK);
+            //    settings.Items["firstStart"] = "false";
+            //    settings.Write(dir);
+            //}
 
 
         }
@@ -95,6 +95,9 @@ namespace DynamaxAdventureReset
                 var sojBTN = new ToolStripMenuItem($"Edit Swords of Justice");
 
 
+                var wc8BTN = new ToolStripMenuItem("Convert Wondercard");
+
+                var curryBTN = new ToolStripMenuItem("Edit Currydex/Pokecamp");
 
                 var hlpBTN = new ToolStripMenuItem($"Help");
 
@@ -106,6 +109,9 @@ namespace DynamaxAdventureReset
                 regiBTN.Click += (s, e) => regiBTN_Click(s, e);
                 sojBTN.Click += (s, e) => sojBTN_Click(s, e);
                 ct_worldevents.Click += (s, e) => ct_worldeventsBTN_Click(s, e);
+
+                curryBTN.Click += (s, e) => curryBTN_Click(s, e);
+                wc8BTN.Click += (s, e) => wc8BTN_Click(s, e);
 
                 hlpBTN.Click += (s, e) => hlpBTN_Click(s, e);
 
@@ -124,6 +130,9 @@ namespace DynamaxAdventureReset
                 ctrl.DropDownItems.Add(mainBTN);
                 ctrl.DropDownItems.Add(armorBTN);
                 ctrl.DropDownItems.Add(crownBTN);
+                ctrl.DropDownItems.Add(new ToolStripSeparator());
+                ctrl.DropDownItems.Add(curryBTN);
+                ctrl.DropDownItems.Add(wc8BTN);
                 ctrl.DropDownItems.Add(new ToolStripSeparator());
                 ctrl.DropDownItems.Add(hlpBTN);
                 Console.WriteLine($"{Name} added menu items.");
@@ -159,6 +168,23 @@ namespace DynamaxAdventureReset
                 form.ShowDialog();
             }
 
+        }
+
+        private void curryBTN_Click(object sender, EventArgs e)
+        {
+            using (Forms.PokeCampCurrydexForm form = new Forms.PokeCampCurrydexForm())
+            {
+                form.SAV = (SAV8SWSH)SaveFileEditor.SAV;
+                form.ShowDialog();
+            }
+        }
+        private void wc8BTN_Click(object sender, EventArgs e)
+        {
+            using (Wonder2FashionForm form = new Wonder2FashionForm())
+            {
+                form.SAV = (SAV8SWSH)SaveFileEditor.SAV;
+                form.ShowDialog();
+            }
         }
         private void main_worldeventsBTN_Click(object sender, EventArgs e)
         {

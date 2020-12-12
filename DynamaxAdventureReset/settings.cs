@@ -16,7 +16,7 @@ namespace DynamaxAdventureReset
 
         public Dictionary<string, string> BaseItems = new Dictionary<string, string>()
     {
-        { "latest", "1.1.2.0" },
+        { "latest", "1.1.3.0" },
         { "firstStart", "true" }
     };
         public Dictionary<string, string> Items = new Dictionary<string, string>();

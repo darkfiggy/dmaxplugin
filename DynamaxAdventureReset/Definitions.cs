@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PKHeX.Core;
+using PKHeX.Core;
 
 namespace DynamaxAdventureReset
 {
@@ -17,6 +18,7 @@ namespace DynamaxAdventureReset
         public static uint KRegielekiOrRegidragoPattern = 0xCF90B39A;
 
         public static uint Playtime = 0x8CBBFD90;
+
 
         public static readonly Dictionary<string, uint> memkeys_FootprintPercentage = new Dictionary<string, uint>()
         {
@@ -50,9 +52,38 @@ namespace DynamaxAdventureReset
             { "Galarian Moltres", 0xF1E493AA},
         };
 
+        public static readonly Dictionary<string, uint> memkeys_Gifts = new Dictionary<string, uint>()
+        {
+            { "FSYS_PLAY_LETSGO_PIKACHU", 0x1C74460E},
+            { "FSYS_PLAY_LETSGO_EEVEE", 0xC804E4AF},
+            { "FE_SUB_037_PIKACHU_CLEAR", 0x9D95E9CA},
+            { "FE_SUB_037_EEVEE_CLEAR", 0x855235FF},
+            { "FE_SUB_005_CLEAR", 0xC41B40F7},
+            { "z_d0901_BEBENOM", 0x4B3C9063},
+            { "z_bt0101_POKE_NUL", 0x2AB6CECC},
+            { "z_wr0301_i0401_COSMOG", 0x52F6F77F},
+            { "z_t0101_i0202_MONSBALL", 0x178159E5}
+        };
+
+        public static readonly Dictionary<string, uint> memkeys_PokeCamp = new Dictionary<string, uint>()
+        {
+            { "FSYS_POKECAMP_OPEN_FRESH_BALL", 0xAFA33CBD},
+            { "FSYS_POKECAMP_OPEN_HEAVY_BALL", 0xE49088C4},
+            { "FSYS_POKECAMP_OPEN_YASURAGI_BALL", 0x45E850BE}, //soothe?
+            { "FSYS_POKECAMP_OPEN_MIRROR_BALL", 0x9B6CD5A2},
+            { "FSYS_POKECAMP_OPEN_OTAMA_BALL", 0xEA3E6881}, //tympole?
+            { "FSYS_POKECAMP_OPEN_CHAMPION_BALL", 0x45FD94D6},
+
+            { "FSYS_POKECAMP_OPEN_GOLDEN_KITCHENWARE", 0x72D4B15E},
+            { "FSYS_POKECAMP_USE_GOLDEN_KITCHENWARE", 0x88FE6F97},
+            { "SYS_WORK_POKECAMP_TENT_COLOR", 0x61952B51}
+        };
+
         public static readonly Dictionary<string, uint> memkeys_CrownTundra_Misc = new Dictionary<string, uint>()
         {
-            { "z_wr0301_i0401_COSMOG", 0x52F6F77F}
+            { "FE_CAPTURE_MIKARUGE", 0x11C12005},
+            { "z_wr0321_SymbolEncountPokemonGimmickSpawner_WR03_Mikaruge", 0x1895E693},
+            { "KPlayersInteractedOnline", 0x31A13425}
         };
 
         public static readonly Dictionary<string, uint> memkeys_MaxLairMisc = new Dictionary<string, uint>()
