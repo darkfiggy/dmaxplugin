@@ -216,7 +216,7 @@ namespace DynamaxAdventureReset
         {
             using (SOJForm form = new SOJForm())
             {
-                if (SaveFileEditor.SAV.Version != GameVersion.SW && SaveFileEditor.SAV.Version != GameVersion.SH || SaveFileEditor.SAV.FileName == "Blank Save File")
+                if (SaveFileEditor.SAV.Version != GameVersion.SW && SaveFileEditor.SAV.Version != GameVersion.SH || !SaveFileEditor.SAV.State.Exportable)
                 {
                     var result = MessageBox.Show(
                         $"The given save is null, or is not of Sword/Shield type. If you believe this to be a mistake, please contact the current repos maintainers.\nYou are running: {SaveFileEditor.SAV.Version}\nDo you wish to continue anyway?",
@@ -233,7 +233,7 @@ namespace DynamaxAdventureReset
         {
             using (DynamaxResetForm form = new DynamaxResetForm())
             {
-                if (SaveFileEditor.SAV.Version != GameVersion.SW && SaveFileEditor.SAV.Version != GameVersion.SH || SaveFileEditor.SAV.FileName == "Blank Save File")
+                if (SaveFileEditor.SAV.Version != GameVersion.SW && SaveFileEditor.SAV.Version != GameVersion.SH || !SaveFileEditor.SAV.State.Exportable)
                 {
                     var result = MessageBox.Show(
                         $"The given save is null, or is not of Sword/Shield type. If you believe this to be a mistake, please contact the current repos maintainers.\nYou are running: {SaveFileEditor.SAV.Version}\nDo you wish to continue anyway?",
@@ -249,7 +249,7 @@ namespace DynamaxAdventureReset
         {
             using (RegiForm form = new RegiForm())
             {
-                if (SaveFileEditor.SAV.Version != GameVersion.SW && SaveFileEditor.SAV.Version != GameVersion.SH || SaveFileEditor.SAV.FileName == "Blank Save File")
+                if (SaveFileEditor.SAV.Version != GameVersion.SW && SaveFileEditor.SAV.Version != GameVersion.SH || !SaveFileEditor.SAV.State.Exportable)
                 {
                     var result = MessageBox.Show(
                         $"The given save is null, or is not of Sword/Shield type. If you believe this to be a mistake, please contact the current repos maintainers.\nYou are running: {SaveFileEditor.SAV.Version}\nDo you wish to continue anyway?",
