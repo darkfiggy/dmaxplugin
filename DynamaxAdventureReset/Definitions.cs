@@ -134,7 +134,7 @@ namespace DynamaxAdventureReset
             { "Latias", 380},
             { "Latios", 381},
             { "Kyogre", 382},
-            { "Groundon", 383},
+            { "Groudon", 383},
             { "Rayquaza", 384},
             { "Uxie", 480},
             { "Mesprit", 481},
