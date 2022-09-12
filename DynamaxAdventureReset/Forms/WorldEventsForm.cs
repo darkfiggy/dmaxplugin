@@ -129,6 +129,7 @@ namespace DynamaxAdventureReset
                     main_letsgo_forcelegal_CB.Checked = ShowLegalMSG(issuesp);
         }
         #endregion
+
         void SetupMain()
         {
 
@@ -156,15 +157,16 @@ namespace DynamaxAdventureReset
             var b_gift_typenull_caught = SAV.Blocks.GetBlock(Definitions.memkeys_Gifts["z_bt0101_POKE_NUL"]);
             var b_gift_toxel_caught = SAV.Blocks.GetBlock(Definitions.memkeys_Gifts["FE_SUB_005_CLEAR"]);
 
-            b_pikachu_save_data.Type = main_pikachu_save_data_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
-            b_eevee_save_data.Type = main_eevee_save_data_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
+            
+            b_pikachu_save_data.ChangeBooleanType(main_pikachu_save_data_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
+            b_eevee_save_data.ChangeBooleanType(main_eevee_save_data_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
 
-            b_geevee_caught.Type = main_geevee_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
-            b_gpikachu_caught.Type = main_gpikachu_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
+            b_geevee_caught.ChangeBooleanType(main_geevee_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
+            b_gpikachu_caught.ChangeBooleanType(main_gpikachu_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
 
-            b_gift_gcharmander_caught.Type = main_gift_gcharmander_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
-            b_gift_typenull_caught.Type = main_gift_typenull_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
-            b_gift_toxel_caught.Type = main_gift_toxel_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
+            b_gift_gcharmander_caught.ChangeBooleanType(main_gift_gcharmander_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
+            b_gift_typenull_caught.ChangeBooleanType(main_gift_typenull_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
+            b_gift_toxel_caught.ChangeBooleanType(main_gift_toxel_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
 
         }
 
@@ -209,16 +211,16 @@ namespace DynamaxAdventureReset
 
             var b_playersonline = SAV.Blocks.GetBlock(Definitions.memkeys_CrownTundra_Misc["KPlayersInteractedOnline"]);
 
-            b_garticuno.Type = ct_garticuno_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
-            b_gzapdos.Type = ct_gzapdos_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
-            b_gmoltres.Type = ct_gmoltres_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
+            b_garticuno.ChangeBooleanType(ct_garticuno_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
+            b_gzapdos.ChangeBooleanType(ct_gzapdos_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
+            b_gmoltres.ChangeBooleanType(ct_gmoltres_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
 
-            b_giftcosmog.Type = ct_giftcosmog_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
+            b_giftcosmog.ChangeBooleanType(ct_giftcosmog_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
 
-            b_gift_poipole.Type = ct_gift_poipole_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
+            b_gift_poipole.ChangeBooleanType(ct_gift_poipole_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
 
-            b_spiritomb_caught.Type = ct_spiritomb_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
-            b_spiritomb_visible.Type = ct_spiritomb_visible_CB.Checked ? SCTypeCode.Bool1 : SCTypeCode.Bool2;
+            b_spiritomb_caught.ChangeBooleanType(ct_spiritomb_PB.Caught ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
+            b_spiritomb_visible.ChangeBooleanType(ct_spiritomb_visible_CB.Checked ? SCTypeCode.Bool1 : SCTypeCode.Bool2);
 
             b_playersonline.SetValue(Convert.ToUInt32(ct_spiritomb_players_NUD.Value));
 

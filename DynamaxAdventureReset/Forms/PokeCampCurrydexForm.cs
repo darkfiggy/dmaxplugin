@@ -61,15 +61,15 @@ namespace DynamaxAdventureReset.Forms
 
             var b_tent_color = SAV.Blocks.GetBlock(Definitions.memkeys_PokeCamp["SYS_WORK_POKECAMP_TENT_COLOR"]);
 
-            b_fresh_ball.Type = camp_ball_fresh_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
-            b_weighted_ball.Type = camp_ball_weighted_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
-            b_soothe_ball.Type = camp_ball_soothe_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
-            b_mirror_ball.Type = camp_ball_mirror_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
-            b_tympole_ball.Type = camp_ball_tympole_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
-            b_champion_ball.Type = camp_ball_champion_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
+            b_fresh_ball.ChangeBooleanType(camp_ball_fresh_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
+            b_weighted_ball.ChangeBooleanType(camp_ball_weighted_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
+            b_soothe_ball.ChangeBooleanType(camp_ball_soothe_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
+            b_mirror_ball.ChangeBooleanType(camp_ball_mirror_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
+            b_tympole_ball.ChangeBooleanType(camp_ball_tympole_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
+            b_champion_ball.ChangeBooleanType(camp_ball_champion_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
 
-            b_has_golden_CB.Type = camp_has_golden_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
-            b_use_golden_CB.Type = camp_use_golden_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
+            b_has_golden_CB.ChangeBooleanType(camp_has_golden_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
+            b_use_golden_CB.ChangeBooleanType(camp_use_golden_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
 
             b_tent_color.SetValue(Convert.ToUInt32(camp_type_CMB.SelectedIndex));
 

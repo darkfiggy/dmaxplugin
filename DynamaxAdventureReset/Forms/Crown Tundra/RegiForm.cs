@@ -181,11 +181,11 @@ namespace DynamaxAdventureReset
         {
             for (int i = 0; i < Definitions.memkeys_Regis.Count - 2; i++) //do all except for eleki and drago
             {
-                SAV.Blocks.GetBlock(Definitions.memkeys_Regis.ElementAt(i).Value).Type = regi_clistbox.GetItemChecked(i) ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
+                SAV.Blocks.GetBlock(Definitions.memkeys_Regis.ElementAt(i).Value).ChangeBooleanType(regi_clistbox.GetItemChecked(i) ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
             }
 
-            SAV.Blocks.GetBlock(Definitions.memkeys_Regis["Regieleki"]).Type = regieleki_RBTN.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
-            SAV.Blocks.GetBlock(Definitions.memkeys_Regis["Regidrago"]).Type = regidrago_RBTN.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
+            SAV.Blocks.GetBlock(Definitions.memkeys_Regis["Regieleki"]).ChangeBooleanType(regieleki_RBTN.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
+            SAV.Blocks.GetBlock(Definitions.memkeys_Regis["Regidrago"]).ChangeBooleanType(regidrago_RBTN.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
 
             //If you don't cast the int, you will get an exeception that will crash the plugin.
             if (regieleki_patrBTN.Checked) SAV.Blocks.GetBlock(Definitions.KRegielekiOrRegidragoPattern).SetValue((uint)1);

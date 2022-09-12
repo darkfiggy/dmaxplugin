@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using PKHeX.Core;
-using PKHeX.WinForms;
+
 using static PKHeX.Core.SCBlockUtil;
 using System.IO;
 
@@ -10,40 +10,50 @@ namespace DynamaxAdventureReset
 {
     public class DynamaxAdventureResetBase : IPlugin
     {
-        public string Name => nameof(DynamaxAdventureReset);
+        public string Name => "Sword/Shield Event Editor";
         
         public int Priority => 2;
+
+        // Radix: TODO: Make this auto-increment
+        public string VersionNumber = "1.2.0.0";
+
 
         // Initialized on plugin load
         public ISaveFileProvider SaveFileEditor { get; private set; } = null!;
         public IPKMView PKMEditor { get; private set; } = null!;
-        Settings settings = new Settings();
 
 
-        string VersionNum = "1.1.3.0";
+        public bool IsGameSwordShield
+        {
+            get
+            {
+                if (SaveFileEditor?.SAV is null)
+                    return false;
+                return SaveFileEditor.SAV.Version == GameVersion.SW || SaveFileEditor.SAV.Version == GameVersion.SH;
+            }
+        }
+
+
+        public ToolStripMenuItem RootToolStripMenuItem { get; private set; } = null!;
+
+        public ToolStripMenuItem SWSH_MainWorldEventsMenuItem { get; private set; } = null!;
+
+
         public void Initialize(params object[] args)
         {
-            Console.WriteLine($"Loading {Name}...");
             SaveFileEditor = (ISaveFileProvider)Array.Find(args, z => z is ISaveFileProvider);
             PKMEditor = (IPKMView)Array.Find(args, z => z is IPKMView);
-            var menu = (ToolStrip)Array.Find(args, z => z is ToolStrip);
-            LoadMenuStrip(menu);
 
-            string dir = Directory.GetParent(System.Reflection.Assembly.GetEntryAssembly().Location).ToString();
-
-            //if (!File.Exists($"{dir}\\DynamaxAdventureReset.cfg"))
-            //    settings.WriteBase(dir);
-
-            //settings.Read(dir);
-
-            //if (settings.Items["latest"] != VersionNum)
-            //{
-            //    settings.WriteBase(dir);
-            //    settings.Read(dir);
-            //}
+            
 
 
+            var menuToolStrip = (ToolStrip)Array.Find(args, z => z is ToolStrip);
+            LoadMenuStrip(menuToolStrip);
 
+
+            // Radix: I won't remove this message, because it has some fond memories of programming in the living room, so please don't remove it <3
+
+            //string localDirectory = Directory.GetParent(System.Reflection.Assembly.GetEntryAssembly().Location).ToString();
 
             //if (settings.Items["firstStart"] == "true")
             //{
@@ -53,7 +63,7 @@ namespace DynamaxAdventureReset
             //    settings.Write(dir);
             //}
 
-
+            // END OF GENERIC NOSTALGIA
         }
 
         private void LoadMenuStrip(ToolStrip menuStrip)
@@ -61,92 +71,86 @@ namespace DynamaxAdventureReset
             var items = menuStrip.Items;
             if (!(items.Find("Menu_Tools", false)[0] is ToolStripDropDownItem tools))
                 throw new ArgumentException(nameof(menuStrip));
+            
             AddPluginControl(tools);
         }
 
+
+
         private void AddPluginControl(ToolStripDropDownItem tools)
         {
-            var ctrl = new ToolStripMenuItem(Name);
-            tools.DropDownItems.Add(ctrl);
-
-            if (SaveFileEditor.SAV.Version == GameVersion.SW || SaveFileEditor.SAV.Version == GameVersion.SH)
-            { 
-                var mainBTN = new ToolStripMenuItem($"Base Game");
-                if (SaveFileEditor.SAV.Version == GameVersion.SW)
-                {
-                    mainBTN.Image = Properties.Resources.sword;
-                }
-                else if (SaveFileEditor.SAV.Version == GameVersion.SH)
-                {
-                    mainBTN.Image = Properties.Resources.shield;
-                }
+            RootToolStripMenuItem = new ToolStripMenuItem(Name);
+            tools.DropDownItems.Add(RootToolStripMenuItem);
 
 
-                var main_worldevents = new ToolStripMenuItem($"Edit World events");
-                var ioa_worldevents = new ToolStripMenuItem($"Edit World events");
-                var ct_worldevents = new ToolStripMenuItem($"Edit World events");
+            //Do this quickly because they don't call the "Notify Save Change" function at startup
+            RootToolStripMenuItem.Enabled = IsGameSwordShield;
 
-                var crownBTN = new ToolStripMenuItem($"Crown Tundra", Properties.Resources.crown);
-                var armorBTN = new ToolStripMenuItem($"Isle of Armor", Properties.Resources.armor);
-
-
-                var mlBTN = new ToolStripMenuItem($"Edit Max Lair");
-                var regiBTN = new ToolStripMenuItem($"Edit Regis");
-                var sojBTN = new ToolStripMenuItem($"Edit Swords of Justice");
-
-
-                var wc8BTN = new ToolStripMenuItem("Convert Wondercard");
-
-                var curryBTN = new ToolStripMenuItem("Edit Currydex/Pokecamp");
-
-                var hlpBTN = new ToolStripMenuItem($"Help");
-
-                main_worldevents.Click += (s, e) => main_worldeventsBTN_Click(s, e);
-
-                ioa_worldevents.Click += (s, e) => ioa_worldeventsBTN_Click(s, e);
-
-                mlBTN.Click += (s, e) => mlBTN_Click(s, e);
-                regiBTN.Click += (s, e) => regiBTN_Click(s, e);
-                sojBTN.Click += (s, e) => sojBTN_Click(s, e);
-                ct_worldevents.Click += (s, e) => ct_worldeventsBTN_Click(s, e);
-
-                curryBTN.Click += (s, e) => curryBTN_Click(s, e);
-                wc8BTN.Click += (s, e) => wc8BTN_Click(s, e);
-
-                hlpBTN.Click += (s, e) => hlpBTN_Click(s, e);
+            SWSH_MainWorldEventsMenuItem = new ToolStripMenuItem($"Base Game");
 
 
 
-                crownBTN.DropDownItems.Add(mlBTN);
-                crownBTN.DropDownItems.Add(regiBTN);
-                crownBTN.DropDownItems.Add(sojBTN);
+            var main_worldEvents = new ToolStripMenuItem($"Edit World events");
+            var ioa_worldevents = new ToolStripMenuItem($"Edit World events");
+            var ct_worldevents = new ToolStripMenuItem($"Edit World events");
 
-                mainBTN.DropDownItems.Add(main_worldevents);
-                armorBTN.DropDownItems.Add(ioa_worldevents);
-                crownBTN.DropDownItems.Add(ct_worldevents);
-
+            var crownBTN = new ToolStripMenuItem($"Crown Tundra", Properties.Resources.crown);
+            var armorBTN = new ToolStripMenuItem($"Isle of Armor", Properties.Resources.armor);
 
 
-                ctrl.DropDownItems.Add(mainBTN);
-                ctrl.DropDownItems.Add(armorBTN);
-                ctrl.DropDownItems.Add(crownBTN);
-                ctrl.DropDownItems.Add(new ToolStripSeparator());
-                ctrl.DropDownItems.Add(curryBTN);
-                ctrl.DropDownItems.Add(wc8BTN);
-                ctrl.DropDownItems.Add(new ToolStripSeparator());
-                ctrl.DropDownItems.Add(hlpBTN);
-                Console.WriteLine($"{Name} added menu items.");
-            }
-            else
-            {
-                ctrl.Enabled = false;
-            }
+            var mlBTN = new ToolStripMenuItem($"Edit Max Lair");
+            var regiBTN = new ToolStripMenuItem($"Edit Regis");
+            var sojBTN = new ToolStripMenuItem($"Edit Swords of Justice");
+
+
+            var wc8BTN = new ToolStripMenuItem("Convert Wondercard");
+
+            var curryBTN = new ToolStripMenuItem("Edit Currydex/Pokecamp");
+
+            var hlpBTN = new ToolStripMenuItem($"Help");
+
+            main_worldEvents.Click += (s, e) => main_worldeventsBTN_Click(s, e);
+
+            ioa_worldevents.Click += (s, e) => ioa_worldeventsBTN_Click(s, e);
+
+            mlBTN.Click += (s, e) => mlBTN_Click(s, e);
+            regiBTN.Click += (s, e) => regiBTN_Click(s, e);
+            sojBTN.Click += (s, e) => sojBTN_Click(s, e);
+            ct_worldevents.Click += (s, e) => ct_worldeventsBTN_Click(s, e);
+
+            curryBTN.Click += (s, e) => curryBTN_Click(s, e);
+            wc8BTN.Click += (s, e) => wc8BTN_Click(s, e);
+
+            hlpBTN.Click += (s, e) => hlpBTN_Click(s, e);
+
+
+
+            crownBTN.DropDownItems.Add(mlBTN);
+            crownBTN.DropDownItems.Add(regiBTN);
+            crownBTN.DropDownItems.Add(sojBTN);
+
+            SWSH_MainWorldEventsMenuItem.DropDownItems.Add(main_worldEvents);
+            armorBTN.DropDownItems.Add(ioa_worldevents);
+            crownBTN.DropDownItems.Add(ct_worldevents);
+
+
+
+            RootToolStripMenuItem.DropDownItems.Add(SWSH_MainWorldEventsMenuItem);
+            RootToolStripMenuItem.DropDownItems.Add(armorBTN);
+            RootToolStripMenuItem.DropDownItems.Add(crownBTN);
+            RootToolStripMenuItem.DropDownItems.Add(new ToolStripSeparator());
+            RootToolStripMenuItem.DropDownItems.Add(curryBTN);
+            RootToolStripMenuItem.DropDownItems.Add(wc8BTN);
+            RootToolStripMenuItem.DropDownItems.Add(new ToolStripSeparator());
+            RootToolStripMenuItem.DropDownItems.Add(hlpBTN);
+            Console.WriteLine($"{Name} added menu items.");
+
 
         }
 
         public void NotifySaveLoaded()
         {
-            Console.WriteLine($"{Name} was notified that a Save File was just loaded.");
+            RootToolStripMenuItem.Enabled = IsGameSwordShield;
         }
 
         private void ModifySaveFile()
@@ -163,10 +167,9 @@ namespace DynamaxAdventureReset
         }
         private void hlpBTN_Click(object sender, EventArgs e)
         {
-            using (HelpForm form = new HelpForm(VersionNum))
-            {
+            using (HelpForm form = new HelpForm(VersionNumber))
                 form.ShowDialog();
-            }
+            
 
         }
 
@@ -214,26 +217,27 @@ namespace DynamaxAdventureReset
         }
         private void sojBTN_Click(object sender, EventArgs e)
         {
-            using (SOJForm form = new SOJForm())
-            {
-                if (SaveFileEditor.SAV.Version != GameVersion.SW && SaveFileEditor.SAV.Version != GameVersion.SH || SaveFileEditor.SAV.FileName == "Blank Save File")
-                {
-                    var result = MessageBox.Show(
-                        $"The given save is null, or is not of Sword/Shield type. If you believe this to be a mistake, please contact the current repos maintainers.\nYou are running: {SaveFileEditor.SAV.Version}\nDo you wish to continue anyway?",
-                        $"Error",
-                        MessageBoxButtons.YesNo);
-                    if (result == DialogResult.No) return;
-                }
-                form.SAV = (SAV8SWSH)SaveFileEditor.SAV;
-                form.ShowDialog();
-            }
+            //using (SOJForm form = new SOJForm())
+            //{
+            //    SaveFileEditor.SAV.
+            //    if (SaveFileEditor.SAV.Version != GameVersion.SW && SaveFileEditor.SAV.Version != GameVersion.SH || SaveFileEditor.SAV.FileName == "Blank Save File")
+            //    {
+            //        var result = MessageBox.Show(
+            //            $"The given save is null, or is not of Sword/Shield type. If you believe this to be a mistake, please contact the current repos maintainers.\nYou are running: {SaveFileEditor.SAV.Version}\nDo you wish to continue anyway?",
+            //            $"Error",
+            //            MessageBoxButtons.YesNo);
+            //        if (result == DialogResult.No) return;
+            //    }
+            //    form.SAV = (SAV8SWSH)SaveFileEditor.SAV;
+            //    form.ShowDialog();
+            //}
         }
 
         private void mlBTN_Click(object sender, EventArgs e)
         {
             using (DynamaxResetForm form = new DynamaxResetForm())
             {
-                if (SaveFileEditor.SAV.Version != GameVersion.SW && SaveFileEditor.SAV.Version != GameVersion.SH || SaveFileEditor.SAV.FileName == "Blank Save File")
+                if (SaveFileEditor.SAV.Version != GameVersion.SW && SaveFileEditor.SAV.Version != GameVersion.SH)
                 {
                     var result = MessageBox.Show(
                         $"The given save is null, or is not of Sword/Shield type. If you believe this to be a mistake, please contact the current repos maintainers.\nYou are running: {SaveFileEditor.SAV.Version}\nDo you wish to continue anyway?",
@@ -247,19 +251,19 @@ namespace DynamaxAdventureReset
         }
         private void regiBTN_Click(object sender, EventArgs e)
         {
-            using (RegiForm form = new RegiForm())
-            {
-                if (SaveFileEditor.SAV.Version != GameVersion.SW && SaveFileEditor.SAV.Version != GameVersion.SH || SaveFileEditor.SAV.FileName == "Blank Save File")
-                {
-                    var result = MessageBox.Show(
-                        $"The given save is null, or is not of Sword/Shield type. If you believe this to be a mistake, please contact the current repos maintainers.\nYou are running: {SaveFileEditor.SAV.Version}\nDo you wish to continue anyway?",
-                        $"Error",
-                        MessageBoxButtons.YesNo);
-                    if (result == DialogResult.No) return;
-                }
-                form.SAV = (SAV8SWSH)SaveFileEditor.SAV;
-                form.ShowDialog();
-            }
+            //using (RegiForm form = new RegiForm())
+            //{
+            //    if (SaveFileEditor.SAV.Version != GameVersion.SW && SaveFileEditor.SAV.Version != GameVersion.SH || SaveFileEditor.SAV.FileName == "Blank Save File")
+            //    {
+            //        var result = MessageBox.Show(
+            //            $"The given save is null, or is not of Sword/Shield type. If you believe this to be a mistake, please contact the current repos maintainers.\nYou are running: {SaveFileEditor.SAV.Version}\nDo you wish to continue anyway?",
+            //            $"Error",
+            //            MessageBoxButtons.YesNo);
+            //        if (result == DialogResult.No) return;
+            //    }
+            //    form.SAV = (SAV8SWSH)SaveFileEditor.SAV;
+            //    form.ShowDialog();
+            //}
         }
         #endregion
     }
