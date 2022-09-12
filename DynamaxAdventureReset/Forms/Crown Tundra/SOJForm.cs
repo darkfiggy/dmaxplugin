@@ -248,11 +248,11 @@ namespace DynamaxAdventureReset
             var b_terrakionf = SAV.Blocks.GetBlock(Definitions.memkeys_FootprintPercentage["Terrakion"]);
             var b_virizonf = SAV.Blocks.GetBlock(Definitions.memkeys_FootprintPercentage["Virizion"]);
 
-            b_cobalion.Type = cobalion_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
-            b_terrakion.Type = terrakion_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
-            b_virizion.Type = virizion_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
+            b_cobalion.ChangeBooleanType(cobalion_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
+            b_terrakion.ChangeBooleanType(terrakion_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
+            b_virizion.ChangeBooleanType(virizion_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
 
-            b_keldeo.Type = keldeo_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1;
+            b_keldeo.ChangeBooleanType(keldeo_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
 
             b_cobalionf.SetValue(Convert.ToUInt32(cfootper_NUD.Value));
             b_terrakionf.SetValue(Convert.ToUInt32(tfootper_NUD.Value));

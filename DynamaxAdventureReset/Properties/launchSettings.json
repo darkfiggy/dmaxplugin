@@ -2,7 +2,7 @@
   "profiles": {
     "DynamaxAdventureReset": {
       "commandName": "Executable",
-      "executablePath": "C:\\Users\\angel\\Documents\\GitHub\\dmaxplugin\\DynamaxAdventureReset\\bin\\Debug\\PKHeX.exe"
+      "executablePath": "C:\\Users\\angel\\Documents\\RadixComet\\GitHub\\dmaxplugin\\DynamaxAdventureReset\\bin\\Debug\\PKHeX.exe"
     }
   }
 }

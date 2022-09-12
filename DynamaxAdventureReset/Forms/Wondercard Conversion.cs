@@ -84,11 +84,12 @@ namespace DynamaxAdventureReset
                 {
                     if (pairs[i].Value != -1)
                     {
-                        bool[] arr = SAV.Blocks.Fashion.GetArrayOwned(pairs[i].Key);
+                        //TODO: FIX ME!!!
+                        //bool[] arr = SAV.Blocks.Fashion.GetArrayOwned(pairs[i].Key);
 
-                        arr[pairs[i].Value] = true;
+                        //arr[pairs[i].Value] = true;
 
-                        SAV.Blocks.Fashion.SetArrayOwned(9, arr);
+                        //SAV.Blocks.Fashion.SetArrayOwned(9, arr);
                     }
                 }
 

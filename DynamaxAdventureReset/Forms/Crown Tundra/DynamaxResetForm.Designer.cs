@@ -76,6 +76,8 @@
             this.mlnotes_legal_LBL = new System.Windows.Forms.Label();
             this.ml_legality_CB = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -982,6 +984,8 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.label5);
+            this.groupBox6.Controls.Add(this.label4);
             this.groupBox6.Controls.Add(this.label2);
             this.groupBox6.Controls.Add(this.dstreak_NUD);
             this.groupBox6.Controls.Add(this.label3);
@@ -1008,6 +1012,7 @@
             this.mlnotes_legal_LBL.Size = new System.Drawing.Size(92, 13);
             this.mlnotes_legal_LBL.TabIndex = 57;
             this.mlnotes_legal_LBL.Text = "Legal Status: N/A";
+            this.mlnotes_legal_LBL.Click += new System.EventHandler(this.mlnotes_legal_LBL_Click);
             // 
             // ml_legality_CB
             // 
@@ -1030,6 +1035,24 @@
             this.label1.Size = new System.Drawing.Size(110, 13);
             this.label1.TabIndex = 55;
             this.label1.Text = "Peonia Pokemon Hint";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 141);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(352, 13);
+            this.label4.TabIndex = 58;
+            this.label4.Text = "Legal Status currently broken, it\'s 7 am and I\'m not going to fix it right now";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 157);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(348, 13);
+            this.label5.TabIndex = 59;
+            this.label5.Text = "You can ignore legal stuff for now. Everything else works (I think) - Radix";
             // 
             // DynamaxResetForm
             // 
@@ -1115,5 +1138,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox ml_legality_CB;
         private System.Windows.Forms.Label mlnotes_legal_LBL;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
     }
 }

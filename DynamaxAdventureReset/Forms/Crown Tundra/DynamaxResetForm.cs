@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PKHeX.Core;
 using System.Windows.Forms;
-using PKHeX.WinForms;
+
 using static PKHeX.Core.SCBlockUtil;
 
 namespace DynamaxAdventureReset
@@ -206,65 +206,65 @@ namespace DynamaxAdventureReset
             for (int i = 0; i < Gen1Keys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen1Keys[i]);
-                
-                if (gen1_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
-                else block.Type = SCTypeCode.Bool1;
+
+                if (gen1_clistbox.GetItemChecked(i)) block.ChangeBooleanType(SCTypeCode.Bool2);
+                else block.ChangeBooleanType(SCTypeCode.Bool1);
             }
 
             //Check gen 2
             for (int i = 0; i < Gen2Keys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen2Keys[i]);
-                if (gen2_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
-                else block.Type = SCTypeCode.Bool1;
+                if (gen2_clistbox.GetItemChecked(i)) block.ChangeBooleanType(SCTypeCode.Bool2);
+                else block.ChangeBooleanType(SCTypeCode.Bool1);
             }
 
             //Check gen 3
             for (int i = 0; i < Gen3Keys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen3Keys[i]);
-                if (gen3_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
-                else block.Type = SCTypeCode.Bool1;
+                if (gen3_clistbox.GetItemChecked(i)) block.ChangeBooleanType(SCTypeCode.Bool2);
+                else block.ChangeBooleanType(SCTypeCode.Bool1);
             }
 
             //Check gen 4
             for (int i = 0; i < Gen4Keys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen4Keys[i]);
-                if (gen4_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
-                else block.Type = SCTypeCode.Bool1;
+                if (gen4_clistbox.GetItemChecked(i)) block.ChangeBooleanType(SCTypeCode.Bool2);
+                else block.ChangeBooleanType(SCTypeCode.Bool1);
             }
 
             //Check gen 5
             for (int i = 0; i < Gen5Keys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen5Keys[i]);
-                if (gen5_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
-                else block.Type = SCTypeCode.Bool1;
+                if (gen5_clistbox.GetItemChecked(i)) block.ChangeBooleanType(SCTypeCode.Bool2);
+                else block.ChangeBooleanType(SCTypeCode.Bool1);
             }
 
             //Check gen 6
             for (int i = 0; i < Gen6Keys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen6Keys[i]);
-                if (gen6_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
-                else block.Type = SCTypeCode.Bool1;
+                if (gen6_clistbox.GetItemChecked(i)) block.ChangeBooleanType(SCTypeCode.Bool2);
+                else block.ChangeBooleanType(SCTypeCode.Bool1);
             }
 
             //Check gen 7
             for (int i = 0; i < Gen7Keys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen7Keys[i]);
-                if (gen7_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
-                else block.Type = SCTypeCode.Bool1;
+                if (gen7_clistbox.GetItemChecked(i)) block.ChangeBooleanType(SCTypeCode.Bool2);
+                else block.ChangeBooleanType(SCTypeCode.Bool1);
             }
 
             //Check gen 7 Ultra Beasts
             for (int i = 0; i < Gen7UBKeys.Length; i++)
             {
                 var block = SAV.Blocks.GetBlock(Gen7UBKeys[i]);
-                if (UB_clistbox.GetItemChecked(i)) block.Type = SCTypeCode.Bool2;
-                else block.Type = SCTypeCode.Bool1;
+                if (UB_clistbox.GetItemChecked(i)) block.ChangeBooleanType(SCTypeCode.Bool2);
+                else block.ChangeBooleanType(SCTypeCode.Bool1);
             }
 
 
@@ -553,6 +553,11 @@ namespace DynamaxAdventureReset
         DialogResult ShowWrongGameMSG()
         {
             return MessageBox.Show("You have chosen a legendary that you cannot have notes for! Would you like to correct this to the legendary for your game?", "Error", MessageBoxButtons.YesNo);
+        }
+
+        private void mlnotes_legal_LBL_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

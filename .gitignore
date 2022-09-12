@@ -1,1 +1,3 @@
-DynamaxAdventureReset/bin/debug
+DynamaxAdventureReset/bin/
+DynamaxAdventureReset/obj/
+.vs/

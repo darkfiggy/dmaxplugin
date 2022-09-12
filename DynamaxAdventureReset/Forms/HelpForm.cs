@@ -42,7 +42,7 @@ namespace DynamaxAdventureReset
 
             private void cpyclip1_BTN_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText("Reshiquori#8124");
+            Clipboard.SetText("RadixComet#3669");
         }
 
         private void cpyclip2_BTN_Click(object sender, EventArgs e)
