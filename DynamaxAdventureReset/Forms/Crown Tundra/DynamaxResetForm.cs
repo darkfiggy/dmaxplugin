@@ -10,6 +10,7 @@ using PKHeX.Core;
 using System.Windows.Forms;
 
 using static PKHeX.Core.SCBlockUtil;
+using System.Reflection;
 
 namespace DynamaxAdventureReset
 {
@@ -105,8 +106,6 @@ namespace DynamaxAdventureReset
 
         private void DynamaxResetForm_Load(object sender, EventArgs e)
         {
-             
-
 
             //Check gen 1
             for (int i = 0; i < Gen1Keys.Length; i++)
@@ -184,22 +183,14 @@ namespace DynamaxAdventureReset
 
             int hint = Convert.ToInt32(SAV.Blocks.GetBlock(Definitions.memkeys_MaxLairMisc["KMaxLairPeoniaSpeciesHint"]).GetValue());
 
-            mlspecies1_CMB.SelectedIndex = getDexEntryIndex(notes1);
-            mlspecies2_CMB.SelectedIndex = getDexEntryIndex(notes2);
-            mlspecies3_CMB.SelectedIndex = getDexEntryIndex(notes3);
+            mlspecies1_CMB.SelectedIndex = Definitions.NationalDex.GetIDIndex(notes1);
+            mlspecies2_CMB.SelectedIndex = Definitions.NationalDex.GetIDIndex(notes2);
+            mlspecies3_CMB.SelectedIndex = Definitions.NationalDex.GetIDIndex(notes3);
 
-            mlhint_CMB.SelectedIndex = getDexEntryIndex(hint);
+            mlhint_CMB.SelectedIndex = Definitions.NationalDex.GetIDIndex(hint);
         }
 
-        int getDexEntryIndex(int dexnum)
-        {
-            for (int i = 0; i < Definitions.NationalDex.Count; i++)
-            {
-                if (Definitions.NationalDex.ElementAt(i).Value == dexnum)
-                    return i;
-            }
-            return 0;
-        }
+
         private void applyBTN_Click(object sender, EventArgs e)
         {
             //Check gen 1
@@ -277,11 +268,11 @@ namespace DynamaxAdventureReset
 
             var b_hint = SAV.Blocks.GetBlock(Definitions.memkeys_MaxLairMisc["KMaxLairPeoniaSpeciesHint"]);
 
-            b_notes1.SetValue(Convert.ToUInt32(Definitions.NationalDex[mlspecies1_CMB.SelectedItem.ToString()]));
-            b_notes2.SetValue(Convert.ToUInt32(Definitions.NationalDex[mlspecies2_CMB.SelectedItem.ToString()]));
-            b_notes3.SetValue(Convert.ToUInt32(Definitions.NationalDex[mlspecies3_CMB.SelectedItem.ToString()]));
+            b_notes1.SetValue(Convert.ToUInt32(Definitions.NationalDex.GetID(mlspecies1_CMB.SelectedItem.ToString())));
+            b_notes2.SetValue(Convert.ToUInt32(Definitions.NationalDex.GetID(mlspecies2_CMB.SelectedItem.ToString())));
+            b_notes3.SetValue(Convert.ToUInt32(Definitions.NationalDex.GetID(mlspecies3_CMB.SelectedItem.ToString())));
 
-            b_hint.SetValue(Convert.ToUInt32(Definitions.NationalDex[mlhint_CMB.SelectedItem.ToString()]));
+            b_hint.SetValue(Convert.ToUInt32(Definitions.NationalDex.GetID(mlhint_CMB.SelectedItem.ToString())));
 
             var b_dstreak = SAV.Blocks.GetBlock(Definitions.memkeys_MaxLairMisc["KMaxLairDisconnectStreak"]);
             var b_estreak = SAV.Blocks.GetBlock(Definitions.memkeys_MaxLairMisc["KMaxLairEndlessStreak"]);
@@ -452,7 +443,7 @@ namespace DynamaxAdventureReset
             if (!ml_legality_CB.Checked) return false;
             if (mlspecies1_CMB.SelectedIndex != 0)
             {
-                //Quori Programming note:
+                //Radix Programming note:
                 //this looks complicated but it's very simple, and all 3 note checks follow this example
                 //first it makes sure that the value its checking against isn't equal to 0 (this would give us a false positive)
                 //then it simply makes sure that there aren't any duplicates
@@ -507,11 +498,48 @@ namespace DynamaxAdventureReset
             return true;
         }
 
+        bool CheckPeoniaNotes()
+        {
+            if (mlhint_CMB.SelectedItem == "None")
+                return false;
+
+            if (!ml_legality_CB.Checked)
+                return false;
+
+            if (SAV.Version == GameVersion.SW)
+            {
+                if (!Definitions.MaxLairExclusives.Shield.Contains(mlhint_CMB.SelectedItem)) //Check the opposing game for an entry
+                {
+                    if (DialogResult.Yes == ShowWrongGameMSG())
+                    {
+                        mlhint_CMB.SelectedItem = Definitions.MaxLairExclusives.Sword[Definitions.MaxLairExclusives.Shield.IndexOf(mlhint_CMB.SelectedItem.ToString())];
+                    }
+                    else ml_legality_CB.Checked = false;
+                }
+            }
+            else if (SAV.Version == GameVersion.SH)
+            {
+                if (Definitions.MaxLairExclusives.Sword.Contains(mlhint_CMB.SelectedItem)) //Check the opposing game for an entry
+                {
+                    if (DialogResult.Yes == ShowWrongGameMSG())
+                    {
+                        mlhint_CMB.SelectedItem = Definitions.MaxLairExclusives.Shield[Definitions.MaxLairExclusives.Sword.IndexOf(mlhint_CMB.SelectedItem.ToString())];
+                    }
+                    else ml_legality_CB.Checked = false;
+                }
+            }
+
+
+            return true;
+        }
+
         private void ml_legality_CB_CheckedChanged(object sender, EventArgs e)
         {
             CheckSpeciesNotes1();
             CheckSpeciesNotes2();
             CheckSpeciesNotes3();
+
+            CheckPeoniaNotes();
 
             CheckLegality();
         }
@@ -526,28 +554,9 @@ namespace DynamaxAdventureReset
 
         private void mlhint_CMB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (SAV.Version == GameVersion.SW)
-            {
-                if (!Definitions.mlex_Sword.Contains(mlhint_CMB.SelectedItem)  && mlhint_CMB.SelectedItem != "None" && ml_legality_CB.Checked)
-                {
-                    if (DialogResult.Yes == ShowWrongGameMSG())
-                    {
-                        mlhint_CMB.SelectedItem = Definitions.mlex_Sword[Definitions.mlex_Shield.IndexOf(mlhint_CMB.SelectedItem.ToString())];
-                    }
-                    else ml_legality_CB.Checked = false;
-                }
-            }
-            else if (SAV.Version == GameVersion.SH)
-            {
-                if (!Definitions.mlex_Shield.Contains(mlhint_CMB.SelectedItem) && mlhint_CMB.SelectedItem != "None" && ml_legality_CB.Checked)
-                {
-                    if (DialogResult.Yes == ShowWrongGameMSG())
-                    {
-                        mlhint_CMB.SelectedItem = Definitions.mlex_Shield[Definitions.mlex_Sword.IndexOf(mlhint_CMB.SelectedItem.ToString())];
-                    }
-                    else ml_legality_CB.Checked = false;
-                }
-            }
+            CheckPeoniaNotes();
+
+
         }
 
         DialogResult ShowWrongGameMSG()
@@ -559,5 +568,7 @@ namespace DynamaxAdventureReset
         {
 
         }
+
     }
+    
 }

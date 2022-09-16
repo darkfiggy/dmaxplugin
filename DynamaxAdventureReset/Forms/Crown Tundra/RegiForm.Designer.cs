@@ -35,12 +35,12 @@
             this.reginone_RBTN = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.regiother_patrBTN = new System.Windows.Forms.RadioButton();
-            this.legailty_CB = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.regipatternNUD = new System.Windows.Forms.NumericUpDown();
             this.regieleki_patrBTN = new System.Windows.Forms.RadioButton();
             this.reginone_patrBTN = new System.Windows.Forms.RadioButton();
             this.regidrago_patrBTN = new System.Windows.Forms.RadioButton();
+            this.legailty_CB = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.applyBTN = new System.Windows.Forms.Button();
             this.legalLBL = new System.Windows.Forms.Label();
@@ -136,21 +136,10 @@
             this.regiother_patrBTN.UseVisualStyleBackColor = true;
             this.regiother_patrBTN.CheckedChanged += new System.EventHandler(this.regiother_patrBTN_CheckedChanged);
             // 
-            // legailty_CB
-            // 
-            this.legailty_CB.AutoSize = true;
-            this.legailty_CB.Location = new System.Drawing.Point(150, 215);
-            this.legailty_CB.Name = "legailty_CB";
-            this.legailty_CB.Size = new System.Drawing.Size(143, 17);
-            this.legailty_CB.TabIndex = 57;
-            this.legailty_CB.Text = "Force legality corrections";
-            this.legailty_CB.UseVisualStyleBackColor = true;
-            this.legailty_CB.CheckedChanged += new System.EventHandler(this.forcematchCB_CheckedChanged);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 108);
+            this.label1.Location = new System.Drawing.Point(6, 139);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 13);
             this.label1.TabIndex = 55;
@@ -159,7 +148,7 @@
             // regipatternNUD
             // 
             this.regipatternNUD.Enabled = false;
-            this.regipatternNUD.Location = new System.Drawing.Point(6, 124);
+            this.regipatternNUD.Location = new System.Drawing.Point(9, 155);
             this.regipatternNUD.Name = "regipatternNUD";
             this.regipatternNUD.Size = new System.Drawing.Size(93, 20);
             this.regipatternNUD.TabIndex = 55;
@@ -199,6 +188,17 @@
             this.regidrago_patrBTN.Text = "Regidrago";
             this.regidrago_patrBTN.UseVisualStyleBackColor = true;
             this.regidrago_patrBTN.CheckedChanged += new System.EventHandler(this.regidrago_patrBTN_CheckedChanged);
+            // 
+            // legailty_CB
+            // 
+            this.legailty_CB.AutoSize = true;
+            this.legailty_CB.Location = new System.Drawing.Point(150, 215);
+            this.legailty_CB.Name = "legailty_CB";
+            this.legailty_CB.Size = new System.Drawing.Size(143, 17);
+            this.legailty_CB.TabIndex = 57;
+            this.legailty_CB.Text = "Force legality corrections";
+            this.legailty_CB.UseVisualStyleBackColor = true;
+            this.legailty_CB.CheckedChanged += new System.EventHandler(this.forcematchCB_CheckedChanged);
             // 
             // label2
             // 

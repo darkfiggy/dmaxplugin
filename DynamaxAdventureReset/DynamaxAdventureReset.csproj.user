@@ -5,7 +5,13 @@
     <Compile Update="Controls\PokemonBaseUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\PokemonRenderCheckListBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\PokemonRenderUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\TestControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\WondercardControl.cs">

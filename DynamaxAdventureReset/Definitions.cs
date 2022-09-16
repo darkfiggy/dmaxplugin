@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PKHeX.Core;
-using PKHeX.Core;
 
 namespace DynamaxAdventureReset
 {
@@ -100,28 +99,37 @@ namespace DynamaxAdventureReset
             { "KMaxLairRentalChoiceSeed", 0x0D74AA40},
         };
 
-        public static readonly List<string> mlex_Sword = new List<string>()
-        { "Ho-oh",
-          "Latios",
-          "Groudon",
-          "Dialga",
-          "Tornadus",
-          "Reshiram",
-          "Xerneas"
-        };
 
-        public static readonly List<string> mlex_Shield = new List<string>()
-        { "Lugia",
-          "Latias",
-          "Kyogre",
-          "Palkia",
-          "Thundurus",
-          "Zekrom",
-          "Yveltal"
-        };
-        public static readonly Dictionary<string, uint> NationalDex = new Dictionary<string, uint>()
+        public static class MaxLairExclusives
         {
-            { "None", 0},
+            public static readonly List<string> Sword = new List<string>()
+            {
+                "Ho-oh",
+                "Latios",
+                "Groudon",
+                "Dialga",
+                "Tornadus",
+                "Reshiram",
+                "Xerneas"
+            };
+
+            public static readonly List<string> Shield = new List<string>()
+            {
+                "Lugia",
+                "Latias",
+                "Kyogre",
+                "Palkia",
+                "Thundurus",
+                "Zekrom",
+                "Yveltal"
+            };
+        }
+
+        public static class NationalDex
+        {
+            private static readonly Dictionary<string, int> s_nationalDex = new Dictionary<string, int>()
+        {
+            { "None", 0 },
             { "Articuno", 144},
             { "Zapdos", 145},
             { "Moltres", 156},
@@ -170,6 +178,14 @@ namespace DynamaxAdventureReset
             { "Stakataka", 805 },
             { "Blacephalon", 806 }
         };
+            public static int GetNameIndex(string name) => s_nationalDex.ToList().IndexOf(s_nationalDex.First(x => x.Key == name));
+            public static int GetIDIndex(int id) => s_nationalDex.ToList().IndexOf(s_nationalDex.First(x => x.Value == id));
+
+            public static bool ContainsID(int id) => s_nationalDex.ContainsValue(id);
+            public static string GetName(int id) => s_nationalDex.Where(x => x.Value == id).First().Key;
+            public static bool ContainsString(string name) => s_nationalDex.ContainsKey(name);
+            public static int GetID(string name) => s_nationalDex[name];
+        }
 
 
     }
