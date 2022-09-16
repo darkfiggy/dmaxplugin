@@ -14,15 +14,72 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>bin\Debug\plugins\</OutputPath>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Forms\Isle of Armor\**" />
+    <Compile Remove="Forms\Main\**" />
+    <EmbeddedResource Remove="Forms\Isle of Armor\**" />
+    <EmbeddedResource Remove="Forms\Main\**" />
+    <None Remove="Forms\Isle of Armor\**" />
+    <None Remove="Forms\Main\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\Images\hint.png" />
+    <None Remove="Resources\Images\PokeSprites\b_144-1.png" />
+    <None Remove="Resources\Images\PokeSprites\b_144.png" />
+    <None Remove="Resources\Images\PokeSprites\b_145-1.png" />
+    <None Remove="Resources\Images\PokeSprites\b_145.png" />
+    <None Remove="Resources\Images\PokeSprites\b_146-1.png" />
+    <None Remove="Resources\Images\PokeSprites\b_146.png" />
+    <None Remove="Resources\Images\PokeSprites\b_150.png" />
+    <None Remove="Resources\Images\PokeSprites\b_377.png" />
+    <None Remove="Resources\Images\PokeSprites\b_378.png" />
+    <None Remove="Resources\Images\PokeSprites\b_379.png" />
+    <None Remove="Resources\Images\PokeSprites\Overlays\dyna.png" />
+    <None Remove="Resources\Images\PokeSprites\Overlays\locked.png" />
+    <None Remove="Resources\Images\PokeSprites\Overlays\party1.png" />
+    <None Remove="Resources\Images\PokeSprites\Overlays\party2.png" />
+    <None Remove="Resources\Images\PokeSprites\Overlays\party3.png" />
+    <None Remove="Resources\Images\PokeSprites\Overlays\party4.png" />
+    <None Remove="Resources\Images\PokeSprites\Overlays\party5.png" />
+    <None Remove="Resources\Images\PokeSprites\Overlays\party6.png" />
+    <None Remove="Resources\Images\Program\about.png" />
+    <None Remove="Resources\Images\Program\redo.png" />
+    <None Remove="Resources\Images\valid.png" />
+    <None Remove="Resources\Images\warn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\hint.png" />
+    <EmbeddedResource Include="Resources\Images\PokeSprites\b_144-1.png" />
+    <EmbeddedResource Include="Resources\Images\PokeSprites\b_144.png" />
+    <EmbeddedResource Include="Resources\Images\PokeSprites\b_145-1.png" />
+    <EmbeddedResource Include="Resources\Images\PokeSprites\b_145.png" />
+    <EmbeddedResource Include="Resources\Images\PokeSprites\b_146-1.png" />
+    <EmbeddedResource Include="Resources\Images\PokeSprites\b_146.png" />
+    <EmbeddedResource Include="Resources\Images\PokeSprites\b_150.png" />
+    <EmbeddedResource Include="Resources\Images\PokeSprites\b_377.png" />
+    <EmbeddedResource Include="Resources\Images\PokeSprites\b_378.png" />
+    <EmbeddedResource Include="Resources\Images\PokeSprites\b_379.png" />
+    <EmbeddedResource Include="Resources\Images\PokeSprites\Overlays\dyna.png" />
+    <EmbeddedResource Include="Resources\Images\PokeSprites\Overlays\locked.png" />
+    <EmbeddedResource Include="Resources\Images\PokeSprites\Overlays\party1.png" />
+    <EmbeddedResource Include="Resources\Images\PokeSprites\Overlays\party2.png" />
+    <EmbeddedResource Include="Resources\Images\PokeSprites\Overlays\party3.png" />
+    <EmbeddedResource Include="Resources\Images\PokeSprites\Overlays\party4.png" />
+    <EmbeddedResource Include="Resources\Images\PokeSprites\Overlays\party5.png" />
+    <EmbeddedResource Include="Resources\Images\PokeSprites\Overlays\party6.png" />
+    <EmbeddedResource Include="Resources\Images\Program\about.png" />
+    <EmbeddedResource Include="Resources\Images\Program\redo.png" />
+    <EmbeddedResource Include="Resources\Images\valid.png" />
+    <EmbeddedResource Include="Resources\Images\warn.png" />
+  </ItemGroup>
 	<ItemGroup>
 		<Reference Include="System.Windows.Forms" />
 		<PackageReference Include="PKHeX.Core" Version="22.8.31" />
 		</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="Forms\Main\" />
-	  <Folder Include="Forms\Isle of Armor\" />
-	</ItemGroup>
-	<ItemGroup>
+	  <Compile Update="Forms\Crown Tundra\RegiForm - Copy.cs">
+	    <SubType>Form</SubType>
+	  </Compile>
 	  <Compile Update="Properties\Resources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
@@ -34,6 +91,9 @@
 	    <Generator>ResXFileCodeGenerator</Generator>
 	    <LastGenOutput>Resources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Controls\Crown Tundra\" />
 	</ItemGroup>
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
 	  <Exec Command="del bin\Debug\plugins\PKHex.Core.dll" />

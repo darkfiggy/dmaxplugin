@@ -5,6 +5,8 @@ using PKHeX.Core;
 
 using static PKHeX.Core.SCBlockUtil;
 using System.IO;
+using System.Reflection;
+using System.Diagnostics;
 
 namespace DynamaxAdventureReset
 {
@@ -15,7 +17,7 @@ namespace DynamaxAdventureReset
         public int Priority => 2;
 
         // Radix: TODO: Make this auto-increment
-        public string VersionNumber = "1.2.0.0";
+        public string VersionNumber = "1.2.1.0";
 
 
         // Initialized on plugin load
@@ -89,7 +91,10 @@ namespace DynamaxAdventureReset
             SWSH_MainWorldEventsMenuItem = new ToolStripMenuItem($"Base Game");
 
 
-
+            foreach (var item in Assembly.GetCallingAssembly().GetManifestResourceNames())
+            {
+                Debug.WriteLine(item);
+            }
             var main_worldEvents = new ToolStripMenuItem($"Edit World events");
             var ioa_worldevents = new ToolStripMenuItem($"Edit World events");
             var ct_worldevents = new ToolStripMenuItem($"Edit World events");
