@@ -18,62 +18,62 @@ namespace DynamaxAdventureReset
             InitializeComponent();
         }
 
-        public SAV8SWSH SAV;
+        public SAV8SWSH? SAV;
 
         private void SOJForm_Load(object sender, EventArgs e)
         {
 
-            var b_cobalion = SAV.Blocks.GetBlock(Definitions.memkeys_SwordsofJustice["Cobalion"]);
-            var b_terrakion = SAV.Blocks.GetBlock(Definitions.memkeys_SwordsofJustice["Terrakion"]);
-            var b_virizion = SAV.Blocks.GetBlock(Definitions.memkeys_SwordsofJustice["Virizion"]);
+            var b_cobalion = SAV?.Blocks.GetBlock(Definitions.memkeys_SwordsofJustice["Cobalion"]);
+            var b_terrakion = SAV?.Blocks.GetBlock(Definitions.memkeys_SwordsofJustice["Terrakion"]);
+            var b_virizion = SAV?.Blocks.GetBlock(Definitions.memkeys_SwordsofJustice["Virizion"]);
 
-            var b_keldeo = SAV.Blocks.GetBlock(Definitions.memkeys_SwordsofJustice["Keldeo"]);
+            var b_keldeo = SAV?.Blocks.GetBlock(Definitions.memkeys_SwordsofJustice["Keldeo"]);
 
-            var b_cobalionf = SAV.Blocks.GetBlock(Definitions.memkeys_FootprintPercentage["Cobalion"]);
-            var b_terrakionf = SAV.Blocks.GetBlock(Definitions.memkeys_FootprintPercentage["Terrakion"]);
-            var b_virizionf = SAV.Blocks.GetBlock(Definitions.memkeys_FootprintPercentage["Virizion"]);
+            var b_cobalionf = SAV?.Blocks.GetBlock(Definitions.memkeys_FootprintPercentage["Cobalion"]);
+            var b_terrakionf = SAV?.Blocks.GetBlock(Definitions.memkeys_FootprintPercentage["Terrakion"]);
+            var b_virizionf = SAV?.Blocks.GetBlock(Definitions.memkeys_FootprintPercentage["Virizion"]);
 
-            if (b_cobalion.Type == SCTypeCode.Bool2 && Convert.ToInt32(b_cobalionf.GetValue()) != 100 || Convert.ToInt32(b_cobalionf.GetValue()) % 2 != 0) //illegal!
+            if (b_cobalion?.Type == SCTypeCode.Bool2 && Convert.ToInt32(b_cobalionf?.GetValue()) != 100 || Convert.ToInt32(b_cobalionf?.GetValue()) % 2 != 0) //illegal!
             {
                 if (MessageBox.Show("Data in your save file shows potentially illegal Cobalion encounter data, would you like to fix it?\nIf you believe this to be an error, please click \'No\' and report it.","Illegal Cobalion Encounter", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     cobalion_CB.Checked = false;
                 else
                 {
                     legality_CB.Checked = false;
-                    cobalion_CB.Checked = b_cobalion.Type == SCTypeCode.Bool2 ? true : false;
+                    cobalion_CB.Checked = b_cobalion?.Type == SCTypeCode.Bool2 ? true : false;
                 }
             }
-            else cobalion_CB.Checked = b_cobalion.Type == SCTypeCode.Bool2 ? true : false;
-            cfootper_NUD.Value = Convert.ToInt32(b_cobalionf.GetValue());
+            else cobalion_CB.Checked = b_cobalion?.Type == SCTypeCode.Bool2 ? true : false;
+            cfootper_NUD.Value = Convert.ToInt32(b_cobalionf?.GetValue());
 
-            if (b_terrakion.Type == SCTypeCode.Bool2 && Convert.ToInt32(b_terrakionf.GetValue()) != 100 || Convert.ToInt32(b_terrakionf.GetValue()) % 2 != 0) //illegal!
+            if (b_terrakion?.Type == SCTypeCode.Bool2 && Convert.ToInt32(b_terrakionf?.GetValue()) != 100 || Convert.ToInt32(b_terrakionf?.GetValue()) % 2 != 0) //illegal!
             {
                 if (MessageBox.Show("Data in your save file shows potentially illegal Terrakion encounter data, would you like to fix it?\nIf you believe this to be an error, please click \'No\' and report it.", "Illegal Terrakion Encounter", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     terrakion_CB.Checked = false;
                 else
                 {
                     legality_CB.Checked = false;
-                    terrakion_CB.Checked = b_terrakion.Type == SCTypeCode.Bool2 ? true : false;
+                    terrakion_CB.Checked = b_terrakion?.Type == SCTypeCode.Bool2 ? true : false;
                 }
             }
-            else terrakion_CB.Checked = b_terrakion.Type == SCTypeCode.Bool2 ? true : false;
-            tfootper_NUD.Value = Convert.ToInt32(b_terrakionf.GetValue());
+            else terrakion_CB.Checked = b_terrakion?.Type == SCTypeCode.Bool2 ? true : false;
+            tfootper_NUD.Value = Convert.ToInt32(b_terrakionf?.GetValue());
 
-            if (b_virizion.Type == SCTypeCode.Bool2 && Convert.ToInt32(b_virizionf.GetValue()) != 100 || Convert.ToInt32(b_virizionf.GetValue()) % 2 != 0) //illegal!
+            if (b_virizion?.Type == SCTypeCode.Bool2 && Convert.ToInt32(b_virizionf?.GetValue()) != 100 || Convert.ToInt32(b_virizionf?.GetValue()) % 2 != 0) //illegal!
             {
                 if (MessageBox.Show("Data in your save file shows potentially illegal Virizion encounter data, would you like to fix it?\nIf you believe this to be an error, please click \'No\' and report it.", "Illegal Virizion Encounter", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     virizion_CB.Checked = false;
                 else
                 {
                     legality_CB.Checked = false;
-                    virizion_CB.Checked = b_virizion.Type == SCTypeCode.Bool2 ? true : false;
+                    virizion_CB.Checked = b_virizion?.Type == SCTypeCode.Bool2 ? true : false;
                 }
             }
-            else virizion_CB.Checked = b_virizion.Type == SCTypeCode.Bool2 ? true : false;
+            else virizion_CB.Checked = b_virizion?.Type == SCTypeCode.Bool2 ? true : false;
 
-            vfootper_NUD.Value = Convert.ToInt32(b_virizionf.GetValue());
+            vfootper_NUD.Value = Convert.ToInt32(b_virizionf?.GetValue());
 
-            if ((b_virizion.Type == SCTypeCode.Bool1 && b_cobalion.Type == SCTypeCode.Bool1 && b_terrakion.Type == SCTypeCode.Bool1) && b_keldeo.Type == SCTypeCode.Bool2)
+            if ((b_virizion?.Type == SCTypeCode.Bool1 && b_cobalion?.Type == SCTypeCode.Bool1 && b_terrakion?.Type == SCTypeCode.Bool1) && b_keldeo?.Type == SCTypeCode.Bool2)
             {
                 if (MessageBox.Show("Data in your save file shows potentially illegal Keldeo encounter data, would you like to fix it?\nIf you believe this to be an error, please click \'No\' and report it.", "Illegal Keldeo Encounter", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     keldeo_CB.Checked = false;
@@ -83,7 +83,7 @@ namespace DynamaxAdventureReset
                     keldeo_CB.Checked = true;
                 }
             }
-            else keldeo_CB.Checked = b_keldeo.Type == SCTypeCode.Bool2 ? true : false;
+            else keldeo_CB.Checked = b_keldeo?.Type == SCTypeCode.Bool2 ? true : false;
             CheckLegality();
         }
 
@@ -238,25 +238,25 @@ namespace DynamaxAdventureReset
 
         private void apply_BTN_Click(object sender, EventArgs e)
         {
-            var b_cobalion = SAV.Blocks.GetBlock(Definitions.memkeys_SwordsofJustice["Cobalion"]);
-            var b_terrakion = SAV.Blocks.GetBlock(Definitions.memkeys_SwordsofJustice["Terrakion"]);
-            var b_virizion = SAV.Blocks.GetBlock(Definitions.memkeys_SwordsofJustice["Virizion"]);
+            var b_cobalion = SAV?.Blocks.GetBlock(Definitions.memkeys_SwordsofJustice["Cobalion"]);
+            var b_terrakion = SAV?.Blocks.GetBlock(Definitions.memkeys_SwordsofJustice["Terrakion"]);
+            var b_virizion = SAV?.Blocks.GetBlock(Definitions.memkeys_SwordsofJustice["Virizion"]);
 
-            var b_keldeo = SAV.Blocks.GetBlock(Definitions.memkeys_SwordsofJustice["Keldeo"]);
+            var b_keldeo = SAV?.Blocks.GetBlock(Definitions.memkeys_SwordsofJustice["Keldeo"]);
 
-            var b_cobalionf = SAV.Blocks.GetBlock(Definitions.memkeys_FootprintPercentage["Cobalion"]);
-            var b_terrakionf = SAV.Blocks.GetBlock(Definitions.memkeys_FootprintPercentage["Terrakion"]);
-            var b_virizonf = SAV.Blocks.GetBlock(Definitions.memkeys_FootprintPercentage["Virizion"]);
+            var b_cobalionf = SAV?.Blocks.GetBlock(Definitions.memkeys_FootprintPercentage["Cobalion"]);
+            var b_terrakionf = SAV?.Blocks.GetBlock(Definitions.memkeys_FootprintPercentage["Terrakion"]);
+            var b_virizonf = SAV?.Blocks.GetBlock(Definitions.memkeys_FootprintPercentage["Virizion"]);
 
-            b_cobalion.ChangeBooleanType(cobalion_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
-            b_terrakion.ChangeBooleanType(terrakion_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
-            b_virizion.ChangeBooleanType(virizion_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
+            b_cobalion?.ChangeBooleanType(cobalion_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
+            b_terrakion?.ChangeBooleanType(terrakion_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
+            b_virizion?.ChangeBooleanType(virizion_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
 
-            b_keldeo.ChangeBooleanType(keldeo_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
+            b_keldeo?.ChangeBooleanType(keldeo_CB.Checked ? SCTypeCode.Bool2 : SCTypeCode.Bool1);
 
-            b_cobalionf.SetValue(Convert.ToUInt32(cfootper_NUD.Value));
-            b_terrakionf.SetValue(Convert.ToUInt32(tfootper_NUD.Value));
-            b_virizonf.SetValue(Convert.ToUInt32(vfootper_NUD.Value));
+            b_cobalionf?.SetValue(Convert.ToUInt32(cfootper_NUD.Value));
+            b_terrakionf?.SetValue(Convert.ToUInt32(tfootper_NUD.Value));
+            b_virizonf?.SetValue(Convert.ToUInt32(vfootper_NUD.Value));
 
 
             this.DialogResult = DialogResult.OK;

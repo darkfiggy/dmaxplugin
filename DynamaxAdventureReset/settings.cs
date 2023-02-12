@@ -26,7 +26,7 @@ namespace DynamaxAdventureReset
             using (StreamReader sr = new StreamReader($"{dir}\\DynamaxAdventureReset.cfg"))
             {
                 Items.Clear();
-                string line;
+                string? line;
 
                 while ((line = sr.ReadLine()) != null)
                 {

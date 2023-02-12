@@ -16,15 +16,17 @@ namespace DynamaxAdventureReset
     public partial class Wonder2FashionForm : Form
     {
         public SAV8SWSH SAV;
+        string[] fashionItems;
         
         public Wonder2FashionForm()
         {
             InitializeComponent();
+            fashionItems = Array.Empty<string>();
         }
 
         string[] OpenWonderCardDLG(string type)
         {
-            string[] temp = null;
+            string[] temp = Array.Empty<string>();
             using (OpenFileDialog dlg = new OpenFileDialog())
             {
                 dlg.Multiselect = true;
@@ -39,7 +41,7 @@ namespace DynamaxAdventureReset
         }
         #region Fashion
 
-        string[] fashionItems;
+        
         private void fash_openwc8_BTN_Click(object sender, EventArgs e)
         {
             fashionItems = OpenWonderCardDLG("Fasion");
