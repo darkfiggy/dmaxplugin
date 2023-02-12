@@ -86,7 +86,7 @@ namespace DynamaxAdventureReset.Forms
         {
             e.Graphics.Clear(Color.Magenta);
             if (camp_type_CMB.SelectedIndex != -1)
-                e.Graphics.DrawImage((Bitmap)Properties.Resources.ResourceManager.GetObject($"type_icon_{camp_type_CMB.SelectedIndex}"), 0, 0);
+                e.Graphics.DrawImage((Bitmap)Properties.Resources.ResourceManager.GetObject($"type_icon_{camp_type_CMB.SelectedIndex}")!, 0, 0);
         }
         #endregion
 

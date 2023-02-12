@@ -31,7 +31,7 @@ namespace DynamaxAdventureReset.Controls
 
         string[] OpenWonderCardDLG()
         {
-            string[] temp = null;
+            string[] temp = Array.Empty<string>();
             using (OpenFileDialog dlg = new OpenFileDialog())
             {
                 dlg.Multiselect = true;

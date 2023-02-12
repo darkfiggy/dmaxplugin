@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFramework>net46</TargetFramework>
+	  <TargetFramework>net7.0-windows</TargetFramework>
 	  <OutputType>Library</OutputType>
 	  <UseWindowsForms>True</UseWindowsForms>
 	  <LangVersion>8</LangVersion>
@@ -74,7 +74,7 @@
   </ItemGroup>
 	<ItemGroup>
 		<Reference Include="System.Windows.Forms" />
-		<PackageReference Include="PKHeX.Core" Version="22.8.31" />
+		<PackageReference Include="PKHeX.Core" Version="23.1.30" />
 		</ItemGroup>
 	<ItemGroup>
 	  <Compile Update="Forms\Crown Tundra\RegiForm - Copy.cs">

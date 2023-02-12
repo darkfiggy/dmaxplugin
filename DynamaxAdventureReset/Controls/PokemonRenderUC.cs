@@ -98,9 +98,9 @@ namespace DynamaxAdventureReset.Controls
             if (pokemonsubform != "" && pokemonsubform != "0")
                 pokemonstr += $"_{pokemonsubform}";
 
-            pokemon = (Bitmap)Properties.Resources.ResourceManager.GetObject(pokemonstr);
+            pokemon = (Bitmap)Properties.Resources.ResourceManager.GetObject(pokemonstr)!;
             if (pokemon == null)
-                pokemon = (Bitmap)Properties.Resources.ResourceManager.GetObject("0");
+                pokemon = (Bitmap)Properties.Resources.ResourceManager.GetObject("0")!;
             this.Invalidate();
 
         }

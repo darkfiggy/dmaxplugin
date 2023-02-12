@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using PKHeX.Core;
 
-using static PKHeX.Core.SCBlockUtil;
-using System.IO;
 using System.Reflection;
 using System.Diagnostics;
 
@@ -43,13 +40,10 @@ namespace DynamaxAdventureReset
 
         public void Initialize(params object[] args)
         {
-            SaveFileEditor = (ISaveFileProvider)Array.Find(args, z => z is ISaveFileProvider);
-            PKMEditor = (IPKMView)Array.Find(args, z => z is IPKMView);
+            SaveFileEditor = (ISaveFileProvider)Array.Find(args, z => z is ISaveFileProvider)!;
+            PKMEditor = (IPKMView)Array.Find(args, z => z is IPKMView)!;
 
-            
-
-
-            var menuToolStrip = (ToolStrip)Array.Find(args, z => z is ToolStrip);
+            var menuToolStrip = (ToolStrip)Array.Find(args, z => z is ToolStrip)!;
             LoadMenuStrip(menuToolStrip);
 
 
@@ -170,7 +164,7 @@ namespace DynamaxAdventureReset
             Console.WriteLine($"{Name} was provided with the file path, but chose to do nothing with it.");
             return false; // no action taken
         }
-        private void hlpBTN_Click(object sender, EventArgs e)
+        private void hlpBTN_Click(object? sender, EventArgs e)
         {
             using (HelpForm form = new HelpForm(VersionNumber))
                 form.ShowDialog();
@@ -178,7 +172,7 @@ namespace DynamaxAdventureReset
 
         }
 
-        private void curryBTN_Click(object sender, EventArgs e)
+        private void curryBTN_Click(object? sender, EventArgs e)
         {
             using (Forms.PokeCampCurrydexForm form = new Forms.PokeCampCurrydexForm())
             {
@@ -186,7 +180,7 @@ namespace DynamaxAdventureReset
                 form.ShowDialog();
             }
         }
-        private void wc8BTN_Click(object sender, EventArgs e)
+        private void wc8BTN_Click(object? sender, EventArgs e)
         {
             using (Wonder2FashionForm form = new Wonder2FashionForm())
             {
@@ -194,7 +188,7 @@ namespace DynamaxAdventureReset
                 form.ShowDialog();
             }
         }
-        private void main_worldeventsBTN_Click(object sender, EventArgs e)
+        private void main_worldeventsBTN_Click(object? sender, EventArgs e)
         {
             using (WorldEventsForm form = new WorldEventsForm(WorldEventsForm.Pages.Main))
             {
@@ -203,7 +197,7 @@ namespace DynamaxAdventureReset
             }
         }
 
-        private void ioa_worldeventsBTN_Click(object sender, EventArgs e)
+        private void ioa_worldeventsBTN_Click(object? sender, EventArgs e)
         {
             using (WorldEventsForm form = new WorldEventsForm(WorldEventsForm.Pages.IsleOfArmor))
             {
@@ -212,7 +206,7 @@ namespace DynamaxAdventureReset
             }
         }
         #region Crown Tundra buttons
-        private void ct_worldeventsBTN_Click(object sender, EventArgs e)
+        private void ct_worldeventsBTN_Click(object? sender, EventArgs e)
         {
             using (WorldEventsForm form = new WorldEventsForm(WorldEventsForm.Pages.CrownTundra))
             {
@@ -220,12 +214,11 @@ namespace DynamaxAdventureReset
                 form.ShowDialog();
             }
         }
-        private void sojBTN_Click(object sender, EventArgs e)
+        private void sojBTN_Click(object? sender, EventArgs e)
         {
             //using (SOJForm form = new SOJForm())
             //{
-            //    SaveFileEditor.SAV.
-            //    if (SaveFileEditor.SAV.Version != GameVersion.SW && SaveFileEditor.SAV.Version != GameVersion.SH || SaveFileEditor.SAV.FileName == "Blank Save File")
+            //    if (SaveFileEditor.SAV.Version != GameVersion.SW && SaveFileEditor.SAV.Version != GameVersion.SH || !SaveFileEditor.SAV.State.Exportable)
             //    {
             //        var result = MessageBox.Show(
             //            $"The given save is null, or is not of Sword/Shield type. If you believe this to be a mistake, please contact the current repos maintainers.\nYou are running: {SaveFileEditor.SAV.Version}\nDo you wish to continue anyway?",
@@ -238,7 +231,7 @@ namespace DynamaxAdventureReset
             //}
         }
 
-        private void mlBTN_Click(object sender, EventArgs e)
+        private void mlBTN_Click(object? sender, EventArgs e)
         {
             using (DynamaxResetForm form = new DynamaxResetForm())
             {
@@ -254,11 +247,11 @@ namespace DynamaxAdventureReset
                 form.ShowDialog();
             }
         }
-        private void regiBTN_Click(object sender, EventArgs e)
+        private void regiBTN_Click(object? sender, EventArgs e)
         {
             //using (RegiForm form = new RegiForm())
             //{
-            //    if (SaveFileEditor.SAV.Version != GameVersion.SW && SaveFileEditor.SAV.Version != GameVersion.SH || SaveFileEditor.SAV.FileName == "Blank Save File")
+            //    if (SaveFileEditor.SAV.Version != GameVersion.SW && SaveFileEditor.SAV.Version != GameVersion.SH || !SaveFileEditor.SAV.State.Exportable)
             //    {
             //        var result = MessageBox.Show(
             //            $"The given save is null, or is not of Sword/Shield type. If you believe this to be a mistake, please contact the current repos maintainers.\nYou are running: {SaveFileEditor.SAV.Version}\nDo you wish to continue anyway?",
